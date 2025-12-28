@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <styl>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Style N Shine — Luxury Salon</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+      :root {
+        --bg: #0b0b0b;
+        --panel: #0f0f0f;
+        --muted: #bfb7b0;
+        --gold: #d4af37;
+        --accent: linear-gradient(90deg, #2b2b2b, #1a1a1a);
+        --radius: 14px;
+        --maxw: 1200px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        color: #fff;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 80%;
+        display: block;
+      }
+
+      /* ---------- GLASSMORPHIC BLACK–GOLD NAVBAR ---------- */
+      .transparent-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 18px 30px;
+
+        background: rgba(0, 0, 0, 0.45); /* black glass */
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border-bottom: 1px solid rgba(212, 175, 55, 0.45); /* gold line */
+        z-index: 1200;
+      }
+
+      /* Logo */
+      .transparent-header .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        color: var(--gold);
+        font-weight: 700;
+        letter-spacing: 0.7px;
+      }
+
+      /* Navigation links */
+      .transparent-header .nav-links {
+        display: flex;
+        gap: 26px;
+        align-items: center;
+      }
+
+      .transparent-header .nav-links a {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 6px 6px;
+        position: relative;
+        text-decoration: none;
+      }
+
+      /* ⭐ GOLD UNDERLINE HOVER (the only animation allowed) */
+      .transparent-header .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.25s ease;
+      }
+
+      .transparent-header .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Login Button */
+      .transparent-header .nav-links .login-btn {
+        background: var(--gold);
+        color: #000;
+        padding: 8px 22px;
+        border-radius: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+      }
+
+      :root {
+        --gold: #d4af37;
+        --muted: #cccccc;
+      }
+/* Hide close button on desktop */
+.close-btn {
+  display: none;
+}
+
+/* Hide toggle icons on desktop */
+.menu-toggle,
+.close-menu {
+  display: none;
+}
+
+/* Default: hide toggle buttons in desktop */
+.menu-toggle,
+.close-menu {
+  display: none;
+}
+
+/* 📱 Mobile Menu */
+@media (max-width: 768px) {
+
+  /* HEADER LAYOUT RESET */
+  .transparent-header {
+    padding: 14px 20px;
+  }
+
+  /* Show hamburger */
+  .menu-toggle {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--gold);
+    margin-left: auto;
+    line-height: 0;
+  }
+
+  /* Hide inline desktop menu */
+  .transparent-header .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    transition: right 0.35s ease-in-out;
+    backdrop-filter: blur(10px);
+    padding: 0;
+  }
+
+  /* Slide open */
+  .nav-links.active {
+    right: 0;
+  }
+
+  /* ❌ Close Button Fix */
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    font-size: 32px;
+    color: var(--gold);
+    cursor: pointer;
+  }
+
+  /* Bigger mobile link */
+  .transparent-header .nav-links a {
+    font-size: 20px;
+    color: var(--gold);
+    width: 100%;
+    text-align: center;
+  }
+}
+
+      /* ---------- FULLSCREEN HERO ---------- */
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 110vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-size: cover; /* 🔥 Stretches image to full width + height */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat;
+        background-color: #000;
+        transition: background-image 1.5s ease-in-out;
+      }
+
+      /* Overlay */
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 1;
+      }
+
+      /* Main content */
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        text-align: center;
+        padding: 20px;
+        transform: translateY(20px); /* ⭐ CONTENT MOVED DOWN */
+      }
+
+      /* Eyebrow text */
+      .eyebrow {
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2px; /* ⭐ FIXED GAP (was 6px or more earlier) */
+      }
+
+      /* Main heading */
+      .hero-title {
+        font-family: "Playfair Display";
+        font-size: 64px;
+        color: var(--gold);
+        margin: 0; /* ⭐ NO EXTRA GAP */
+        margin-bottom: 8px; /* small smooth gap */
+      }
+
+      /* Gold tagline */
+      .sub-tagline {
+        color: var(--gold);
+        font-size: 22px;
+        font-weight: 600;
+        margin-top: 6px;
+        margin-bottom: 18px;
+        letter-spacing: 3px;
+      }
+
+      /* Sub description */
+      .hero-sub {
+        color: var(--muted);
+        font-size: 18px;
+        margin-bottom: 26px;
+        line-height: 1.6;
+      }
+
+      /* Buttons */
+      .hero-cta {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 25px;
+      }
+
+      .btn {
+        padding: 14px 22px;
+        background: var(--gold);
+        color: #000;
+        font-weight: 700;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.25s;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background: #f4d483;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+      }
+
+      .btn.secondary:hover {
+        background: var(--gold);
+        color: #000;
+      }
+
+      /* Phone number */
+      .hero-call {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        color: #fff;
+        font-size: 16px;
+        
+      }
+
+      .phone {
+        font-weight: 1400;
+         margin-top: -3px;
+      }
+
+      /* Mobile responsive */
+      @media (max-width: 850px) {
+        .hero-title {
+          font-size: 42px;
+        }
+        .hero-sub {
+          font-size: 16px;
+        }
+        .sub-tagline {
+          font-size: 18px;
+        }
+      }
+.hero-services {
+  display: flex;
+  justify-content: center;
+  gap: 18px 26px;
+  flex-wrap: wrap;
+  color: var(--gold);
+  font-size: 1.05rem;
+  margin: 8px 0 18px;
+  font-weight: 500;
+}
+
+.hero-services i {
+  color: var(--gold);
+  margin-right: 6px;
+  font-size: 1.15rem;
+}
+
+/* Glow on hover */
+.hero-services span:hover i {
+  filter: drop-shadow(0 0 6px var(--gold));
+  transform: scale(1.15);
+  transition: .3s;
+}
+
+@media(max-width: 600px){
+  .hero-services{
+    font-size: .95rem;
+    gap: 12px;
+  }
+}
+
+/* ---------- ABOUT SECTION BLACK & GOLD ---------- */
+.about {
+  padding: 100px 10%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Title & Sub Title */
+.about-title,
+.special-title {
+  text-align: center;
+  color: #d4af37;
+  font-family: "Playfair Display", serif;
+}
+
+.about-title {
+  font-size: 58px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.about-subtitle {
+  font-size: 18px;
+  color: #cccccc;
+  font-weight: 300;
+  max-width: 850px;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 65px;
+}
+
+/* -------- Content Grid -------- */
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 55px;
+  align-items: center;
+}
+
+/* Logo Styling */
+.about-logo {
+  width: 100%;
+  border-radius: 18px;
+  transition: 0.3s;
+}
+
+.about-logo:hover {
+  transform: scale(1.03);
+}
+
+/* About Paragraph */
+.about-text {
+  font-size: 18px;
+  color: #e7e7e7;
+  line-height: 1.85;
+  text-align: justify;
+  letter-spacing: 0.3px;
+  margin-bottom: 30px;
+}
+
+/* Owner Box */
+.owner-box {
+  display: flex;
+  gap: 20px;
+  background: #111;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 18px;
+  padding: 22px;
+  transition: 0.3s ease;
+}
+
+.owner-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+}
+
+
+/* Owner Info */
+.owner-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.owner-role {
+  font-size: 15px;
+  color: #d4af37;
+  margin: 4px 0 12px;
+}
+
+.owner-info {
+  font-size: 15px;
+  color: #d5d5d5;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ---------- Specialists Section ---------- */
+.special-title {
+  font-size: 44px;
+  margin-top: 90px;
+}
+
+/* Divider Line */
+.special-divider {
+  width: 120px;
+  height: 3px;
+  background: #d4af37;
+  margin: 12px auto 45px;
+  border-radius: 6px;
+}
+
+/* Grid */
+.specialists-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* Specialist Box */
+.special-box {
+  background: #111;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.special-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+}
+
+
+/* Texts */
+.special-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.special-role {
+  font-size: 15px;
+  color: #d4af37;
+  margin-bottom: 8px;
+  margin-top: -6px;
+}
+
+.special-info {
+  font-size: 15px;
+  color: #d3d3d3;
+  line-height: 1.55;
+  margin-top: auto; 
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .about-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .owner-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .owner-img {
+    width: 100%;
+  }
+}
+
+
+
+
+/* ---------- SERVICES SECTION (Premium Black & Gold) ---------- */
+#services {
+  padding: 90px 5%;
+  text-align: center;
+  width: 100%;
+}
+
+.section-head h2 {
+  font-size: 44px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 0.6px;
+}
+
+.sub-title {
+  font-size: 18px;
+  color: #d0d0d0;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* CATEGORY HEADINGS */
+.category-heading {
+  color: #d4af37;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-family: "Playfair Display", serif;
+  margin: 55px auto 25px;
+  font-weight: 600;
+  border-left: 4px solid #d4af37;
+  padding-left: 12px;
+  width: fit-content;
+}
+
+/* GRID FOR SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* SERVICE CARD */
+.service-card {
+  width: 100%;
+  background: #111;
+  border: 1px solid rgba(212,175,55,0.30);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: .35s ease;
+  cursor: pointer;
+  padding-bottom: 12px;
+  box-shadow: 0 0 18px rgba(212,175,55,0.10);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+  box-shadow: 0 0 25px rgba(212,175,55,0.45);
+}
+
+/* IMAGE FIX */
+.img-box {
+  width: 125%;     /* FIXED: No overflow on small screens */
+  height: 260px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .45s ease;
+}
+
+.service-card:hover .img-box img {
+  transform: scale(1.1);
+}
+
+/* TITLE */
+.service-card h4 {
+  color: #efefef;
+  font-size: 18px;
+  margin-top: 14px;
+  transition: .25s;
+}
+
+.service-card:hover h4 {
+  color: #d4af37;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .img-box {
+    height: 230px;
+  }
+  .category-heading {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  #services {
+    padding: 70px 5%;
+  }
+  
+  .services {
+    grid-template-columns: 1fr; /* 1 column */
+    gap: 20px;
+  }
+
+  .img-box {
+    height: 210px;
+  }
+
+  .section-head h2 {
+    font-size: 32px;
+  }
+
+  .category-heading {
+    font-size: 20px;
+    margin: 40px auto 20px;
+  }
+}
+
+
+
+   /* ---------- BOOKING SECTION ---------- */
+.booking-section {
+  text-align: center;
+  padding: 90px 0;
+  color: #fff;
+}
+
+.booking-title {
+  font-size: 42px;
+  color: var(--gold);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+
+.booking-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+/* Booking Grid Layout */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Booking Cards */
+.booking-card {
+  background: #111;
+  padding: 26px;
+  border-radius: 14px;
+  box-shadow: 0 0 22px rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  text-align: left;
+}
+
+.booking-card-title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold);
+  text-align: center;
+}
+
+/* Form Styling */
+.booking-form .form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form label {
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  background: #222;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 7px rgba(255, 215, 0, 0.6);
+  outline: none;
+}
+
+.booking-form textarea {
+  height: 80px;
+  resize: none;
+}
+
+/* Button */
+.booking-btn {
+  background: var(--gold);
+  color: #000;
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 8px;
+}
+
+.booking-btn:hover {
+  background: #b68b2f;
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE FIXES ---------- */
+@media (max-width: 992px) {
+  .booking-grid {
+    grid-template-columns: 1fr; /* 2 → 1 column */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-section {
+    padding: 70px 4%;
+  }
+
+  .booking-title {
+    font-size: 32px;
+  }
+
+  .booking-subtitle {
+    font-size: 16px;
+    width: 90%;
+    margin: 0 auto 30px;
+  }
+
+  .booking-card {
+    padding: 20px;
+  }
+
+  .booking-card-title {
+    font-size: 22px;
+  }
+
+  .booking-form label {
+    font-size: 13px;
+  }
+
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  .booking-btn {
+    font-size: 15px;
+    padding: 11px;
+  }
+}
+
+
+/* Saree & Boutique Box */
+.boutique {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-text {
+  text-align: center;
+  color: #ddd;
+  font-size: 15px;
+  margin: 12px 0 24px;
+  line-height: 1.5;
+}
+
+.contact-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-btn {
+  text-decoration: none;
+  width: 100%;
+  background: var(--gold);
+  color: #111;
+  padding: 12px 0;
+  border-radius: 7px;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: #b68b2f;
+  transform: translateY(-2px);
+}
+
+.note {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ---------- REVIEWS SECTION ---------- */
+.reviews-section {
+  padding: 70px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.reviews-title {
+  font-size: 40px;
+  color: var(--gold);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.reviews-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 35px;
+}
+
+/* Grid Layout */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Review Card */
+.review-card {
+  background: #0c0c0c;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 20px 18px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Glow on Hover (Desktop) + Tap (Mobile) */
+.review-card:hover,
+.review-card:active,
+.review-card:focus {
+  transform: translateY(-3px);
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+
+/* Text */
+.review-text {
+  font-size: 15px;
+  color: #d9d9d9;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.review-author {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Stars */
+.stars {
+  font-size: 16px;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 90%;
+  }
+
+  .review-card {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* ⭐ Makes square like services section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .reviews-title {
+    font-size: 32px;
+  }
+}
+
+
+.contact-section {
+  padding: 80px 5%;
+  color: #fff;
+}
+
+.section-head h2 {
+  text-align: center;
+  font-size: 60px;
+  color: #d4af37; /* Gold */
+  margin-bottom: 6px;
+}
+
+.section-head p {
+  text-align: center;
+  color: #bbb;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.contact-box {
+  flex: 1;
+  min-width: 300px;
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #2b2b2b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-box h3 {
+  color: #d4af37;
+  margin-bottom: 16px;
+}
+
+.contact-box p {
+  font-size: 15px;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.contact-box iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 14px;
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}
+/* ===== INSIGHTS SECTION ===== */
+.insights-section {
+  text-align: center;
+  padding: 90px 0;
+}
+
+.insights-title {
+  font-size: 60px;
+  color: var(--gold);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.insights-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 35px;
+}
+
+/* Slider Box */
+.insights-slider {
+  position: relative;
+  width: 95%;
+  max-width: 900px;
+  aspect-ratio: 1/1; /* ✔ Perfect Square Container */
+  margin: auto;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+/* Slides */
+.insights-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.insights-slide.active {
+  opacity: 1;
+}
+
+/* Image Square Effect */
+/* Image inside Square Frame */
+.insights-slide img {
+  width: auto;
+  height: auto;
+  max-width: 95%;
+  max-height: 95%;
+  aspect-ratio: 1/1; /* Forces square appearance */
+  object-fit: cover;
+
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+   border: 2px solid rgba(212,175,55,0.65);
+}
+
+
+/* Caption */
+.insight-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  padding: 10px 24px;
+  border-radius: 12px;
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Dots */
+.insight-dots {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.insight-dots span {
+  width: 12px;
+  height: 12px;
+  background: #666;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.insight-dots .active-dot {
+  background: var(--gold);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(212,175,55,0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .insights-slider {
+    max-width: 90%;
+    aspect-ratio: 1/1; /* stays a square */
+  }
+
+  .insights-title {
+    font-size: 32px;
+  }
+
+  .insight-caption {
+    font-size: 14px;
+    padding: 6px 15px;
+  }
+}
+
+
+/* ---------- SAREE GALLERY (MATCHING INSIGHTS DESIGN) ---------- */
+.saree-gallery {
+  text-align: center;
+  color: #fff;
+  padding: 70px 0;
+  
+}
+
+.saree-title {
+  font-size: 60px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.saree-subtitle {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+/* Floating WhatsApp */
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1200;
+  background: #25d366;
+  color: #052e1f;
+  padding: 14px 24px;   /* more horizontal padding for wider look */
+  border-radius: 14px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  /* Adjustable width */
+  min-width: 120px;     /* ensures it’s not too small */
+  max-width: 200px;     /* prevents it from stretching too far */
+  width: auto;          /* adapts to content */
+  text-align: center;   /* keeps text/icon centered */
+}
+/* Square Slider BOX */
+.saree-slider {
+  position: relative;
+  width: 95%;
+  max-width: 950px;
+  aspect-ratio: 1/1; /* ✔ Perfect Square like Insights */
+  margin: auto;
+  overflow: hidden;
+  border-radius: 22px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image — Square Fit */
+.saree-slider img {
+  width: auto;
+  height: auto;
+  max-width: 95%;
+  max-height: 95%;
+  
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  
+  background: #000;
+  border-radius: 16px;
+  border: 2px solid rgba(212,175,55,0.65);
+  padding: 3px; /* Gap reduced */
+  
+  box-shadow: 0 0 14px rgba(212,175,55,0.28);
+}
+
+/* Dots */
+.saree-dots {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.saree-dots span {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.saree-dots .active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .saree-slider {
+    max-width: 90%;
+    aspect-ratio: 1/1;
+  }
+  .saree-title {
+    font-size: 30px;
+  }
+}
+
+
+  .footer {
+  width: 100%;
+  background: #000;
+  color: #d0d0d0;
+  padding: 65px 8%;
+  font-family: 'Poppins', sans-serif;
+  border-top: 1px solid rgba(209, 182, 122, 0.3);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Soft Glow Box */
+.footer-box {
+  background: rgba(25, 25, 25, 0.85);
+  padding: 25px 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(209, 182, 122, 0.25);
+  box-shadow: 0 0 10px rgba(209, 182, 122, 0.12); /* subtle glow */
+}
+
+.footer-logo {
+  width: 95px;
+  margin-bottom: 10px;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #d1b67a;
+  margin-bottom: 6px;
+  font-family: 'Playfair Display', serif;
+}
+
+.tagline {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #d0d0d0;
+}
+
+.box-title {
+  font-size: 18px;
+  color: #d1b67a;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 14px;
+}
+
+.footer-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-links li {
+  margin: 8px 0;
+}
+
+.footer-links a,
+.contact-link {
+  text-decoration: none;
+  color: #cfcfcf;
+  transition: 0.3s;
+}
+
+.footer-links a:hover,
+.contact-link:hover {
+  color: #d1b67a;
+}
+
+/* Social Icons */
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  font-size: 20px;
+  color: #d1b67a;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  color: #fff;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #6f6f6f;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media(max-width: 850px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+    
+
+.boutique-note {
+  margin-top: 18px;
+  padding: 12px;
+  text-align: center;
+
+  background: rgba(212, 175, 55, 0.15);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.boutique-note a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.boutique-note a:hover {
+  text-decoration: underline;
+}
+
+      /* small touches */
+      .muted {
+        color: var(--muted);
+      }
+      .micro {
+        font-size: 12px;
+        color: var(--muted);
+      }
+    </style> 
+</head>
+  </head>
+  <body>
+  <header class="transparent-header" role="banner">
+  <div class="logo">Style N Shine Studio</div>
+
+  <div class="menu-toggle">&#9776;</div>
+
+  <nav class="nav-links">
+    <div class="close-menu">&times;</div>
+
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#insights">Insights</a>
+    <a href="#booking">Booking</a>
+    <a href="#reviews">Customer Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+    <section id="home" class="hero">
+  <div class="hero-overlay"></div>
+
+  <!-- HERO TEXT CENTER -->
+  <div class="hero-content">
+    <div class="eyebrow">Signature Parlour</div>
+
+    <h1 class="hero-title">Style N Shine Studio</h1>
+
+    <!-- GOLD TAGLINE -->
+    <p class="sub-tagline">Luxury • Elegance • Professional Care</p>
+
+    <!-- ⭐ Service Highlights With Icons (NEW) -->
+    <div class="hero-services">
+      <span><i class="fas fa-air-freshener"></i> Bridal Makeup</span>
+      <span><i class="fas fa-tshirt"></i> Saree Draping</span>
+      <span><i class="fas fa-scissors"></i> Blouse Stitching</span>
+      <span><i class="fas fa-cut"></i> Hair & Beauty</span>
+    </div>
+
+    <p class="hero-sub">
+      Experience premium salon services — from precision haircuts and
+      bespoke bridal makeup to relaxing therapies
+    </p>
+
+    <div class="hero-cta">
+      <a class="btn" href="#booking">Book Appointment</a>
+      <a class="btn secondary" href="#insights">View Insights</a>
+    </div>
+
+    <div class="hero-call">
+      <span class="micro">Call</span>
+      <span class="phone">+91 9199825858  +91 9263930196  +91 6124487221</span>
+    </div>
+  </div>
+</section>
+
+
+    <!-- ---------- ABOUT US SECTION ---------- -->
+<section id="about" class="about">
+  <h2 class="about-title">About Us</h2>
+  <p class="about-subtitle">
+    Discover the passion, expertise, and premium experience behind Style N Shine Studio.
+  </p>
+
+  <div class="about-wrapper">
+    <!-- Left Logo -->
+    <img src="assets/logo.png" class="about-logo" />
+
+    <!-- Right About + Owner -->
+    <div class="about-right">
+      <p class="about-text">
+        Welcome to Style N Shine Studio your ultimate destination for style and self care
+        at Boring Road. We are a Unique Boutique and Beauty Parlour, combining fashion-forward
+        clothing with top-tier salon services. Whether you are looking for the perfect outfit
+        or a refreshing beauty treatment, we ensure a personalized, luxurious experience that
+        leaves you confident, refreshed & effortlessly chic. Book your appointement or shop our curated collections today!
+      </p>
+
+      <!-- Owner Box -->
+      <div class="owner-box">
+       
+        <div>
+          <h3 class="owner-name">Amrita Singh</h3>
+          <p class="owner-role">Founder & Studio Director</p>
+          <p class="owner-info">
+            Leading Style N Shine with a vision for premium beauty and professional care.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specialists Title -->
+  <h2 class="special-title">Our Specialists</h2>
+  <div class="special-divider"></div>
+
+  <div class="specialists-row">
+
+    <!-- Specialist 1 -->
+    <div class="special-box">
+      <h3 class="special-name">Chandni Kumari</h3>
+      <p class="special-role">Senior Hair Stylist</p>
+      <p class="special-info">
+       Lakme Academy Certified Expert, Specialist in creative hair styling and advanced hair treatements.
+      </p>
+    </div>
+
+    <!-- Specialist 2 -->
+    <div class="special-box">
+      <h3 class="special-name">Sushma Kumari</h3>
+      <p class="special-role">Skin,Hair,Makeup & Nail Expert</p>
+      <p class="special-info">
+       Lakme Certified Beauty Professional Proficient in premium skin therapies,professional makeup,and nail artistry
+      </p>
+    </div>
+
+    <!-- Specialist 3 -->
+    <div class="special-box">
+      <h3 class="special-name">Satyandar Kumar</h3>
+      <p class="special-role">Women's Tailoring Expert</p>
+      <p class="special-info">
+      Experienced professional with previous work at Mannat Boutique & Poshak Boutique, Specialist designer women's wear and custom fitting 
+      </p>
+    </div>
+
+  </div>
+</section>
+
+      <section id="services">
+  <div class="section-head">
+    <h2>Our Services</h2>
+    <p class="sub-title">Your Beauty • Our Expertise</p>
+  </div>
+
+  <!-- HAIR SERVICES -->
+  <h3 class="category-heading">Hair Services</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/haircut.jpg"></div><h4>Haircut</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/blowouts.jpg"></div><h4>Blowouts</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/hairstyling.jpg"></div><h4>Hairstyling</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/haircolor.jpg"></div><h4>Hair Coloring</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/hairsmooth.jpg"></div><h4>Keratin / Smoothening</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/hairspa.jpg"></div><h4>Hair Spa</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/hairextension.jpg"></div><h4>Hair Extensions</h4></article>
+
+  </div>
+
+  <!-- NAIL SERVICES -->
+  <h3 class="category-heading">Nails Care</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/acrylic.jpg"></div><h4>Acrylic Nails</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/manicure.webp"></div><h4>Manicure</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/pedicure.png"></div><h4>Pedicure</h4></article>
+
+  </div>
+
+  <!-- FACE & SKIN -->
+  <h3 class="category-heading">Skin & Face Care</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/facials.jpg"></div><h4>Facials</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/facecare.png"></div><h4>Skin Care</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/polishing.webp"></div><h4>Body Polishing</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/tanning.webp"></div><h4>Tanning</h4></article>
+
+  </div>
+
+  <!-- MAKEUP -->
+  <h3 class="category-heading">Makeup & Bridal</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/makeup.jpg"></div><h4>Makeup</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/bridal.png"></div><h4>Bridal Services</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/preparation.webp"></div><h4>Wedding & Event Preparation</h4></article>
+
+  </div>
+
+  <!-- BROWS & LASHES -->
+  <h3 class="category-heading">Brows & Lashes</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/extension.avif"></div><h4>Eyelash Extensions</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/threading.jpeg"></div><h4>Eyebrow Threading</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/beauty.webp"></div><h4>Eyebrow Beautification</h4></article>
+
+  </div>
+
+  <!-- WAXING -->
+  <h3 class="category-heading">Waxing</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/waxing.avif"></div><h4>Waxing</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/bodywax.webp"></div><h4>Body Waxing</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/brazil.jpeg"></div><h4>Brazilian Waxing</h4></article>
+
+  </div>
+
+  <!-- SPA -->
+  <h3 class="category-heading">Spa & Massage</h3>
+  <div class="services">
+
+    <article class="service-card"><div class="img-box"><img src="assets/massage.jpg"></div><h4>Massage</h4></article>
+    <article class="service-card"><div class="img-box"><img src="assets/spa.avif"></div><h4>Spa Services</h4></article>
+     <article class="service-card"><div class="img-box"><img src="assets/aroma.avif"></div><h4>Aroma Therapy Massage</h4></article>
+
+  </div>
+
+   <!-- BOUTIQUE & SAREE SERVICES -->
+  <h3 class="category-heading">Boutique & Saree Services</h3>
+  <div class="services">
+
+    <article class="service-card">
+      <div class="img-box">
+        <img src="assets/draping.jpg" alt="Saree Draping">
+      </div>
+      <h4>Saree Draping</h4>
+    </article>
+
+    <article class="service-card">
+      <div class="img-box">
+        <img src="assets/stiching.webp" alt="Blouse Stitching">
+      </div>
+      <h4>Blouse Stitching</h4>
+    </article>
+
+    <article class="service-card">
+      <div class="img-box">
+        <img src="assets/lehnga.jpg" alt="Lehenga Alteration">
+      </div>
+      <h4>Lehenga Alteration</h4>
+    </article>
+
+    <article class="service-card">
+      <div class="img-box">
+        <img src="assets/fall-pico.webp" alt="Fall & Pico">
+      </div>
+      <h4>Fall & Pico</h4>
+    </article>
+
+  </div>
+
+
+</section>
+
+
+<section class="insights-section" id="insights">
+  <h2 class="insights-title">Insights</h2>
+  <p class="insights-subtitle">Interior & Exterior Showcase</p>
+
+  <div class="insights-slider">
+
+    <!-- 4 Interior -->
+    <div class="insights-slide active">
+      <img src="assets/insight1.jpg" alt="Interior Look 1">
+      <div class="insight-caption">Luxury Studio Interior</div>
+    </div>
+
+    <div class="insights-slide">
+      <img src="assets/insight2.jpg" alt="Interior Look 2">
+      <div class="insight-caption">Professional Work Area</div>
+    </div>
+
+    <div class="insights-slide">
+      <img src="assets/insight3.jpg" alt="Interior Look 3">
+      <div class="insight-caption">Elegant Beauty Zone</div>
+    </div>
+
+    <div class="insights-slide">
+      <img src="assets/insight4.jpg" alt="Interior Look 4">
+      <div class="insight-caption">Attractive Interior</div>
+    </div>
+ 
+    <!-- 2 Exterior -->
+    <div class="insights-slide">
+      <img src="assets/insight6.jpg" alt="Exterior Look 1">
+      <div class="insight-caption">Modern Comfort Seating</div>
+    </div>
+
+    <div class="insights-slide">
+      <img src="assets/exterior.webp" alt="Exterior Look 2">
+      <div class="insight-caption">Welcoming Entrance View</div>
+    </div>
+
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="insight-dots">
+    <span class="active-dot"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</section>
+
+
+  <section class="saree-gallery" id="sareeGallery">
+  <h2 class="saree-title">Saree Styling</h2>
+  <p class="saree-subtitle">Elegant Draping & Stitching Designs</p>
+
+  <div class="saree-slider">
+    <img id="sareeSlide" src="assets/saree1.webp" alt="Saree Style">
+  </div>
+
+  <div class="saree-dots" id="sareeDots"></div>
+</section>
+
+</section>
+
+<script src="insights.js"></script>
+
+<!-- BOOKING SECTION -->
+<section id="booking" class="booking-section">
+  <h2 class="booking-title">Book Your Visit</h2>
+  <p class="booking-subtitle">
+    Choose the service & reserve your slot easily.
+  </p>
+
+  <div class="booking-grid">
+    
+  <!-- LEFT — Salon Booking -->
+<div class="booking-card">
+  <h3 class="booking-card-title">Parlour Booking</h3>
+
+  <form action="booking.php" method="POST" class="booking-form">
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Your name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="you@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile</label>
+      <input type="text" name="mobile" placeholder="+91 XXXXXXXXXX" required>
+    </div>
+
+    <div class="form-group">
+      <label>Service</label>
+      <select name="service" required>
+        <option value="">Select service</option>
+        <option>Haircut & Styling</option>
+        <option>Hair Spa</option>
+        <option>Bridal Makeup</option>
+        <option>Facial</option>
+        <option>Manicure & Pedicure</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" name="date" required>
+    </div>
+
+    <button type="submit" class="booking-btn">
+      Confirm Salon Booking
+    </button>
+
+  </form>
+</div>
+
+
+    <!-- RIGHT — Saree & Boutique: No Form -->
+    <div class="booking-card boutique">
+      <h3 class="booking-card-title">Saree & Boutique Booking</h3>
+      <p class="info-text">
+        For Saree Draping & Boutique Stitching services, please reach us directly.
+      </p>
+
+      <div class="contact-icons">
+        <a href="tel:+919199825858" class="contact-btn">Call Now </a>
+        <a href="https://wa.me/9263930196" class="contact-btn">WhatsApp Us</a>
+      </div>
+
+      <p class="note">
+        Fast response guaranteed.  
+        Best for Bridal & Custom Dress Stitching 
+      </p>
+    </div>
+
+  </div>
+</section>
+
+   <section id="reviews" class="reviews-section">
+  <h2 class="reviews-title">Customer Reviews</h2>
+  <p class="reviews-subtitle">What our clients say about us</p>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Really great parlour and beautiful service all the staffs are really polite and talented
+Should visit for sureee</p>
+      <h4 class="review-author">— 
+Anubhuti Sahay</h4>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">It's really a good salon to visit ...it is budget friendly, moreover u can give your style for hair cut and they will provide you .....</p>
+      <h4 class="review-author">— 
+K Mimansha</h4>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Best parlour in boring road 🎀just amazing</p>
+      <h4 class="review-author">— 
+Kajal Vishwakarma</h4>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">Best lehanga and blouse stitching. Fitting is best . I am very much satisfied with the service and behaviour of the staff . Ambience is alsovery asthetic</p>
+      <h4 class="review-author">— Savita Devi</h4>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">I had a very good experience here.. definitely go and try without any hesitation.. thumbs-up for the stuff!</p>
+      <h4 class="review-author">— Anjali Suman</h4>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">Best parlour. Service is too good and staff is well mannered and professional. Must visit.</p>
+      <h4 class="review-author">— Sharda Chouhan</h4>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <div class="section-head">
+    <h2>Contact Us</h2>
+    <p class="muted">We’re here to assist you — reach out anytime!</p>
+  </div>
+
+  <div class="contact-container">
+    
+    <!-- LEFT: Contact Details -->
+    <div class="contact-box">
+      <h3>Get in Touch</h3>
+      <p><strong>Address:</strong> G-01, Rana Residency,<br>
+      E Boring Canal Rd, behind Vishnu Place,<br>
+      near Oro Dental, Rai jee Lane,<br>
+      Kidwaipuri, Patna, Bihar 800001</p>
+
+      <p><strong>Phone:</strong> +91 9263930196  +91 9199825858 +91 6124487221</p>
+      <p><strong>Email:</strong> carestylenShine@gmail.com</p>
+      <p><strong>Working Hours:</strong><br>
+      10:00 AM – 9:00 PM | All Days</p>
+
+     
+    </div>
+
+    <!-- RIGHT: MAP -->
+    <div class="contact-box">
+      <iframe
+        title="Salon location"
+        src="https://www.google.com/maps?q=G-01, Rana Residency, Patna Bihar&output=embed"
+        loading="lazy"
+      ></iframe>
+    </div>
+
+  </div>
+</section>
+
+     
+
+  
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <img src="assets/logo.png" alt="Style N Shine Logo" class="footer-logo" />
+      <h3 class="footer-title">Style N Shine</h3>
+      <p class="tagline">Luxury Parlour • Boring Road</p>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/style_n_shine_studio?igsh=MTRqZDducWppbmVjOQ==" class="social-icon"><i class="ri-instagram-line"></i></a>
+        <a href="https://www.facebook.com/share/1WH5iujiYr/" class="social-icon"><i class="ri-facebook-fill"></i></a>
+        <a href="https://wa.me/9263930196" class="social-icon"><i class="ri-whatsapp-line"></i></a>
+       
+      </div>
+    </div>
+
+    <div class="footer-box">
+      <h4 class="box-title">Quick Links</h4>
+      <ul class="footer-links">
+     <a href="#home">Home</a>
+       <li><a href="#about">About</a></li> 
+        <li><a href="#services">Services</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
+
+      </ul>
+    </div>
+
+    <div class="footer-box">
+      <h4 class="box-title">Contact</h4>
+      <p><a href="tel:+9199825858" class="contact-link">+91 998258858  +91 9263930196 </a></p>
+      <p><a href="mailto:stylenshine@gmail.com" class="contact-link">carestylenshine@gmail.com</a></p>
+      <p>G-01, Rana Residency,
+E Boring Canal Rd, behind Vishnu Place,
+near Oro Dental, Rai jee Lane,
+Kidwaipuri, Patna, Bihar 800001</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Style N Shine • All Rights Reserved
+  </div>
+</footer>
+
+
+     
+
+    <!-- GOOGLE MATERIAL ICONS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
+      rel="stylesheet"
+    />
+
+  <!-- WhatsApp floating (kept as-is) -->
+<a
+  class="whatsapp"
+  href="https://wa.me/9263930196?text=Hello%20Style%20N%20Shine%2C%20I%27d%20like%20to%20book%20an%20appointment"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp chat"
+>
+  <i class="fab fa-whatsapp"></i> whatsaap
+</a>
+
+    <!-- Scripts: slider + header scroll + smooth scroll + form UX -->
+    <script>
+      // Header scroll: toggle scrolled state
+      (function () {
+        const header = document.querySelector(".transparent-header");
+        function onScroll() {
+          if (window.scrollY > 60) header.classList.add("scrolled");
+          else header.classList.remove("scrolled");
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+      })();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href.length > 1) {
+            e.preventDefault();
+            const el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Booking form: simple front-end validation + message
+      (function () {
+        const form = document.getElementById("bookingForm");
+        if (!form) return;
+        const msg = document.getElementById("formMsg");
+        form.addEventListener("submit", function (e) {
+          const name = form.name.value.trim();
+          const mobile = form.mobile.value.trim();
+          const email = form.email.value.trim();
+          const date = form.date.value;
+          const service = form.service.value;
+          if (!name || !mobile || !email || !date || !service) {
+            e.preventDefault();
+            msg.style.display = "block";
+            msg.textContent = "Please fill all required fields.";
+            return;
+          }
+          msg.style.display = "block";
+          msg.textContent = "Sending your booking — please wait...";
+          // form submits to booking.php
+        });
+      })();
+
+      const images = [
+        "assets/banner1.jpg",
+        "assets/banner2.png",
+        "assets/banner3.jpg",
+        "assets/banner4.jpeg",
+        "assets/banner5.jpg",
+        "assets/banner6.jpg",
+        "assets/banner7.jpg",
+      ];
+
+      let index = 0;
+
+      function changeHero() {
+        index = (index + 1) % images.length;
+        document.querySelector(
+          ".hero"
+        ).style.backgroundImage = `url('${images[index]}')`;
+      }
+
+      document.querySelector(
+        ".hero"
+      ).style.backgroundImage = `url('${images[0]}')`;
+
+      setInterval(changeHero, 5000); // 5 seconds
+
+      function autoSlider(selector, interval) {
+        const slides = document.querySelectorAll(selector + " .slide");
+        let index = 0;
+
+        setInterval(() => {
+          slides[index].classList.remove("active");
+          index = (index + 1) % slides.length;
+          slides[index].classList.add("active");
+        }, interval);
+      }
+
+     
+
+
+
+const sareeImages = [
+  "assets/saree1.webp",
+  "assets/saree2.webp",
+  "assets/saree3.webp",
+  "assets/saree4.webp",
+  "assets/saree5.webp"
+];
+
+const sareeSlide = document.getElementById("sareeSlide");
+const sareeDots = document.getElementById("sareeDots");
+
+let currentSlide = 0;
+
+// Create navigation dots
+sareeImages.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.addEventListener("click", () => goToSlide(i));
+  sareeDots.appendChild(dot);
+});
+
+function updateDots() {
+  [...sareeDots.children].forEach((dot, i) =>
+    dot.classList.toggle("active", i === currentSlide)
+  );
+}
+
+function goToSlide(i) {
+  currentSlide = i;
+  sareeSlide.src = sareeImages[currentSlide];
+  updateDots();
+}
+
+function autoSlide() {
+  currentSlide = (currentSlide + 1) % sareeImages.length;
+  goToSlide(currentSlide);
+}
+
+// Init
+goToSlide(0);
+setInterval(autoSlide, 3500);
+
+let slides = document.querySelectorAll(".insights-slide");
+let dots = document.querySelectorAll(".insight-dots span");
+let currentIndex = 0;
+
+function showSlide(i) {
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === i);
+    dots[index].classList.toggle("active-dot", index === i);
+  });
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+// Auto slide every 3 seconds
+let sliderInterval = setInterval(nextSlide, 3000);
+
+// Dot click
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    clearInterval(sliderInterval);
+    currentIndex = index;
+    showSlide(index);
+    sliderInterval = setInterval(nextSlide, 3000);
+  });
+});
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const closeMenu = document.querySelector(".close-menu");
+const allLinks = navLinks.querySelectorAll("a");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.add("active");
+});
+
+closeMenu.addEventListener("click", () => {
+  navLinks.classList.remove("active");
+});
+
+allLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+
+    </script>
+  </body>
+</html>
