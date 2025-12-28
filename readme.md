@@ -16,7 +16,7 @@ Five detailed views of the main landing page and admin dashboard.
 | ![Home](assets/website.png) | ![Services](assets/website1.png) | ![About](assets/website2.png) |
 
 | **4. Bokking Dashboard** | **5. Customer Reveiws** |**6. Contact us**
-| :--- | :--- |
+
 | ![Billing](assets/website3.png) | ![Invoice](assets/website4.png) |![Invoice](assets/website5.png)
 
 ---
