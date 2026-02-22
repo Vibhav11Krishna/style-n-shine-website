@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <styl>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Style N Shine — Luxury Salon</title>
@@ -1414,9 +1414,45 @@
         font-size: 12px;
         color: var(--muted);
       }
+
+ 
+
+
+#chatbot-fab {
+  position: fixed; bottom: 90px; right: 20px;
+  width: 70px; height: 70px; border-radius: 50%;
+  background: linear-gradient(145deg,#d4af37,#ffd700);
+  color:#121212; display:flex; justify-content:center; align-items:center;
+  font-size:34px; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.5); z-index:9999;
+}
+#chatbot-fab:hover{ transform: scale(1.1); }
+
+#chatbot-window{
+  position: fixed; bottom: 150px; right: 20px;
+  width: 350px; height: 350px; background: #1a1a1a;
+  border:3px solid #d4af37; border-radius:20px; flex-direction: column;
+  z-index: 9999; box-shadow:0 12px 40px rgba(0,0,0,0.7); display:none;
+}
+
+#chat-header{ background: linear-gradient(90deg,#d4af37,#ffd700); color:#121212; padding:15px; font-weight:bold; display:flex; justify-content:space-between; border-radius:20px 20px 0 0; }
+#closeChat{ background:transparent; border:none; font-size:20px; cursor:pointer; }
+
+#chat-area{ flex:1; padding:20px; overflow-y:auto; background:#121212; color:#fff; font-size:15px; }
+.msg{ margin:10px 0; padding:14px 16px; border-radius:18px; max-width:80%; word-wrap:break-word; }
+.user{ background: linear-gradient(135deg,#d4af37,#ffd700); color:#121212; align-self:flex-end; font-weight:bold; }
+.bot{ background:#222; color:#ffd700; align-self:flex-start; border-left:5px solid #d4af37; }
+
+#chat-input{ display:flex; padding:15px; border-top:3px solid #d4af37; background:#1a1a1a; }
+#chat-input input{ flex:1; padding:12px; border-radius:10px; border:1px solid #d4af37; background:#121212; color:#ffd700; font-size:15px; }
+#chat-input input::placeholder{ color:#f5d76e; font-style:italic; }
+#chat-input button{ padding:12px 18px; margin-left:10px; border-radius:10px; border:none; background:linear-gradient(135deg,#ffd700,#d4af37); color:#121212; font-weight:bold; cursor:pointer; }
+#chat-input button:hover{ transform:scale(1.05); }
+
+
+
     </style> 
 </head>
-  </head>
+  
   <body>
   <header class="transparent-header" role="banner">
   <div class="logo">Style N Shine Studio</div>
@@ -1510,38 +1546,7 @@
     </div>
   </div>
 
-  <!-- Specialists Title -->
-  <h2 class="special-title">Our Specialists</h2>
-  <div class="special-divider"></div>
 
-  <div class="specialists-row">
-
-    <!-- Specialist 1 -->
-    <div class="special-box">
-      <h3 class="special-name">Chandni Kumari</h3>
-      <p class="special-role">Senior Hair Stylist</p>
-      <p class="special-info">
-       Lakme Academy Certified Expert, Specialist in creative hair styling and advanced hair treatements.
-      </p>
-    </div>
-
-    <!-- Specialist 2 -->
-    <div class="special-box">
-      <h3 class="special-name">Sushma Kumari</h3>
-      <p class="special-role">Skin,Hair,Makeup & Nail Expert</p>
-      <p class="special-info">
-       Lakme Certified Beauty Professional Proficient in premium skin therapies,professional makeup,and nail artistry
-      </p>
-    </div>
-
-    <!-- Specialist 3 -->
-    <div class="special-box">
-      <h3 class="special-name">Satyandar Kumar</h3>
-      <p class="special-role">Women's Tailoring Expert</p>
-      <p class="special-info">
-      Experienced professional with previous work at Mannat Boutique & Poshak Boutique, Specialist designer women's wear and custom fitting 
-      </p>
-    </div>
 
   </div>
 </section>
@@ -1964,6 +1969,22 @@ Kidwaipuri, Patna, Bihar 800001</p>
   <i class="fab fa-whatsapp"></i> whatsaap
 </a>
 
+
+<div id="chatbot-fab">💬</div>
+
+<!-- Chat Window -->
+<div id="chatbot-window" style="display:none; flex-direction:column;">
+  <div id="chat-header">
+    Style N Shine Chat
+    <button id="closeChat">✖</button>
+  </div>
+  <div id="chat-area"></div>
+  <div id="chat-input">
+    <input type="text" id="userText" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
     <!-- Scripts: slider + header scroll + smooth scroll + form UX -->
     <script>
       // Header scroll: toggle scrolled state
@@ -2141,7 +2162,61 @@ allLinks.forEach(link => {
   });
 });
 
+// Floating button open/close
+const fab = document.getElementById("chatbot-fab");
+const box = document.getElementById("chatbot-window");
+const closeBtn = document.getElementById("closeChat");
+fab.onclick = () => box.style.display = "flex";
+closeBtn.onclick = () => box.style.display = "none";
 
+// Add message to chat
+function addMessage(text,type){
+  const chat = document.getElementById("chat-area");
+  const div = document.createElement("div");
+  div.className = "msg " + type;
+  div.innerText = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// Send message to PHP
+async function sendMessage(){
+  const userInput = document.getElementById("userText");
+  const text = userInput.value.trim();
+  if(!text) return;
+
+  addMessage(text,"user");
+  userInput.value="";
+
+  const typingDiv = document.createElement("div");
+  typingDiv.className="msg bot";
+  typingDiv.innerText="Typing...";
+  const chat = document.getElementById("chat-area");
+  chat.appendChild(typingDiv);
+  chat.scrollTop = chat.scrollHeight;
+
+  try {
+    const res = await fetch("chatapi.php",{
+      method:"POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text })
+    });
+
+    if(!res.ok) throw new Error("HTTP error " + res.status);
+    const data = await res.json();
+    typingDiv.remove();
+    addMessage(data.reply,"bot");
+  } catch(err){
+    typingDiv.remove();
+    addMessage("Sorry, something went wrong.","bot");
+    console.error(err);
+  }
+}
+
+// Press Enter to send
+document.getElementById("userText").addEventListener("keypress",function(e){
+  if(e.key==="Enter"){ e.preventDefault(); sendMessage(); }
+});
     </script>
   </body>
 </html>
