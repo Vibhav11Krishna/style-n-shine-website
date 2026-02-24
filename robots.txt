@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stylenshine.great-site.net/sitemap.xml
