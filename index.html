@@ -63,382 +63,851 @@
         display: block;
       }
 
-      /* ---------- GLASSMORPHIC BLACK–GOLD NAVBAR ---------- */
-      .transparent-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+   /* ---------- LUXURY GLASSMORPHIC BLACK-GOLD NAVBAR ---------- */
+.transparent-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6%;
+  background: rgba(8, 8, 8, 0.85); /* Deep rich black glass with higher opacity */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 -1px 0 rgba(212, 175, 55, 0.1);
+  z-index: 1200;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+/* Scrolled state class (Optional JS: header.scrolled) */
+.transparent-header.scrolled {
+  padding: 14px 6%;
+  background: rgba(5, 5, 5, 0.95);
+  border-bottom-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+}
 
-        padding: 18px 30px;
+/* Brand Logo Styling */
+.transparent-header .logo a {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+}
 
-        background: rgba(0, 0, 0, 0.45); /* black glass */
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+.transparent-header .logo a:hover {
+  opacity: 0.9;
+}
 
-        border-bottom: 1px solid rgba(212, 175, 55, 0.45); /* gold line */
-        z-index: 1200;
-      }
+.transparent-header .logo span {
+  color: var(--gold);
+  font-weight: 500;
+  font-style: italic;
+}
 
-      /* Logo */
-      .transparent-header .logo {
-        font-family: "Playfair Display", serif;
-        font-size: 24px;
-        color: var(--gold);
-        font-weight: 700;
-        letter-spacing: 0.7px;
-      }
+/* Navigation Links Container */
+.transparent-header .nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
 
-      /* Navigation links */
-      .transparent-header .nav-links {
-        display: flex;
-        gap: 26px;
-        align-items: center;
-      }
+/* Individual Links */
+.transparent-header .nav-links a:not(.nav-cta-btn) {
+  color: #d1d1d1;
+  font-weight: 500;
+  font-size: 14.5px;
+  letter-spacing: 0.4px;
+  padding: 6px 2px;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-      .transparent-header .nav-links a {
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 15px;
-        padding: 6px 6px;
-        position: relative;
-        text-decoration: none;
-      }
+/* Elegant Gold Underline Hover Effect */
+.transparent-header .nav-links a:not(.nav-cta-btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, #f3e5ab);
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
 
-      /* ⭐ GOLD UNDERLINE HOVER (the only animation allowed) */
-      .transparent-header .nav-links a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 0%;
-        height: 2px;
-        background: var(--gold);
-        transition: width 0.25s ease;
-      }
+.transparent-header .nav-links a:not(.nav-cta-btn):hover,
+.transparent-header .nav-links a:not(.nav-cta-btn).active {
+  color: #ffffff;
+}
 
-      .transparent-header .nav-links a:hover::after {
-        width: 100%;
-      }
+.transparent-header .nav-links a:not(.nav-cta-btn):hover::after,
+.transparent-header .nav-links a:not(.nav-cta-btn).active::after {
+  width: 100%;
+}
 
-      /* Login Button */
-      .transparent-header .nav-links .login-btn {
-        background: var(--gold);
-        color: #000;
-        padding: 8px 22px;
-        border-radius: 20px;
-        font-weight: 700;
-        text-decoration: none;
-        border: none;
-      }
+/* Special Contact/Action Button in Nav */
+.nav-cta-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+  color: #050505 !important;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+}
 
-      :root {
-        --gold: #d4af37;
-        --muted: #cccccc;
-      }
-/* Hide close button on desktop */
-.close-btn {
+/* Sleek light reflection sweep on button hover */
+.nav-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+}
+
+.nav-cta-btn:hover::before {
+  left: 100%;
+}
+
+.nav-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.45);
+}
+
+/* Hide close buttons on desktop */
+.close-menu,
+.menu-toggle {
   display: none;
 }
 
-/* Hide toggle icons on desktop */
-.menu-toggle,
-.close-menu {
-  display: none;
-}
-
-/* Default: hide toggle buttons in desktop */
-.menu-toggle,
-.close-menu {
-  display: none;
-}
-
-/* 📱 Mobile Menu */
-@media (max-width: 768px) {
-
-  /* HEADER LAYOUT RESET */
+/* ---------- MOBILE RESPONSIVE NAVBAR ---------- */
+@media (max-width: 900px) {
   .transparent-header {
-    padding: 14px 20px;
+    padding: 14px 5%;
   }
 
-  /* Show hamburger */
   .menu-toggle {
-    display: block;
-    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
     cursor: pointer;
     color: var(--gold);
-    margin-left: auto;
-    line-height: 0;
+    background: rgba(212, 175, 55, 0.08);
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    transition: background 0.3s ease;
   }
 
-  /* Hide inline desktop menu */
+  .menu-toggle:active {
+    background: rgba(212, 175, 55, 0.2);
+  }
+
   .transparent-header .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 70%;
-    background: rgba(0, 0, 0, 0.95);
+    width: 80%;
+    max-width: 340px;
+    background: rgba(10, 10, 10, 0.97);
     flex-direction: column;
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 26px;
-    transition: right 0.35s ease-in-out;
-    backdrop-filter: blur(10px);
-    padding: 0;
+    gap: 28px;
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-left: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.9);
+    z-index: 1300;
   }
 
-  /* Slide open */
-  .nav-links.active {
+  .transparent-header .nav-links.active {
     right: 0;
   }
 
-  /* ❌ Close Button Fix */
   .close-menu {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 22px;
-    right: 22px;
-    font-size: 32px;
-    color: var(--gold);
-    cursor: pointer;
-  }
-
-  /* Bigger mobile link */
-  .transparent-header .nav-links a {
+    top: 26px;
+    right: 26px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
     font-size: 20px;
     color: var(--gold);
+    cursor: pointer;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: background 0.3s ease;
+  }
+
+  .close-menu:hover {
+    background: rgba(212, 175, 55, 0.15);
+  }
+
+  .transparent-header .nav-links a:not(.nav-cta-btn) {
+    font-size: 19px;
+    color: #e2e2e2;
     width: 100%;
     text-align: center;
+    font-family: "Playfair Display", serif;
+  }
+  
+  .transparent-header .nav-links a:not(.nav-cta-btn)::after {
+    display: none; /* Hide hover underline on mobile sidebar */
+  }
+
+  .transparent-header .nav-links a:not(.nav-cta-btn).active {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .nav-cta-btn {
+    width: 75%;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 10px;
   }
 }
 
-      /* ---------- FULLSCREEN HERO ---------- */
-      .hero {
-        position: relative;
-        width: 100%;
-        height: 110vh;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+     :root {
+  --gold: #d4af37;
+  --gold-light: #f3e5ab;
+  --bg-dark: #030303;
+}
 
-        background-size: cover; /* 🔥 Stretches image to full width + height */
-        background-position: center; /* Centers the image */
-        background-repeat: no-repeat;
-        background-color: #000;
-        transition: background-image 1.5s ease-in-out;
-      }
-
-      /* Overlay */
-      .hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: 1;
-      }
-
-      /* Main content */
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        text-align: center;
-        padding: 20px;
-        transform: translateY(20px); /* ⭐ CONTENT MOVED DOWN */
-      }
-
-      /* Eyebrow text */
-      .eyebrow {
-        color: var(--gold);
-        font-size: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 2px; /* ⭐ FIXED GAP (was 6px or more earlier) */
-      }
-
-      /* Main heading */
-      .hero-title {
-        font-family: "Playfair Display";
-        font-size: 64px;
-        color: var(--gold);
-        margin: 0; /* ⭐ NO EXTRA GAP */
-        margin-bottom: 8px; /* small smooth gap */
-      }
-
-      /* Gold tagline */
-      .sub-tagline {
-        color: var(--gold);
-        font-size: 22px;
-        font-weight: 600;
-        margin-top: 6px;
-        margin-bottom: 18px;
-        letter-spacing: 3px;
-      }
-
-      /* Sub description */
-      .hero-sub {
-        color: var(--muted);
-        font-size: 18px;
-        margin-bottom: 26px;
-        line-height: 1.6;
-      }
-
-      /* Buttons */
-      .hero-cta {
-        display: flex;
-        justify-content: center;
-        gap: 14px;
-        margin-bottom: 25px;
-      }
-
-      .btn {
-        padding: 14px 22px;
-        background: var(--gold);
-        color: #000;
-        font-weight: 700;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: 0.25s;
-        text-decoration: none;
-      }
-
-      .btn:hover {
-        background: #f4d483;
-      }
-
-      .btn.secondary {
-        background: transparent;
-        border: 1px solid var(--gold);
-        color: var(--gold);
-      }
-
-      .btn.secondary:hover {
-        background: var(--gold);
-        color: #000;
-      }
-
-      /* Phone number */
-      .hero-call {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        color: #fff;
-        font-size: 16px;
-        
-      }
-
-      .phone {
-        font-weight: 1400;
-         margin-top: -3px;
-      }
-
-      /* Mobile responsive */
-      @media (max-width: 850px) {
-        .hero-title {
-          font-size: 42px;
-        }
-        .hero-sub {
-          font-size: 16px;
-        }
-        .sub-tagline {
-          font-size: 18px;
-        }
-      }
-.hero-services {
+.hero-split {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  gap: 18px 26px;
-  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--bg-dark);
+  padding: 120px 6% 80px 6%;
+  overflow: hidden;
+}
+
+/* ---------- BACKGROUND SLIDER STYLING ---------- */
+.hero-bg-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.05);
+  /* Add this line to brighten and enhance images */
+  filter: brightness(1.15) contrast(1.05);
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Fallback background if images fail to load */
+.hero-slide:nth-child(1) { background-color: #080808; }
+.hero-slide:nth-child(2) { background-color: #0c0a06; }
+.hero-slide:nth-child(3) { background-color: #05070a; }
+
+/* Cinematic Gradient & Ambient Lighting Overlays */
+/* Cinematic Gradient & Ambient Lighting Overlays (Lighter) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(3, 3, 3, 0.65) 0%,
+    rgba(10, 10, 10, 0.55) 50%,
+    rgba(3, 3, 3, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  filter: blur(40px);
+}
+.glow-1 { top: -100px; left: -100px; }
+.glow-2 { bottom: -100px; right: -100px; }
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Left Column Styling */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 8px 18px;
+  border-radius: 30px;
   color: var(--gold);
-  font-size: 1.05rem;
-  margin: 8px 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #fff 20%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+  font-size: 18px;
   font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
-.hero-services i {
+.hero-description {
+  font-size: 16px;
+  color: #cccccc;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 540px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--gold), #aa8c2c);
+  color: #050505;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 35px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 25px rgba(212, 175, 55, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
+}
+
+.btn-outline {
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 35px;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--gold);
   color: var(--gold);
-  margin-right: 6px;
-  font-size: 1.15rem;
+  transform: translateY(-3px);
 }
 
-/* Glow on hover */
-.hero-services span:hover i {
-  filter: drop-shadow(0 0 6px var(--gold));
-  transform: scale(1.15);
-  transition: .3s;
+/* Glassmorphic Contact Widget */
+.hero-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(18, 18, 18, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  padding: 14px 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-@media(max-width: 600px){
-  .hero-services{
-    font-size: .95rem;
-    gap: 12px;
+.icon-box {
+  width: 44px;
+  height: 44px;
+  background: rgba(212, 175, 55, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.contact-details .label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.numbers a {
+  color: #dedede;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.numbers a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.numbers .dot {
+  color: var(--gold);
+  font-size: 8px;
+}
+
+/* Right Column Grid Styling */
+.hero-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  background: rgba(18, 18, 18, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  padding: 24px 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(16px);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  background: rgba(25, 25, 25, 0.9);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.18);
+}
+
+.highlight-card {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(25, 22, 10, 0.85);
+}
+
+.card-icon {
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.feature-card h3 {
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 12.5px;
+  color: #a0a0a0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Slide Indicator Dots */
+.slide-indicators {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot-indicator.active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--gold);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 992px) {
+  .hero-split {
+    padding: 130px 5% 70px 5%;
+    min-height: auto;
+  }
+  
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 45px;
+  }
+  
+  .hero-left {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 42px;
+  }
+  
+  .hero-description {
+    max-width: 100%;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .btn-primary, .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-contact-card {
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  .numbers {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  
+  .numbers .dot {
+    display: none;
+  }
+  
+  .hero-right {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .slide-indicators {
+    display: none;
   }
 }
+
+@media (max-width: 580px) {
+  .hero-right {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+}
+
 
 /* ---------- ABOUT SECTION BLACK & GOLD ---------- */
 .about {
-  padding: 100px 10%;
+  padding: 100px 8%;
   font-family: "Poppins", sans-serif;
-}
-
-/* Title & Sub Title */
-.about-title,
-.special-title {
-  text-align: center;
-  color: #d4af37;
-  font-family: "Playfair Display", serif;
+  background: var(--bg);
 }
 
 .about-title {
-  font-size: 58px;
-  margin-bottom: 18px;
+  text-align: center;
+  color: #f5f4f3;
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  margin-bottom: 12px;
   letter-spacing: 1px;
 }
 
 .about-subtitle {
-  font-size: 18px;
-  color: #cccccc;
+  font-size: 17px;
+  color: #ffffff;
   font-weight: 300;
-  max-width: 850px;
+  max-width: 750px;
   line-height: 1.7;
   text-align: center;
-  margin: 0 auto 65px;
+  margin: 0 auto 60px;
 }
 
 /* -------- Content Grid -------- */
 .about-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 55px;
-  align-items: center;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 50px;
+  align-items: flex-start;
 }
 
-/* Logo Styling */
+/* Left Column Container */
+.about-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
 .about-logo {
   width: 100%;
+  max-width: 380px;
   border-radius: 18px;
-  transition: 0.3s;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-logo:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
 }
 
-/* About Paragraph */
-.about-text {
+.about-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 10px 18px;
+  border-radius: 30px;
+  color: var(--gold);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Stats / Mini Highlights Grid */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-box {
+  background: #111;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.stat-box:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.stat-box h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--gold);
   font-size: 18px;
-  color: #e7e7e7;
+  margin-bottom: 4px;
+}
+
+.stat-box p {
+  color: #bbb;
+  font-size: 11.5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* About Paragraphs */
+.about-text {
+  font-size: 16.5px;
+  color: #e2e2e2;
   line-height: 1.85;
   text-align: justify;
-  letter-spacing: 0.3px;
-  margin-bottom: 30px;
+  letter-spacing: 0.2px;
+  margin-bottom: 16px;
+}
+
+/* Core Pillars Inside Expanded Section */
+.about-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.pillar-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #111;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.pillar-item i {
+  color: var(--gold);
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.pillar-item h4 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.pillar-item p {
+  color: #aaa;
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Read More Expandable Block Animation */
+.about-more-text {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: max-height 0.6s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.about-more-text.expanded {
+  max-height: 800px; /* Large enough to fit your paragraphs and pillars */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Read More Button */
+.read-more-btn {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  margin-bottom: 24px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.read-more-btn:hover {
+  opacity: 0.85;
+  transform: translateX(3px);
+}
+
+.read-more-btn i {
+  font-size: 13px;
+  transition: transform 0.3s ease;
+}
+
+.read-more-btn.active i {
+  transform: rotate(180deg);
 }
 
 /* Owner Box */
@@ -446,406 +915,303 @@
   display: flex;
   gap: 20px;
   background: #111;
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  border-radius: 18px;
-  padding: 22px;
-  transition: 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .owner-box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
 }
 
-
-/* Owner Info */
 .owner-name {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #ffffff;
+  font-family: "Playfair Display", serif;
 }
 
 .owner-role {
-  font-size: 15px;
+  font-size: 14px;
   color: #d4af37;
-  margin: 4px 0 12px;
+  margin: 3px 0 10px;
+  font-weight: 500;
 }
 
 .owner-info {
-  font-size: 15px;
-  color: #d5d5d5;
-  line-height: 1.6;
+  font-size: 14.5px;
+  color: #c9c9c9;
+  line-height: 1.55;
   text-align: justify;
 }
 
-/* ---------- Specialists Section ---------- */
-.special-title {
-  font-size: 44px;
-  margin-top: 90px;
-}
-
-/* Divider Line */
-.special-divider {
-  width: 120px;
-  height: 3px;
-  background: #d4af37;
-  margin: 12px auto 45px;
-  border-radius: 6px;
-}
-
-/* Grid */
-.specialists-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-}
-
-/* Specialist Box */
-.special-box {
-  background: #111;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 18px;
-  padding: 22px;
-  text-align: center;
-  transition: 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.special-box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
-}
-
-
-/* Texts */
-.special-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.special-role {
-  font-size: 15px;
-  color: #d4af37;
-  margin-bottom: 8px;
-  margin-top: -6px;
-}
-
-.special-info {
-  font-size: 15px;
-  color: #d3d3d3;
-  line-height: 1.55;
-  margin-top: auto; 
-}
-
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 992px) {
+  .about {
+    padding: 70px 6%;
+  }
   .about-wrapper {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  .owner-box {
-    flex-direction: column;
+  .about-left-col {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .about-text, .owner-info {
     text-align: center;
   }
-  .owner-img {
+  .owner-box {
+    text-align: center;
+  }
+  .read-more-btn {
+    justify-content: center;
     width: 100%;
   }
+  .about-pillars {
+    grid-template-columns: 1fr;
+  }
+  .pillar-item {
+    text-align: left;
+  }
 }
-
-
-
-
-/* ---------- SERVICES SECTION (Premium Black & Gold) ---------- */
+/* ---------- REFINED SERVICES SECTION ---------- */
 #services {
-  padding: 90px 5%;
+  padding: 110px 6%;
+  background: #080808;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.services-header-wrapper {
   text-align: center;
-  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 40px;
 }
 
-.section-head h2 {
-  font-size: 44px;
+.services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold, #d4af37);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.services-header-wrapper h2 {
+  font-size: 46px;
   font-family: "Playfair Display", serif;
+  color: #fff;
   font-weight: 700;
-  color: #d4af37;
-  letter-spacing: 0.6px;
+  margin-bottom: 10px;
 }
 
-.sub-title {
-  font-size: 18px;
-  color: #d0d0d0;
-  margin-top: 10px;
-  margin-bottom: 40px;
+.services-header-wrapper .sub-title {
+  font-size: 16px;
+  color: #b5b5b5;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* CATEGORY HEADINGS */
+/* ⭐ FILTER BUTTONS */
+.service-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.filter-btn {
+  background: #121212;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: #cccccc;
+  padding: 9px 20px;
+  border-radius: 30px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: linear-gradient(135deg, #d4af37, #aa8c2c);
+  color: #000;
+  border-color: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+  font-weight: 600;
+}
+
+/* CATEGORY WRAPPER & HEADINGS */
+.service-category-group {
+  margin-bottom: 60px;
+}
+
+.category-heading-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto 24px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: 12px;
+}
+
 .category-heading {
   color: #d4af37;
-  font-size: 26px;
-  text-transform: uppercase;
+  font-size: 24px;
   font-family: "Playfair Display", serif;
-  margin: 55px auto 25px;
   font-weight: 600;
-  border-left: 4px solid #d4af37;
-  padding-left: 12px;
-  width: fit-content;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
-/* GRID FOR SERVICES */
-.services {
+.category-count {
+  font-size: 13px;
+  color: #888;
+  background: #141414;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* SERVICE GRID */
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
-/* SERVICE CARD */
+/* SERVICE CARD (Unbroken Structure) */
 .service-card {
-  width: 100%;
-  background: #111;
-  border: 1px solid rgba(212,175,55,0.30);
-  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  background: #111111;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 16px;
   overflow: hidden;
-  transition: .35s ease;
-  cursor: pointer;
-  padding-bottom: 12px;
-  box-shadow: 0 0 18px rgba(212,175,55,0.10);
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-7px);
   border-color: #d4af37;
-  box-shadow: 0 0 25px rgba(212,175,55,0.45);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.28);
+  background: #151515;
 }
 
-/* IMAGE FIX */
-.img-box {
-  width: 125%;     /* FIXED: No overflow on small screens */
-  height: 260px;
+/* FIXED IMAGE CONTAINER (Prevents Distortion & Overflow) */
+.service-card .img-box {
+  width: 125%;
+  height: 230px;
+  position: relative;
   overflow: hidden;
+  background: #000;
 }
 
-.img-box img {
+.service-card .img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: .45s ease;
+  object-position: center;
+  transition: transform 0.5s ease;
 }
 
 .service-card:hover .img-box img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* TITLE */
+/* SERVICE CARD TEXT CONTENT */
+.service-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .service-card h4 {
-  color: #efefef;
-  font-size: 18px;
-  margin-top: 14px;
-  transition: .25s;
+  color: #ffffff;
+  font-size: 19px;
+  font-family: "Playfair Display", serif;
+  margin: 0 0 8px 0;
+  transition: color 0.25s ease;
 }
 
 .service-card:hover h4 {
   color: #d4af37;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 992px) {
-  .services {
+.service-content p {
+  color: #b0b0b0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+/* EXPLORE LINK HINT */
+.service-link-hint {
+  font-size: 13px;
+  color: var(--gold, #d4af37);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover .service-link-hint {
+  transform: translateX(4px);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 1024px) {
+  .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
   }
-  .img-box {
-    height: 230px;
-  }
-  .category-heading {
-    font-size: 22px;
-  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   #services {
-    padding: 70px 5%;
+    padding: 80px 4%;
   }
-  
-  .services {
-    grid-template-columns: 1fr; /* 1 column */
+  .services-header-wrapper h2 {
+    font-size: 34px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
-
-  .img-box {
-    height: 210px;
+  .category-heading-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
-
-  .section-head h2 {
-    font-size: 32px;
+  .service-filters {
+    gap: 6px;
   }
-
-  .category-heading {
-    font-size: 20px;
-    margin: 40px auto 20px;
-  }
-}
-
-
-
-   /* ---------- BOOKING SECTION ---------- */
-.booking-section {
-  text-align: center;
-  padding: 90px 0;
-  color: #fff;
-}
-
-.booking-title {
-  font-size: 42px;
-  color: var(--gold);
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  margin-bottom: 6px;
-}
-
-.booking-subtitle {
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 40px;
-}
-
-/* Booking Grid Layout */
-.booking-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* Booking Cards */
-.booking-card {
-  background: #111;
-  padding: 26px;
-  border-radius: 14px;
-  box-shadow: 0 0 22px rgba(255, 215, 0, 0.08);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  text-align: left;
-}
-
-.booking-card-title {
-  margin-bottom: 16px;
-  font-size: 24px;
-  font-family: "Playfair Display", serif;
-  color: var(--gold);
-  text-align: center;
-}
-
-/* Form Styling */
-.booking-form .form-group {
-  margin-bottom: 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-.booking-form label {
-  font-size: 14px;
-  color: var(--gold);
-  margin-bottom: 5px;
-}
-
-.booking-form input,
-.booking-form select,
-.booking-form textarea {
-  background: #222;
-  border: 1px solid #555;
-  border-radius: 8px;
-  padding: 10px;
-  color: #fff;
-  font-size: 15px;
-  transition: 0.3s ease;
-}
-
-.booking-form input:focus,
-.booking-form select:focus,
-.booking-form textarea:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 7px rgba(255, 215, 0, 0.6);
-  outline: none;
-}
-
-.booking-form textarea {
-  height: 80px;
-  resize: none;
-}
-
-/* Button */
-.booking-btn {
-  background: var(--gold);
-  color: #000;
-  width: 100%;
-  border-radius: 8px;
-  padding: 12px;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s ease;
-  margin-top: 8px;
-}
-
-.booking-btn:hover {
-  background: #b68b2f;
-  transform: translateY(-2px);
-}
-
-/* ---------- RESPONSIVE FIXES ---------- */
-@media (max-width: 992px) {
-  .booking-grid {
-    grid-template-columns: 1fr; /* 2 → 1 column */
-    gap: 30px;
+  .filter-btn {
+    padding: 7px 14px;
+    font-size: 12.5px;
   }
 }
-
-@media (max-width: 600px) {
-  .booking-section {
-    padding: 70px 4%;
-  }
-
-  .booking-title {
-    font-size: 32px;
-  }
-
-  .booking-subtitle {
-    font-size: 16px;
-    width: 90%;
-    margin: 0 auto 30px;
-  }
-
-  .booking-card {
-    padding: 20px;
-  }
-
-  .booking-card-title {
-    font-size: 22px;
-  }
-
-  .booking-form label {
-    font-size: 13px;
-  }
-
-  .booking-form input,
-  .booking-form select,
-  .booking-form textarea {
-    font-size: 14px;
-    padding: 9px;
-  }
-
-  .booking-btn {
-    font-size: 15px;
-    padding: 11px;
-  }
-}
-
 
 /* Saree & Boutique Box */
 .boutique {
@@ -899,397 +1265,212 @@
     grid-template-columns: 1fr;
   }
 }
-/* ---------- REVIEWS SECTION ---------- */
-.reviews-section {
-  padding: 70px 0;
-  text-align: center;
-  color: #fff;
-}
-
-.reviews-title {
-  font-size: 40px;
-  color: var(--gold);
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.reviews-subtitle {
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 35px;
-}
-
-/* Grid Layout */
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* Review Card */
-.review-card {
-  background: #0c0c0c;
-  border: 2px solid #d4af37;
-  border-radius: 12px;
-  padding: 20px 18px;
-  transition: 0.3s ease-in-out;
-}
-
-/* Glow on Hover (Desktop) + Tap (Mobile) */
-.review-card:hover,
-.review-card:active,
-.review-card:focus {
-  transform: translateY(-3px);
-  border-color: #ffd700;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-}
 
 
-/* Text */
-.review-text {
-  font-size: 15px;
-  color: #d9d9d9;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-.review-author {
-  font-size: 14px;
-  color: var(--gold);
-  font-weight: 600;
-}
-
-/* Stars */
-.stars {
-  font-size: 16px;
-  color: var(--gold);
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* ---------- MOBILE RESPONSIVE ---------- */
-@media (max-width: 768px) {
-  .reviews-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 90%;
-  }
-
-  .review-card {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* ⭐ Makes square like services section */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .reviews-title {
-    font-size: 32px;
-  }
-}
 
 
-.contact-section {
-  padding: 80px 5%;
-  color: #fff;
-}
-
-.section-head h2 {
-  text-align: center;
-  font-size: 60px;
-  color: #d4af37; /* Gold */
-  margin-bottom: 6px;
-}
-
-.section-head p {
-  text-align: center;
-  color: #bbb;
-  margin-bottom: 40px;
-  font-size: 15px;
-}
-
-.contact-container {
-  display: flex;
-  gap: 25px;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-}
-
-.contact-box {
-  flex: 1;
-  min-width: 300px;
-  background: #1a1a1a;
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid #2b2b2b;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.contact-box h3 {
-  color: #d4af37;
-  margin-bottom: 16px;
-}
-
-.contact-box p {
-  font-size: 15px;
-  color: #ddd;
-  line-height: 1.6;
-}
-
-.contact-box iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
-  border: 0;
-  border-radius: 10px;
-}
-
-.social-links a {
-  display: inline-block;
-  margin-right: 12px;
-  font-size: 14px;
-  color: #d4af37;
-  text-decoration: none;
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-  }
-}
-/* ===== INSIGHTS SECTION ===== */
 .insights-section {
+  padding: 110px 6%;
+  background: radial-gradient(circle at center, #121212 0%, #050505 100%);
   text-align: center;
-  padding: 90px 0;
+}
+
+.insights-header-wrap {
+  margin-bottom: 50px;
 }
 
 .insights-title {
-  font-size: 60px;
+  font-size: 52px;
   color: var(--gold);
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.insights-subtitle {
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 35px;
-}
-
-/* Slider Box */
-.insights-slider {
-  position: relative;
-  width: 95%;
-  max-width: 900px;
-  aspect-ratio: 1/1; /* ✔ Perfect Square Container */
-  margin: auto;
-  overflow: hidden;
-  border-radius: 22px;
-}
-
-/* Slides */
-.insights-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.insights-slide.active {
-  opacity: 1;
-}
-
-/* Image Square Effect */
-/* Image inside Square Frame */
-.insights-slide img {
-  width: auto;
-  height: auto;
-  max-width: 95%;
-  max-height: 95%;
-  aspect-ratio: 1/1; /* Forces square appearance */
-  object-fit: cover;
-
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(212,175,55,0.2);
-   border: 2px solid rgba(212,175,55,0.65);
-}
-
-
-/* Caption */
-.insight-caption {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.65);
-  padding: 10px 24px;
-  border-radius: 12px;
-  color: var(--gold);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* Dots */
-.insight-dots {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.insight-dots span {
-  width: 12px;
-  height: 12px;
-  background: #666;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.insight-dots .active-dot {
-  background: var(--gold);
-  transform: scale(1.3);
-  box-shadow: 0 0 10px rgba(212,175,55,0.8);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .insights-slider {
-    max-width: 90%;
-    aspect-ratio: 1/1; /* stays a square */
-  }
-
-  .insights-title {
-    font-size: 32px;
-  }
-
-  .insight-caption {
-    font-size: 14px;
-    padding: 6px 15px;
-  }
-}
-
-
-/* ---------- SAREE GALLERY (MATCHING INSIGHTS DESIGN) ---------- */
-.saree-gallery {
-  text-align: center;
-  color: #fff;
-  padding: 70px 0;
-  
-}
-
-.saree-title {
-  font-size: 60px;
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
-  color: var(--gold);
   margin-bottom: 6px;
 }
 
-.saree-subtitle {
-  font-size: 18px;
-  color: var(--muted);
-  margin-bottom: 40px;
+.insights-subtitle {
+  font-size: 16px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
 }
-/* Floating WhatsApp */
-.whatsapp {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 1200;
-  background: #25d366;
-  color: #052e1f;
-  padding: 14px 24px;   /* more horizontal padding for wider look */
-  border-radius: 14px;
-  font-weight: 700;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 
-  /* Adjustable width */
-  min-width: 120px;     /* ensures it’s not too small */
-  max-width: 200px;     /* prevents it from stretching too far */
-  width: auto;          /* adapts to content */
-  text-align: center;   /* keeps text/icon centered */
+.insights-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
 }
-/* Square Slider BOX */
-.saree-slider {
-  position: relative;
-  width: 95%;
-  max-width: 950px;
-  aspect-ratio: 1/1; /* ✔ Perfect Square like Insights */
-  margin: auto;
+
+/* Responsive Grid Layout */
+.insights-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Individual Card Box */
+.insight-card {
+  background: rgba(18, 18, 18, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
   overflow: hidden;
-  border-radius: 22px;  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  backdrop-filter: blur(12px);
+}
+
+.insight-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  background: rgba(25, 25, 25, 0.9);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+/* Image Container */
+.insight-img-box {
+  position: relative;
+  width: 125%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.insight-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.insight-card:hover .insight-img-box img {
+  transform: scale(1.08);
+}
+
+.card-overlay-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
-/* Image — Square Fit */
-.saree-slider img {
-  width: auto;
-  height: auto;
-  max-width: 95%;
-  max-height: 95%;
-  
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  
-  background: #000;
-  border-radius: 16px;
-  border: 2px solid rgba(212,175,55,0.65);
-  padding: 3px; /* Gap reduced */
-  
-  box-shadow: 0 0 14px rgba(212,175,55,0.28);
+.insight-card:hover .card-overlay-badge {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Dots */
-.saree-dots {
-  margin-top: 18px;
+/* Card Text Content */
+.insight-card-content {
+  padding: 22px 24px;
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.category-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.insight-card-content h3 {
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.insight-card-content p {
+  font-size: 13.5px;
+  color: #a0a0a0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Lightbox Modal CSS */
+.insight-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 3, 3, 0.92);
+  z-index: 9999;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  padding: 20px;
 }
 
-.saree-dots span {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #666;
+.insight-lightbox img {
+  max-width: 90%;
+  max-height: 75vh;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+#lightboxCaption {
+  color: var(--gold);
+  margin-top: 15px;
+  font-size: 18px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: #fff;
+  font-size: 38px;
   cursor: pointer;
-  transition: .3s;
+  transition: color 0.2s;
 }
 
-.saree-dots .active {
-  background: var(--gold);
-  transform: scale(1.3);
+.lightbox-close:hover {
+  color: var(--gold);
 }
 
-/* Responsive */
-@media(max-width: 768px) {
-  .saree-slider {
-    max-width: 90%;
-    aspect-ratio: 1/1;
-  }
-  .saree-title {
-    font-size: 30px;
+/* Responsive Grid Adjustments */
+@media (max-width: 992px) {
+  .insights-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
+
+@media (max-width: 580px) {
+  .insights-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .insights-title {
+    font-size: 38px;
+  }
+}
+
 
 
   .footer {
@@ -1465,459 +1646,2983 @@
 #chat-input input::placeholder{ color:#f5d76e; font-style:italic; }
 #chat-input button{ padding:12px 18px; margin-left:10px; border-radius:10px; border:none; background:linear-gradient(135deg,#ffd700,#d4af37); color:#121212; font-weight:bold; cursor:pointer; }
 #chat-input button:hover{ transform:scale(1.05); }
+/* ---------- BLOGS SECTION STYLING (Black & Gold) ---------- */
+.blogs-section {
+  padding: 110px 6%;
+  background: #0b0b0b;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
 
+.blogs-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 55px;
+}
 
+.blogs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold, #d4af37);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
 
+.blogs-header h2 {
+  font-size: 46px;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.blogs-subtitle {
+  font-size: 16px;
+  color: #b5b5b5;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* BLOGS GRID */
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1240px;
+  margin: 0 auto 50px;
+}
+
+/* BLOG CARD */
+.blog-card {
+  background: #111111;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.25);
+  background: #141414;
+}
+
+/* IMAGE BOX */
+.blog-img-box {
+  width: 125%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-img-box img {
+  transform: scale(1.08);
+}
+
+.blog-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* BLOG CONTENT */
+.blog-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.blog-meta i {
+  color: var(--gold, #d4af37);
+  margin-right: 4px;
+}
+
+.blog-content h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  color: #fff;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+  transition: color 0.25s ease;
+}
+
+.blog-card:hover .blog-content h3 {
+  color: #d4af37;
+}
+
+.blog-content p {
+  font-size: 13.5px;
+  color: #b0b0b0;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+/* READ MORE LINK */
+.blog-read-more {
+  font-size: 13.5px;
+  color: var(--gold, #d4af37);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  transition: transform 0.2s ease;
+}
+
+.blog-card:hover .blog-read-more {
+  transform: translateX(4px);
+}
+
+/* FOOTER VIEW ALL CTA */
+.blogs-footer-cta {
+  text-align: center;
+}
+
+.view-all-blogs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--gold, #d4af37);
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.view-all-blogs-btn:hover {
+  background: var(--gold, #d4af37);
+  color: #000;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 1024px) {
+  .blogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogs-section {
+    padding: 80px 4%;
+  }
+  .blogs-header h2 {
+    font-size: 34px;
+  }
+  .blogs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.saree-showcase-section {
+  padding: 110px 6%;
+  background: linear-gradient(180deg, #050505 0%, #101010 100%);
+  text-align: center;
+}
+
+.saree-header-wrap {
+  margin-bottom: 50px;
+}
+
+.saree-title {
+  font-size: 52px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.saree-subtitle {
+  font-size: 16px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.saree-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+
+/* Horizontal Showcase Grid Container */
+.saree-showcase-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Individual Showcase Card */
+.saree-showcase-card {
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.saree-showcase-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  background: rgba(28, 26, 18, 0.9);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+/* Image Frame with Overlay Tag */
+.saree-img-frame {
+  position: relative;
+  width: 125%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #000;
+}
+
+.saree-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saree-showcase-card:hover .saree-img-frame img {
+  transform: scale(1.08);
+}
+
+.saree-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold);
+  padding: 5px 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+/* Card Content Area */
+.saree-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.saree-content h3 {
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.saree-content p {
+  font-size: 13.5px;
+  color: #a0a0a0;
+  margin: 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.saree-explore-link {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+  transition: gap 0.3s ease;
+}
+
+.saree-showcase-card:hover .saree-explore-link {
+  gap: 12px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .saree-showcase-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .saree-showcase-container {
+    grid-template-columns: 1fr;
+  }
+  .saree-title {
+    font-size: 38px;
+  }
+}
+/* ---------- THREE FEATURE BOXES BELOW OWNER ---------- */
+.about-feature-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.feature-box {
+  background: rgba(20, 20, 20, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.12);
+}
+
+.feature-icon-wrap {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 12px auto;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold, #d4af37);
+  font-size: 16px;
+}
+
+.feature-box h4 {
+  font-size: 15px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.feature-box p {
+  font-size: 12.5px;
+  color: #b0b0b0;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+  .about-feature-boxes {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
     </style> 
 </head>
   
   <body>
   <header class="transparent-header" role="banner">
-  <div class="logo">Style N Shine Studio</div>
+  <div class="logo">
+    <a href="#home">Style N Shine <span class="logo-sub">Studio</span></a>
+  </div>
 
-  <div class="menu-toggle">&#9776;</div>
+  <div class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+    <i class="fa-solid fa-bars-staggered"></i>
+  </div>
 
-  <nav class="nav-links">
-    <div class="close-menu">&times;</div>
+  <nav class="nav-links" id="navLinks">
+    <div class="close-menu" id="closeMenu" aria-label="Close Menu">&times;</div>
 
-    <a href="#home">Home</a>
+    <a href="#home" class="active">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="blogs">Blogs</a>
+    <a href="#blogs">Blogs</a>
     <a href="#insights">Insights</a>
     <a href="#booking">Booking</a>
-    <a href="#reviews">Customer Reviews</a>
-    <a href="#contact">Contact</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="nav-cta-btn">Contact Us</a>
+    <a href="#" class="nav-cta-btn">Login</a>
   </nav>
 </header>
 
 
-    <section id="home" class="hero">
+  <section id="home" class="hero-split">
+  <!-- Dynamic Background Slider Container -->
+  <div class="hero-bg-slider">
+    <div class="hero-slide active" style="background-image: url('assets/banner1.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('assets/banner2.png');"></div>
+    <div class="hero-slide" style="background-image: url('assets/banner3.jpg');"></div>
+  </div>
+
   <div class="hero-overlay"></div>
+  <div class="hero-ambient-glow glow-1"></div>
+  <div class="hero-ambient-glow glow-2"></div>
+  
+  <div class="hero-container">
+    <!-- Left Column: Compelling Copy & CTA -->
+    <div class="hero-left">
+      <div class="brand-badge">
+        <i class="fas fa-crown"></i>
+        <span>Boring Road's Finest Luxury Studio</span>
+      </div>
 
-  <!-- HERO TEXT CENTER -->
-  <div class="hero-content">
-    <div class="eyebrow">Signature Parlour</div>
+      <h1 class="hero-title">
+        Style N Shine <span class="gold-gradient">Studio</span>
+      </h1>
 
-    <h1 class="hero-title">Style N Shine Studio</h1>
+      <p class="hero-tagline">Where Elegance Meets Precision Care</p>
 
-    <!-- GOLD TAGLINE -->
-    <p class="sub-tagline">Luxury • Elegance • Professional Care</p>
+      <p class="hero-description">
+        Indulge in bespoke bridal artistry, professional hair styling, and exclusive boutique services curated to bring out your absolute best.
+      </p>
 
-    <!-- ⭐ Service Highlights With Icons (NEW) -->
-    <div class="hero-services">
-      <span><i class="fas fa-air-freshener"></i> Bridal Makeup</span>
-      <span><i class="fas fa-tshirt"></i> Saree Draping</span>
-      <span><i class="fas fa-scissors"></i> Blouse Stitching</span>
-      <span><i class="fas fa-cut"></i> Hair & Beauty</span>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">
+          <span>Book Appointment</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#insights" class="btn-outline">Explore Services</a>
+      </div>
+
+      <!-- Quick Contact Card -->
+      <div class="hero-contact-card">
+        <div class="icon-box">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="contact-details">
+          <span class="label">Direct Studio Lines</span>
+          <div class="numbers">
+            <a href="tel:+919199825858">+91 91998 25858</a>
+            <span class="dot">•</span>
+            <a href="tel:+919263930196">+91 92639 30196</a>
+            <span class="dot">•</span>
+            <a href="tel:+916124487221">+91 612 448 7221</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p class="hero-sub">
-      Experience premium salon services — from precision haircuts and
-      bespoke bridal makeup to relaxing therapies
-    </p>
+    <!-- Right Column: Modern Feature Cards Grid -->
+    <div class="hero-right">
+      <div class="feature-card">
+        <div class="card-icon"><i class="fas fa-air-freshener"></i></div>
+        <h3>Bridal Makeup</h3>
+        <p>Customized high-definition bridal looks crafted by experts.</p>
+      </div>
 
-    <div class="hero-cta">
-      <a class="btn" href="#booking">Book Appointment</a>
-      <a class="btn secondary" href="#insights">View Insights</a>
-    </div>
+      <div class="feature-card highlight-card">
+        <div class="card-icon"><i class="fas fa-tshirt"></i></div>
+        <h3>Boutique & Draping</h3>
+        <p>Flawless saree draping & custom blouse stitching.</p>
+      </div>
 
-    <div class="hero-call">
-      <span class="micro">Call</span>
-      <span class="phone">+91 9199825858  +91 9263930196  +91 6124487221</span>
+      <div class="feature-card">
+        <div class="card-icon"><i class="fas fa-scissors"></i></div>
+        <h3>Hair & Beauty</h3>
+        <p>Advanced keratin treatments, global coloring & cuts.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>100% Premium</h3>
+        <p>Safe, branded luxury cosmetics and hair care products.</p>
+      </div>
     </div>
+  </div>
+
+  <!-- Background Slide Navigation Dots (Optional aesthetic touch) -->
+  <div class="slide-indicators">
+    <span class="dot-indicator active" onclick="currentSlide(0)"></span>
+    <span class="dot-indicator" onclick="currentSlide(1)"></span>
+    <span class="dot-indicator" onclick="currentSlide(2)"></span>
   </div>
 </section>
 
 
-    <!-- ---------- ABOUT US SECTION ---------- -->
+  <!-- ---------- ABOUT US SECTION ---------- -->
 <section id="about" class="about">
   <h2 class="about-title">About Us</h2>
   <p class="about-subtitle">
-    Discover the passion, expertise, and premium experience behind Style N Shine Studio.
+    Discover the passion, elegance, and bespoke artistry behind Style N Shine Studio.
   </p>
 
   <div class="about-wrapper">
-    <!-- Left Logo -->
-    <img src="assets/logo.png" class="about-logo" />
+    <!-- Left Logo & Studio Highlights -->
+    <div class="about-left-col">
+      <div class="about-img-container">
+        <img src="assets/logo.png" class="about-logo" alt="Style N Shine Studio Logo" />
+        <div class="about-badge">
+          <i class="fa-solid fa-gem"></i>
+          <span>Patna's Premier Luxury Destination</span>
+        </div>
+      </div>
 
-    <!-- Right About + Owner -->
+      <!-- Quick Studio Stats / Highlights -->
+      <div class="about-stats-grid">
+        <div class="stat-box">
+          <h3>100%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="stat-box">
+          <h3>Expert</h3>
+          <p>Certified Stylists</p>
+        </div>
+        <div class="stat-box">
+          <h3>100%</h3>
+          <p>Genuine Products</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right About, Values & Owner -->
     <div class="about-right">
       <p class="about-text">
-        Welcome to Style N Shine Studio your ultimate destination for style and self care
-        at Boring Road. We are a Unique Boutique and Beauty Parlour, combining fashion-forward
-        clothing with top-tier salon services. Whether you are looking for the perfect outfit
-        or a refreshing beauty treatment, we ensure a personalized, luxurious experience that
-        leaves you confident, refreshed & effortlessly chic. Book your appointement or shop our curated collections today!
+        Welcome to Style N Shine Studio, your ultimate destination for style and self-care at Boring Road, Patna. We are a unique boutique and beauty parlour, seamlessly combining fashion-forward clothing with top-tier salon services. Whether you are looking for the perfect outfit or a refreshing beauty treatment, we ensure a personalized experience.
       </p>
+
+      <!-- Expandable Hidden Content -->
+      <div class="about-more-text" id="moreAboutText">
+        <p class="about-text">
+          Established with a commitment to absolute excellence, our expert stylists and technicians bring years of precision artistry to every service—from custom bridal transformations and creative hair styling to bespoke blouse stitching and rejuvenating skin treatments. We believe true luxury lies in individual attention, premium products, and a welcoming ambiance that leaves you confident, refreshed, and effortlessly chic.
+        </p>
+
+        <!-- Core Pillars / Why Choose Us Grid -->
+        <div class="about-pillars">
+          <div class="pillar-item">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div>
+              <h4>Bespoke Styling</h4>
+              <p>Customized looks tailored to your unique personality and skin tone.</p>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <h4>Hygiene & Safety</h4>
+              <p>Strict sanitization protocols and premium skin-safe products.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="read-more-btn" id="readMoreBtn" onclick="toggleAboutText()">
+  <span>Read More</span>
+  <i class="fa-solid fa-chevron-down" id="readMoreIcon" style="transition: transform 0.3s ease;"></i>
+</button>
 
       <!-- Owner Box -->
       <div class="owner-box">
-       
         <div>
           <h3 class="owner-name">Amrita Singh</h3>
           <p class="owner-role">Founder & Studio Director</p>
           <p class="owner-info">
-            Leading Style N Shine with a vision for premium beauty and professional care.
+            Leading Style N Shine with a vision for premium beauty, elegance, and professional client care.
           </p>
         </div>
       </div>
+      <!-- Three Value / Feature Boxes Below Owner Box -->
+    <div class="about-feature-boxes">
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <h4>Premium Experience</h4>
+        <p>Luxury treatments and personalized care designed to make you feel like royalty.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <i class="fa-solid fa-scissors"></i>
+        </div>
+        <h4>Master Artistry</h4>
+        <p>Expert stylists and boutique designers bringing precision and modern trends.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h4>Client Devotion</h4>
+        <p>A welcoming, warm ambiance built entirely around your comfort and absolute satisfaction.</p>
+      </div>
+    </div>
     </div>
   </div>
+</section>
 
+<!-- ---------- WHY CHOOSE US SECTION (ALTERNATE MODERN DESIGN) ---------- -->
+<section id="why-choose-us" class="alt-why-section">
+  <div class="alt-why-container">
+    
+    <!-- Left Sticky Header Column -->
+    <div class="alt-why-left">
+      <span class="alt-why-tag"><span class="badge-dot"></span> Core Advantages</span>
+      <h2 class="alt-why-title">Why Choose <br>Style N Shine?</h2>
+      <p class="alt-why-desc">We combine luxury aesthetics, expert master artistry, and a client-first philosophy to elevate your beauty and boutique experience.</p>
+      <div class="alt-why-stats">
+        <div class="stat-item">
+          <h4>5000+</h4>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-item">
+          <h4>100%</h4>
+          <p>Top-Grade Quality</p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Right Interactive Feature Cards Grid -->
+    <div class="alt-why-right">
+      
+      <!-- Card 1 -->
+      <div class="alt-why-card">
+        <div class="alt-card-number">01</div>
+        <div class="alt-card-content">
+          <div class="alt-icon-wrap"><i class="fa-solid fa-crown"></i></div>
+          <h3>Uncompromised Luxury</h3>
+          <p>Experience upscale salon treatments and boutique tailoring crafted with premium products and flawless attention to detail.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="alt-why-card">
+        <div class="alt-card-number">02</div>
+        <div class="alt-card-content">
+          <div class="alt-icon-wrap"><i class="fa-solid fa-user-graduate"></i></div>
+          <h3>Expert Stylists & Artists</h3>
+          <p>Our certified beauty experts and master tailors bring years of professional artistry to tailor every look specifically to you.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="alt-why-card">
+        <div class="alt-card-number">03</div>
+        <div class="alt-card-content">
+          <div class="alt-icon-wrap"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>One-Stop Destination</h3>
+          <p>Seamlessly blending fashion-forward clothing, designer blouse stitching, saree draping, and luxury salon treatments in Patna.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="alt-why-card">
+        <div class="alt-card-number">04</div>
+        <div class="alt-card-content">
+          <div class="alt-icon-wrap"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Hygienic & Safe Care</h3>
+          <p>We maintain strict sanitation and skin-safe protocols so you can relax, unwind, and enjoy complete peace of mind.</p>
+        </div>
+      </div>
+
+    </div>
 
   </div>
 </section>
 
+<style>
+/* ---------- ALTERNATE WHY CHOOSE US STYLING ---------- */
+.alt-why-section {
+  padding: 110px 6%;
+  background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.alt-why-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Column Styling */
+.alt-why-left {
+  position: sticky;
+  top: 100px;
+}
+
+.alt-why-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  padding: 5px 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold, #d4af37);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold, #d4af37);
+}
+
+.alt-why-title {
+  font-size: 44px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.alt-why-desc {
+  font-size: 15px;
+  color: #b5b5b5;
+  line-height: 1.7;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 35px;
+}
+
+.alt-why-stats {
+  display: flex;
+  gap: 30px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 25px;
+}
+
+.stat-item h4 {
+  font-size: 26px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stat-item p {
+  font-size: 13px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Right Cards Grid Layout */
+.alt-why-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.alt-why-card {
+  position: relative;
+  background: rgba(20, 20, 20, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 18px;
+  padding: 32px 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+}
+
+.alt-why-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(25, 25, 25, 0.9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+/* Background Card Watermark Number */
+.alt-card-number {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 54px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: rgba(212, 175, 55, 0.05);
+  transition: color 0.3s ease;
+  pointer-events: none;
+}
+
+.alt-why-card:hover .alt-card-number {
+  color: rgba(212, 175, 55, 0.12);
+}
+
+.alt-icon-wrap {
+  width: 50px;
+  height: 50px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold, #d4af37);
+  font-size: 18px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.alt-why-card:hover .alt-icon-wrap {
+  background: var(--gold, #d4af37);
+  color: #000;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.alt-why-card h3 {
+  font-size: 19px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.alt-why-card p {
+  font-size: 13.5px;
+  color: #c0c0c0;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 1024px) {
+  .alt-why-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .alt-why-left {
+    position: relative;
+    top: 0;
+    text-align: center;
+  }
+  .alt-why-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .alt-why-right {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .alt-why-section {
+    padding: 70px 4%;
+  }
+  .alt-why-title {
+    font-size: 34px;
+  }
+}
+</style>
+<!-- INSTAGRAM SOCIAL SLIDER SECTION -->
+<section id="insta-slider" class="insta-slider-section">
+  <div class="insta-head">
+    <span class="insta-tag"><span class="badge-dot"></span> @style_n_shine_salon</span>
+    <h2 class="insta-title">Follow Our Latest Creations</h2>
+    <p class="insta-subtitle">Swipe through our recent transformations, bridal styling, and boutique collections on Instagram</p>
+    <div class="insta-divider"></div>
+  </div>
+
+  <div class="insta-slider-container">
+    
+    <!-- Slide 1 -->
+    <div class="insta-slide active">
+      <div class="insta-slide-card">
+        <div class="insta-slide-img-wrap">
+          <img src="assets/insta-1.jpg" alt="Bridal Makeup Look" onerror="this.src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80'" />
+          <div class="insta-slide-overlay">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-view-btn">View on Instagram</a>
+          </div>
+        </div>
+        <div class="insta-slide-info">
+          <span class="insta-post-badge">✨ Bridal Glow</span>
+          <h3 class="insta-slide-caption-title">Stunning Bridal Makeover</h3>
+          <p class="insta-desc">Gorgeous bridal glow for our stunning client. Ready for her big day with custom makeup and luxury draping! 💄👑</p>
+          <div class="insta-stats">
+            <span>❤️ 1.4k Likes</span>
+            <span>💬 48 Comments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="insta-slide">
+      <div class="insta-slide-card">
+        <div class="insta-slide-img-wrap">
+          <img src="assets/insta-2.jpg" alt="Hair Styling & Spa" onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80'" />
+          <div class="insta-slide-overlay">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-view-btn">View on Instagram</a>
+          </div>
+        </div>
+        <div class="insta-slide-info">
+          <span class="insta-post-badge">💇‍♀️ Hair Treatment</span>
+          <h3 class="insta-slide-caption-title">Silky Smooth Hair Spa</h3>
+          <p class="insta-desc">Silky smooth hair spa treatment followed by bouncy blowout layers. Pamper your hair with ultimate care today! ✨</p>
+          <div class="insta-stats">
+            <span>❤️ 980 Likes</span>
+            <span>💬 32 Comments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="insta-slide">
+      <div class="insta-slide-card">
+        <div class="insta-slide-img-wrap">
+          <img src="assets/insta-3.jpg" alt="Saree Draping & Boutique" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'" />
+          <div class="insta-slide-overlay">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-view-btn">View on Instagram</a>
+          </div>
+        </div>
+        <div class="insta-slide-info">
+          <span class="insta-post-badge">🌟 Royal Boutique</span>
+          <h3 class="insta-slide-caption-title">Designer Saree Draping</h3>
+          <p class="insta-desc">Royal saree draping & custom designer blouse fitting tailored to absolute perfection for special occasions. 🧵✨</p>
+          <div class="insta-stats">
+            <span>❤️ 2.1k Likes</span>
+            <span>💬 76 Comments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="insta-slider-arrow prev-arrow" onclick="moveInstaSlide(-1)">&#10094;</button>
+    <button class="insta-slider-arrow next-arrow" onclick="moveInstaSlide(1)">&#10095;</button>
+
+    <!-- Slider Dots Pagination -->
+    <div class="insta-slider-dots">
+      <span class="insta-dot active" onclick="currentInstaSlide(1)"></span>
+      <span class="insta-dot" onclick="currentInstaSlide(2)"></span>
+      <span class="insta-dot" onclick="currentInstaSlide(3)"></span>
+    </div>
+
+  </div>
+
+  <div class="insta-action-wrap">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-follow-btn">
+      <span>Follow Us @ Instagram</span>
+    </a>
+  </div>
+</section>
+
+<style>
+/* ---------- INSTAGRAM SOCIAL SLIDER SECTION STYLING ---------- */
+.insta-slider-section {
+  padding: 100px 6%;
+  background: radial-gradient(circle at center, #181818 0%, #0a0a0a 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.insta-head {
+  margin-bottom: 40px;
+}
+
+.insta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  padding: 5px 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold, #d4af37);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold, #d4af37);
+}
+
+.insta-title {
+  font-size: 42px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.insta-subtitle {
+  font-size: 15px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+
+.insta-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold, #d4af37), transparent);
+  margin: 0 auto;
+}
+
+/* Slider Main Container */
+.insta-slider-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  min-height: 420px;
+}
+
+/* Individual Slide Style */
+.insta-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insta-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Slide Card Box Layout */
+.insta-slide-card {
+  background: rgba(18, 18, 18, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.08);
+  text-align: left;
+  backdrop-filter: blur(10px);
+}
+
+/* Image Side */
+.insta-slide-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #111;
+}
+
+.insta-slide-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.insta-slide-card:hover .insta-slide-img-wrap img {
+  transform: scale(1.06);
+}
+
+.insta-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+
+.insta-slide-card:hover .insta-slide-overlay {
+  opacity: 1;
+}
+
+.insta-view-btn {
+  background: var(--gold, #d4af37);
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.insta-view-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Content Side */
+.insta-slide-info {
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.insta-post-badge {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold, #d4af37);
+  padding: 4px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: 20px;
+  width: max-content;
+  margin-bottom: 14px;
+}
+
+.insta-slide-caption-title {
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  margin-bottom: 12px;
+}
+
+.insta-slide-info .insta-desc {
+  font-size: 14px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.insta-stats {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #999;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding-top: 14px;
+}
+
+/* Navigation Arrows */
+.insta-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(18, 18, 18, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold, #d4af37);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.insta-slider-arrow:hover {
+  background: var(--gold, #d4af37);
+  color: #000;
+  border-color: var(--gold, #d4af37);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.prev-arrow { left: -60px; }
+.next-arrow { right: -60px; }
+
+/* Slider Dots Pagination */
+.insta-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.insta-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.insta-dot.active {
+  width: 26px;
+  border-radius: 6px;
+  background: var(--gold, #d4af37);
+  border-color: var(--gold, #d4af37);
+  box-shadow: 0 0 8px var(--gold, #d4af37);
+}
+
+/* Follow Button */
+.insta-action-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.insta-follow-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  padding: 13px 30px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.insta-follow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+  filter: brightness(1.1);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 950px) {
+  .insta-slide-card {
+    grid-template-columns: 1fr;
+  }
+  .insta-slide-img-wrap {
+    height: 250px;
+  }
+  .prev-arrow { left: 10px; z-index: 5; background: rgba(0,0,0,0.8); }
+  .next-arrow { right: 10px; z-index: 5; background: rgba(0,0,0,0.8); }
+}
+
+@media (max-width: 600px) {
+  .insta-slider-section {
+    padding: 70px 4%;
+  }
+  .insta-title {
+    font-size: 32px;
+  }
+  .insta-slide-info {
+    padding: 25px 20px;
+  }
+}
+</style>
+
+<script>
+/* ---------- AUTOMATIC & MANUAL INSTAGRAM SLIDER LOGIC ---------- */
+let instaIndex = 1;
+let instaInterval;
+
+function showInstaSlides(n) {
+  let slides = document.querySelectorAll(".insta-slider-section .insta-slide");
+  let dots = document.querySelectorAll(".insta-slider-section .insta-dot");
+  
+  if (n > slides.length) { instaIndex = 1; }
+  if (n < 1) { instaIndex = slides.length; }
+  
+  slides.forEach(slide => slide.classList.remove("active"));
+  dots.forEach(dot => dot.classList.remove("active"));
+  
+  slides[instaIndex - 1].classList.add("active");
+  dots[instaIndex - 1].classList.add("active");
+}
+
+function moveInstaSlide(n) {
+  clearInterval(instaInterval);
+  showInstaSlides(instaIndex += n);
+  startInstaTimer();
+}
+
+function currentInstaSlide(n) {
+  clearInterval(instaInterval);
+  showInstaSlides(instaIndex = n);
+  startInstaTimer();
+}
+
+function startInstaTimer() {
+  instaInterval = setInterval(() => {
+    instaIndex++;
+    showInstaSlides(instaIndex);
+  }, 6000); // Automatically changes slide every 6 seconds
+}
+
+// Initialize Instagram slider on load
+document.addEventListener("DOMContentLoaded", () => {
+  showInstaSlides(instaIndex);
+  startInstaTimer();
+});
+</script>
       <section id="services">
-  <div class="section-head">
-    <h2>Our Services</h2>
-    <p class="sub-title">Your Beauty • Our Expertise</p>
+  <div class="services-header-wrapper">
+    <span class="services-badge"><i class="fa-solid fa-crown"></i> Curated Excellence</span>
+    <h2>Our Signature Services</h2>
+    <p class="sub-title">Explore our world-class treatments, crafted meticulously for your ultimate beauty and confidence.</p>
   </div>
 
-  <!-- HAIR SERVICES -->
-  <h3 class="category-heading">Hair Services</h3>
-  <div class="services">
-
-    <article class="service-card"><div class="img-box"><img src="assets/haircut.jpg" alt="Professional women's haircut service in Boring Road Patna salon"></div><h4>Haircut</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/blowouts.jpg" alt="Hair blowout styling service in Patna beauty parlour"></div><h4>Blowouts</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/hairstyling.jpg" alt="Trendy hairstyling service in Boring Road Patna"></div><h4>Hairstyling</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/haircolor.jpg" alt="Hair coloring and highlights service in Patna salon"></div><h4>Hair Coloring</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/hairsmooth.jpg" alt="Keratin and hair smoothening treatment in Patna"></div><h4>Keratin / Smoothening</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/hairspa.jpg" alt="Nourishing hair spa treatment in Boring Road Patna"></div><h4>Hair Spa</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/hairextension.jpg" alt="Premium hair extensions service in Patna salon"></div><h4>Hair Extensions</h4></article>
-
+  <!-- Category Filter Tabs -->
+  <div class="service-filters">
+    <button class="filter-btn active" data-filter="all">All Services</button>
+    <button class="filter-btn" data-filter="hair">Hair</button>
+    <button class="filter-btn" data-filter="nails">Nails</button>
+    <button class="filter-btn" data-filter="skin">Skin & Face</button>
+    <button class="filter-btn" data-filter="makeup">Makeup & Bridal</button>
+    <button class="filter-btn" data-filter="brows">Brows & Lashes</button>
+    <button class="filter-btn" data-filter="waxing">Waxing</button>
+    <button class="filter-btn" data-filter="spa">Spa & Massage</button>
+    <button class="filter-btn" data-filter="boutique">Boutique</button>
   </div>
 
-  <!-- NAIL SERVICES -->
-  <h3 class="category-heading">Nails Care</h3>
-  <div class="services">
+  <div class="services-container">
 
-    <article class="service-card"><div class="img-box"><img src="assets/acrylic.jpg" alt="Acrylic nail extension service in Patna beauty salon"></div><h4>Acrylic Nails</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/manicure.webp" alt="Professional manicure service in Boring Road Patna"></div><h4>Manicure</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/pedicure.png" alt="Relaxing pedicure treatment in Patna salon"></div><h4>Pedicure</h4></article>
-
-  </div>
-
-  <!-- FACE & SKIN -->
-  <h3 class="category-heading">Skin & Face Care</h3>
-  <div class="services">
-
-    <article class="service-card"><div class="img-box"><img src="assets/facials.jpg" alt="Luxury facial treatment in Boring Road Patna"></div><h4>Facials</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/facecare.png" alt="Advanced skin care service in Patna beauty parlour"></div><h4>Skin Care</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/polishing.webp" alt="Full body polishing treatment in Patna salon"></div><h4>Body Polishing</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/tanning.webp" alt="De-tanning treatment service in Boring Road Patna"></div><h4>Tanning</h4></article>
-
-  </div>
-
-  <!-- MAKEUP -->
-  <h3 class="category-heading">Makeup & Bridal</h3>
-  <div class="services">
-
-    <article class="service-card"><div class="img-box"><img src="assets/makeup.jpg" alt="Professional party makeup service in Patna"></div><h4>Makeup</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/bridal.png" alt="HD bridal makeup service in Boring Road Patna"></div><h4>Bridal Services</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/preparation.webp" alt="Wedding and event preparation beauty services in Patna"></div><h4>Wedding & Event Preparation</h4></article>
-
-  </div>
-
-  <!-- BROWS & LASHES -->
-  <h3 class="category-heading">Brows & Lashes</h3>
-  <div class="services">
-
-    <article class="service-card"><div class="img-box"><img src="assets/extension.avif" alt="Eyelash extension service in Patna beauty salon"></div><h4>Eyelash Extensions</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/threading.jpeg" alt="Eyebrow threading service in Boring Road Patna"></div><h4>Eyebrow Threading</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/beauty.webp" alt="Eyebrow shaping and beautification in Patna salon"></div><h4>Eyebrow Beautification</h4></article>
-
-  </div>
-
-  <!-- WAXING -->
-  <h3 class="category-heading">Waxing</h3>
-  <div class="services">
-
-    <article class="service-card"><div class="img-box"><img src="assets/waxing.avif" alt="Full body waxing service in Patna beauty parlour"></div><h4>Waxing</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/bodywax.webp" alt="Professional body waxing treatment in Boring Road Patna"></div><h4>Body Waxing</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/brazil.jpeg"  alt="Brazilian waxing service in Patna salon"></div><h4>Brazilian Waxing</h4></article>
-
-  </div>
-
-  <!-- SPA -->
-  <h3 class="category-heading">Spa & Massage</h3>
-  <div class="services">
-
-    <article class="service-card"><div class="img-box"><img src="assets/massage.jpg" alt="Relaxing body massage service in Patna salon"></div><h4>Massage</h4></article>
-    <article class="service-card"><div class="img-box"><img src="assets/spa.avif" alt="Luxury spa services in Boring Road Patna"></div><h4>Spa Services</h4></article>
-     <article class="service-card"><div class="img-box"><img src="assets/aroma.avif" alt="Aroma therapy massage treatment in Patna beauty studio"></div><h4>Aroma Therapy Massage</h4></article>
-
-  </div>
-
-   <!-- BOUTIQUE & SAREE SERVICES -->
-  <h3 class="category-heading">Boutique & Saree Services</h3>
-  <div class="services">
-
-    <article class="service-card">
-      <div class="img-box">
-        <img src="assets/draping.jpg" alt="Professional saree draping service in Boring Road Patna">
+    <!-- HAIR SERVICES -->
+    <div class="service-category-group" data-category="hair">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Hair Services</h3>
+        <span class="category-count">7 Treatments</span>
       </div>
-      <h4>Saree Draping</h4>
-    </article>
-
-    <article class="service-card">
-      <div class="img-box">
-        <img src="assets/stiching.webp" alt="Custom blouse stitching boutique in Patna">
+      <div class="services-grid">
+        <a href="service-haircut.html" class="service-card">
+          <div class="img-box"><img src="assets/haircut.jpg" alt="Haircut" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Haircut</h4>
+            <p>Precision styling and personalized cuts tailored to frame your unique features.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-blowouts.html" class="service-card">
+          <div class="img-box"><img src="assets/blowouts.jpg" alt="Blowouts" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Blowouts</h4>
+            <p>Voluminous, sleek, and long-lasting blow-dry styling for any occasion.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-hairstyling.html" class="service-card">
+          <div class="img-box"><img src="assets/hairstyling.jpg" alt="Hairstyling" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Hairstyling</h4>
+            <p>Sophisticated updos, elegant curls, and bespoke event hairstyles.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-haircolor.html" class="service-card">
+          <div class="img-box"><img src="assets/haircolor.jpg" alt="Hair Coloring" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Hair Coloring</h4>
+            <p>Vibrant balayage, highlights, root touch-ups, and full dimensional color.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-smoothening.html" class="service-card">
+          <div class="img-box"><img src="assets/hairsmooth.jpg" alt="Keratin Smoothening" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Keratin / Smoothening</h4>
+            <p>Deep frizz control and silky-smooth straightening treatments.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-hairspa.html" class="service-card">
+          <div class="img-box"><img src="assets/hairspa.jpg" alt="Hair Spa" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Hair Spa</h4>
+            <p>Intensive nourishment and scalp therapy to restore natural shine.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-extensions.html" class="service-card">
+          <div class="img-box"><img src="assets/hairextension.jpg" alt="Hair Extensions" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Hair Extensions</h4>
+            <p>Seamless length and added volume with premium human hair extensions.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
       </div>
-      <h4>Blouse Stitching</h4>
-    </article>
+    </div>
 
-    <article class="service-card">
-      <div class="img-box">
-        <img src="assets/lehnga.jpg" alt="Lehenga alteration service in Patna boutique">
+    <!-- NAIL SERVICES -->
+    <div class="service-category-group" data-category="nails">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Nails Care</h3>
+        <span class="category-count">3 Treatments</span>
       </div>
-      <h4>Lehenga Alteration</h4>
-    </article>
+      <div class="services-grid">
+        <a href="service-acrylic.html" class="service-card">
+          <div class="img-box"><img src="assets/acrylic.jpg" alt="Acrylic Nails" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Acrylic Nails</h4>
+            <p>Durable extensions with intricate custom nail art and finish.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-manicure.html" class="service-card">
+          <div class="img-box"><img src="assets/manicure.webp" alt="Manicure" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Manicure</h4>
+            <p>Nail shaping, cuticle care, hand massage, and flawless gel polish.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-pedicure.html" class="service-card">
+          <div class="img-box"><img src="assets/pedicure.png" alt="Pedicure" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Pedicure</h4>
+            <p>Relaxing foot soak, scrub, and deep moisturizing treatment.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-    <article class="service-card">
-      <div class="img-box">
-        <img src="assets/fall-pico.webp"  alt="Saree fall and pico stitching service in Patna">
+    <!-- SKIN & FACE -->
+    <div class="service-category-group" data-category="skin">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Skin & Face Care</h3>
+        <span class="category-count">4 Treatments</span>
       </div>
-      <h4>Fall & Pico</h4>
-    </article>
+      <div class="services-grid">
+        <a href="service-facials.html" class="service-card">
+          <div class="img-box"><img src="assets/facials.jpg" alt="Facials" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Facials</h4>
+            <p>Deep-cleansing, glowing, and hydrating facials customized for your skin type.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-skincare.html" class="service-card">
+          <div class="img-box"><img src="assets/facecare.png" alt="Skin Care" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Skin Care</h4>
+            <p>Advanced clinical treatments for acne, pigmentation, and anti-aging.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-bodypolishing.html" class="service-card">
+          <div class="img-box"><img src="assets/polishing.webp" alt="Body Polishing" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Body Polishing</h4>
+            <p>Exfoliating scrubs and glowing wraps for ultra-soft, radiant skin.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-detan.html" class="service-card">
+          <div class="img-box"><img src="assets/tanning.webp" alt="Tanning" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Tanning / De-tan</h4>
+            <p>Specialized treatments to remove sun tan and even out skin tone.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- MAKEUP -->
+    <div class="service-category-group" data-category="makeup">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Makeup & Bridal</h3>
+        <span class="category-count">3 Treatments</span>
+      </div>
+      <div class="services-grid">
+        <a href="service-makeup.html" class="service-card">
+          <div class="img-box"><img src="assets/makeup.jpg" alt="Makeup" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Makeup</h4>
+            <p>Stunning party, cocktail, and event makeup looks by pro artists.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-bridal.html" class="service-card">
+          <div class="img-box"><img src="assets/bridal.png" alt="Bridal Services" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Bridal Services</h4>
+            <p>Exquisite HD and Airbrush bridal packages for your dream wedding day.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-weddingprep.html" class="service-card">
+          <div class="img-box"><img src="assets/preparation.webp" alt="Wedding & Event Preparation" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Wedding & Event Preparation</h4>
+            <p>Complete pre-bridal glowing routines and family styling packages.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- BROWS & LASHES -->
+    <div class="service-category-group" data-category="brows">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Brows & Lashes</h3>
+        <span class="category-count">3 Treatments</span>
+      </div>
+      <div class="services-grid">
+        <a href="service-lashes.html" class="service-card">
+          <div class="img-box"><img src="assets/extension.avif" alt="Eyelash Extensions" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Eyelash Extensions</h4>
+            <p>Lightweight, natural, or voluminous extensions to enhance your gaze.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-threading.html" class="service-card">
+          <div class="img-box"><img src="assets/threading.jpeg" alt="Eyebrow Threading" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Eyebrow Threading</h4>
+            <p>Precise hair removal and clean framing for defined eyebrows.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-brows.html" class="service-card">
+          <div class="img-box"><img src="assets/beauty.webp" alt="Eyebrow Beautification" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Eyebrow Beautification</h4>
+            <p>Tinting, shaping, and lamination for flawless brows.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- WAXING -->
+    <div class="service-category-group" data-category="waxing">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Waxing</h3>
+        <span class="category-count">3 Treatments</span>
+      </div>
+      <div class="services-grid">
+        <a href="service-waxing.html" class="service-card">
+          <div class="img-box"><img src="assets/waxing.avif" alt="Waxing" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Waxing</h4>
+            <p>Gentle and hygienic hair removal for arms, legs, and sensitive zones.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-bodywax.html" class="service-card">
+          <div class="img-box"><img src="assets/bodywax.webp" alt="Body Waxing" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Body Waxing</h4>
+            <p>Full-body smooth waxing using premium skin-friendly formulas.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-brazilian.html" class="service-card">
+          <div class="img-box"><img src="assets/brazil.jpeg" alt="Brazilian Waxing" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Brazilian Waxing</h4>
+            <p>Professional intimate waxing performed with absolute care and discretion.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SPA & MASSAGE -->
+    <div class="service-category-group" data-category="spa">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Spa & Massage</h3>
+        <span class="category-count">3 Treatments</span>
+      </div>
+      <div class="services-grid">
+        <a href="service-massage.html" class="service-card">
+          <div class="img-box"><img src="assets/massage.jpg" alt="Massage" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Massage</h4>
+            <p>Stress-relieving body massages to release tension and relax muscles.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-spa.html" class="service-card">
+          <div class="img-box"><img src="assets/spa.avif" alt="Spa Services" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Spa Services</h4>
+            <p>Holistic rejuvenation packages designed to calm your senses.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-aroma.html" class="service-card">
+          <div class="img-box"><img src="assets/aroma.avif" alt="Aroma Therapy Massage" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Aroma Therapy Massage</h4>
+            <p>Therapeutic essential oils blended to restore balance and mental clarity.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- BOUTIQUE & SAREE SERVICES -->
+    <div class="service-category-group" data-category="boutique">
+      <div class="category-heading-wrap">
+        <h3 class="category-heading">Boutique & Saree Services</h3>
+        <span class="category-count">4 Treatments</span>
+      </div>
+      <div class="services-grid">
+        <a href="service-draping.html" class="service-card">
+          <div class="img-box"><img src="assets/draping.jpg" alt="Saree Draping" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Saree Draping</h4>
+            <p>Flawless designer pleating and draping for traditional elegance.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-blouse.html" class="service-card">
+          <div class="img-box"><img src="assets/stiching.webp" alt="Blouse Stitching" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Blouse Stitching</h4>
+            <p>Custom designer blouse tailoring with bespoke embroidery and fits.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-lehenga.html" class="service-card">
+          <div class="img-box"><img src="assets/lehnga.jpg" alt="Lehenga Alteration" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Lehenga Alteration</h4>
+            <p>Precise garment modifications and bespoke resizing for festive wear.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="service-fallpico.html" class="service-card">
+          <div class="img-box"><img src="assets/fall-pico.webp" alt="Fall & Pico" loading="lazy"></div>
+          <div class="service-content">
+            <h4>Fall & Pico</h4>
+            <p>Neat machine pico edges and secure saree fall attachment.</p>
+            <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
 
   </div>
-
-
 </section>
 
+<!-- ---------- BLOGS & INSIGHTS SECTION ---------- -->
+<section id="blogs" class="blogs-section">
+  <div class="blogs-header">
+    <span class="blogs-badge"><i class="fa-solid fa-pen-nib"></i> Beauty & Style Journal</span>
+    <h2>Expert Tips & Trends</h2>
+    <p class="blogs-subtitle">Discover insider advice, seasonal beauty trends, hair care guides, and self-care inspiration written by our stylists.</p>
+  </div>
+
+  <div class="blogs-grid">
+    
+    <!-- Blog Card 1 -->
+    <article class="blog-card">
+      <div class="blog-img-box">
+        <img src="assets/hairspa.jpg" alt="Hair care tips for women in Patna" loading="lazy">
+        <span class="blog-tag">Hair Care</span>
+      </div>
+      <div class="blog-content">
+        <div class="blog-meta">
+          <span><i class="fa-regular fa-calendar"></i> May 15, 2026</span>
+          <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+        </div>
+        <h3>Top 5 Summer Hair Care Secrets to Keep Your Locks Glossy & Frizz-Free</h3>
+        <p>Combat humidity and protect your strands from the scorching heat with our expert-recommended hydration and spa routines...</p>
+        <a href="blog-summer-hair-care.html" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <!-- Blog Card 2 -->
+    <article class="blog-card">
+      <div class="blog-img-box">
+        <img src="assets/blog-bridal.jpg" alt="Bridal makeup trends 2026" loading="lazy">
+        <span class="blog-tag">Bridal & Makeup</span>
+      </div>
+      <div class="blog-content">
+        <div class="blog-meta">
+          <span><i class="fa-regular fa-calendar"></i> May 02, 2026</span>
+          <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+        </div>
+        <h3>The Ultimate Pre-Bridal Glow Timeline: When to Start Your Skincare</h3>
+        <p>Planning your dream wedding in Patna? Here is a month-by-month checklist of facials, hair treatments, and glowing regimens you need...</p>
+        <a href="blog-bridal-timeline.html" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <!-- Blog Card 3 -->
+    <article class="blog-card">
+      <div class="blog-img-box">
+        <img src="assets/blog-nails.jpg" alt="Nail art trends and manicure care" loading="lazy">
+        <span class="blog-tag">Nail Art</span>
+      </div>
+      <div class="blog-content">
+        <div class="blog-meta">
+          <span><i class="fa-regular fa-calendar"></i> April 24, 2026</span>
+          <span><i class="fa-regular fa-clock"></i> 3 min read</span>
+        </div>
+        <h3>Acrylics vs. Gel Extensions: Which Nail Style Suits Your Lifestyle Best?</h3>
+        <p>Torn between long-lasting acrylics or flexible gel overlays? Learn how to choose the ideal set that matches your daily routine...</p>
+        <a href="blog-acrylics-vs-gel.html" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="blogs-footer-cta">
+    <a href="blogs.html" class="view-all-blogs-btn">View All Journal Articles <i class="fa-solid fa-chevron-right"></i></a>
+  </div>
+</section>
 
 <section class="insights-section" id="insights">
-  <h2 class="insights-title">Insights</h2>
-  <p class="insights-subtitle">Interior & Exterior Showcase</p>
+  <div class="insights-header-wrap">
+    <h2 class="insights-title">Studio Insights</h2>
+    <p class="insights-subtitle">Explore Our Interior & Exterior Spaces</p>
+    <div class="insights-divider"></div>
+  </div>
 
-  <div class="insights-slider">
-
-    <!-- 4 Interior -->
-    <div class="insights-slide active">
-      <img src="assets/insight1.jpg" alt="Interior Look 1">
-      <div class="insight-caption">Luxury Studio Interior</div>
+  <!-- Interactive Grid Gallery Container -->
+  <div class="insights-grid-container">
+    
+    <!-- Item 1 -->
+    <div class="insight-card" onclick="openLightbox('assets/insight1.jpg', 'Luxury Studio Interior')">
+      <div class="insight-img-box">
+        <img src="assets/insight1.jpg" alt="Interior Look 1">
+        <div class="card-overlay-badge"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="insight-card-content">
+        <span class="category-tag">Interior</span>
+        <h3>Luxury Studio Interior</h3>
+        <p>Step inside our elegantly designed premium studio environment.</p>
+      </div>
     </div>
 
-    <div class="insights-slide">
-      <img src="assets/insight2.jpg" alt="Interior Look 2">
-      <div class="insight-caption">Professional Work Area</div>
+    <!-- Item 2 -->
+    <div class="insight-card" onclick="openLightbox('assets/insight2.jpg', 'Professional Work Area')">
+      <div class="insight-img-box">
+        <img src="assets/insight2.jpg" alt="Interior Look 2">
+        <div class="card-overlay-badge"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="insight-card-content">
+        <span class="category-tag">Interior</span>
+        <h3>Professional Work Area</h3>
+        <p>Dedicated styling stations equipped with top-tier tools.</p>
+      </div>
     </div>
 
-    <div class="insights-slide">
-      <img src="assets/insight3.jpg" alt="Interior Look 3">
-      <div class="insight-caption">Elegant Beauty Zone</div>
+    <!-- Item 3 -->
+    <div class="insight-card" onclick="openLightbox('assets/insight3.jpg', 'Elegant Beauty Zone')">
+      <div class="insight-img-box">
+        <img src="assets/insight3.jpg" alt="Interior Look 3">
+        <div class="card-overlay-badge"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="insight-card-content">
+        <span class="category-tag">Interior</span>
+        <h3>Elegant Beauty Zone</h3>
+        <p>Relaxing private spaces curated for specialized beauty treatments.</p>
+      </div>
     </div>
 
-    <div class="insights-slide">
-      <img src="assets/insight4.jpg" alt="Interior Look 4">
-      <div class="insight-caption">Attractive Interior</div>
+    <!-- Item 4 -->
+    <div class="insight-card" onclick="openLightbox('assets/insight4.jpg', 'Attractive Interior')">
+      <div class="insight-img-box">
+        <img src="assets/insight4.jpg" alt="Interior Look 4">
+        <div class="card-overlay-badge"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="insight-card-content">
+        <span class="category-tag">Interior</span>
+        <h3>Attractive Interior</h3>
+        <p>Aesthetic lighting and sophisticated modern architecture.</p>
+      </div>
     </div>
+
+    <!-- Item 5 -->
+    <div class="insight-card" onclick="openLightbox('assets/insight6.jpg', 'Modern Comfort Seating')">
+      <div class="insight-img-box">
+        <img src="assets/insight6.jpg" alt="Exterior Look 1">
+        <div class="card-overlay-badge"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="insight-card-content">
+        <span class="category-tag">Exterior & Lounge</span>
+        <h3>Modern Comfort Seating</h3>
+        <p>Plush lounge areas designed for ultimate client relaxation.</p>
+      </div>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="insight-card" onclick="openLightbox('assets/exterior.webp', 'Welcoming Entrance View')">
+      <div class="insight-img-box">
+        <img src="assets/exterior.webp" alt="Exterior Look 2">
+        <div class="card-overlay-badge"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="insight-card-content">
+        <span class="category-tag">Exterior</span>
+        <h3>Welcoming Entrance View</h3>
+        <p>Our striking facade located right on Boring Road.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Optional Lightbox Modal Popup Container -->
+  <div id="insightLightbox" class="insight-lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightboxImg" src="" alt="Enlarged View">
+    <div id="lightboxCaption"></div>
+  </div>
+</section>
+
+
  
-    <!-- 2 Exterior -->
-    <div class="insights-slide">
-      <img src="assets/insight6.jpg" alt="Exterior Look 1">
-      <div class="insight-caption">Modern Comfort Seating</div>
+
+<section class="saree-showcase-section" id="sareeGallery">
+  <div class="saree-header-wrap">
+    <h2 class="saree-title">Saree Styling</h2>
+    <p class="saree-subtitle">Elegant Draping & Custom Stitching Designs</p>
+    <div class="saree-divider"></div>
+  </div>
+
+  <!-- Unique Horizontal Showcase Cards Container -->
+  <div class="saree-showcase-container">
+    
+    <!-- Card 1 -->
+    <div class="saree-showcase-card" onclick="openLightbox('assets/saree1.webp', 'Royal Bridal Draping')">
+      <div class="saree-img-frame">
+        <img src="assets/saree1.webp" alt="Royal Bridal Draping">
+        <div class="saree-tag">Bridal Special</div>
+      </div>
+      <div class="saree-content">
+        <h3>Royal Bridal Draping</h3>
+        <p>Exquisite pleating and pallu setting crafted for wedding perfection.</p>
+        <span class="saree-explore-link">View Design <i class="fas fa-arrow-right"></i></span>
+      </div>
     </div>
 
-    <div class="insights-slide">
-      <img src="assets/exterior.webp" alt="Exterior Look 2">
-      <div class="insight-caption">Welcoming Entrance View</div>
+    <!-- Card 2 -->
+    <div class="saree-showcase-card" onclick="openLightbox('assets/saree2.webp', 'Designer Silk Styling')">
+      <div class="saree-img-frame">
+        <img src="assets/saree2.webp" alt="Designer Silk Styling">
+        <div class="saree-tag">Traditional</div>
+      </div>
+      <div class="saree-content">
+        <h3>Designer Silk Styling</h3>
+        <p>Classic silk saree styling emphasizing rich borders and seamless falls.</p>
+        <span class="saree-explore-link">View Design <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="saree-showcase-card" onclick="openLightbox('assets/saree3.webp', 'Contemporary Fusion')">
+      <div class="saree-img-frame">
+        <img src="assets/saree3.webp" alt="Contemporary Fusion">
+        <div class="saree-tag">Modern & Chic</div>
+      </div>
+      <div class="saree-content">
+        <h3>Contemporary Fusion</h3>
+        <p>Modern pre-stitched and belt-styled saree looks for cocktail events.</p>
+        <span class="saree-explore-link">View Design <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="saree-showcase-card" onclick="openLightbox('assets/saree4.webp', 'Custom Blouse Stitching')">
+      <div class="saree-img-frame">
+        <img src="assets/saree4.webp" alt="Custom Blouse Stitching">
+        <div class="saree-tag">Boutique Craft</div>
+      </div>
+      <div class="saree-content">
+        <h3>Custom Blouse Stitching</h3>
+        <p>Immaculate hand-embroidered and perfectly fitted designer blouses.</p>
+        <span class="saree-explore-link">View Design <i class="fas fa-arrow-right"></i></span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="saree-showcase-card" onclick="openLightbox('assets/saree5.webp', 'Party Wear Elegance')">
+      <div class="saree-img-frame">
+        <img src="assets/saree5.webp" alt="Party Wear Elegance">
+        <div class="saree-tag">Reception</div>
+      </div>
+      <div class="saree-content">
+        <h3>Party Wear Elegance</h3>
+        <p>Lightweight net and organza draping tailored for effortless grace.</p>
+        <span class="saree-explore-link">View Design <i class="fas fa-arrow-right"></i></span>
+      </div>
     </div>
 
   </div>
-
-  <!-- Navigation Dots -->
-  <div class="insight-dots">
-    <span class="active-dot"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 </section>
-
-
-  <section class="saree-gallery" id="sareeGallery">
-  <h2 class="saree-title">Saree Styling</h2>
-  <p class="saree-subtitle">Elegant Draping & Stitching Designs</p>
-
-  <div class="saree-slider">
-    <img id="sareeSlide" src="assets/saree1.webp" alt="Saree Style">
-  </div>
-
-  <div class="saree-dots" id="sareeDots"></div>
-</section>
-
-</section>
-
-<script src="insights.js"></script>
 
 <!-- BOOKING SECTION -->
 <section id="booking" class="booking-section">
-  <h2 class="booking-title">Book Your Visit</h2>
-  <p class="booking-subtitle">
-    Choose the service & reserve your slot easily.
-  </p>
+  <div class="booking-head">
+    <h2 class="booking-title">Book Your Visit</h2>
+    <p class="booking-subtitle">Reserve your luxury salon slot or connect with our boutique specialists</p>
+    <div class="booking-divider"></div>
+  </div>
 
   <div class="booking-grid">
     
-  <!-- LEFT — Salon Booking -->
-<div class="booking-card">
-  <h3 class="booking-card-title">Parlour Booking</h3>
+    <!-- LEFT — Salon Booking Form -->
+    <div class="booking-card">
+      <h3 class="booking-card-title">Parlour Booking</h3>
 
-  <form action="booking.php" method="POST" class="booking-form">
+      <form action="booking.php" method="POST" class="booking-form">
 
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" name="name" placeholder="Your name" required>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="text" name="mobile" placeholder="+91 XXXXXXXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label>Select Service</label>
+          <select name="service" required>
+            <option value="">Choose a parlour service</option>
+            <option>Haircut & Styling</option>
+            <option>Hair Spa</option>
+            <option>Bridal Makeup</option>
+            <option>Facial & Clean-up</option>
+            <option>Manicure & Pedicure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" name="date" required>
+        </div>
+
+        <button type="submit" class="booking-btn">
+          Confirm Salon Booking
+        </button>
+
+      </form>
     </div>
 
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="you@example.com" required>
-    </div>
+    <!-- RIGHT — Saree & Boutique Booking with Icon Grid Cards -->
+    <div class="booking-card boutique-card">
+      <div class="boutique-card-content">
+        <h3 class="booking-card-title">Saree & Boutique Booking</h3>
+        <p class="info-text">
+          For exclusive Saree Draping, custom Blouse stitching, and Bridal Lehanga design, connect with our master stylists directly.
+        </p>
 
-    <div class="form-group">
-      <label>Mobile</label>
-      <input type="text" name="mobile" placeholder="+91 XXXXXXXXXX" required>
-    </div>
+        <!-- Boutique Icon Cards Grid (Replaced Images) -->
+        <div class="boutique-icon-grid">
+          <div class="boutique-icon-card">
+            <div class="feature-circle-icon">👗</div>
+            <div class="feature-info">
+              <h4>Saree Draping</h4>
+              <p>Professional pleating & styling</p>
+            </div>
+            <span class="img-badge"><span class="badge-dot"></span> Expert</span>
+          </div>
 
-    <div class="form-group">
-      <label>Service</label>
-      <select name="service" required>
-        <option value="">Select service</option>
-        <option>Haircut & Styling</option>
-        <option>Hair Spa</option>
-        <option>Bridal Makeup</option>
-        <option>Facial</option>
-        <option>Manicure & Pedicure</option>
-      </select>
-    </div>
+          <div class="boutique-icon-card">
+            <div class="feature-circle-icon">✨</div>
+            <div class="feature-info">
+              <h4>Custom Lehanga</h4>
+              <p>Tailored designer blouse & fittings</p>
+            </div>
+            <span class="img-badge"><span class="badge-dot"></span> Bespoke</span>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label>Date</label>
-      <input type="date" name="date" required>
-    </div>
-
-    <button type="submit" class="booking-btn">
-      Confirm Salon Booking
-    </button>
-
-  </form>
-</div>
-
-
-    <!-- RIGHT — Saree & Boutique: No Form -->
-    <div class="booking-card boutique">
-      <h3 class="booking-card-title">Saree & Boutique Booking</h3>
-      <p class="info-text">
-        For Saree Draping & Boutique Stitching services, please reach us directly.
-      </p>
-
-      <div class="contact-icons">
-        <a href="tel:+919199825858" class="contact-btn">Call Now </a>
-        <a href="https://wa.me/9263930196" class="contact-btn">WhatsApp Us</a>
+        <div class="contact-icons">
+          <a href="tel:+919199825858" class="contact-btn call-btn">
+            <div class="contact-circle-icon"><span>📞</span></div> Call Now
+          </a>
+          <a href="https://wa.me/9263930196?text=Hello%20Style%20N%20Shine,%20I%27d%20like%20to%20book%20boutique%20or%20saree%20styling%20services" target="_blank" rel="noopener" class="contact-btn whatsapp-btn">
+            <div class="contact-circle-icon"><span>💬</span></div> WhatsApp Us
+          </a>
+        </div>
       </div>
 
       <p class="note">
-        Fast response guaranteed.  
-        Best for Bridal & Custom Dress Stitching 
+        <span class="note-dot"></span> Fast response guaranteed • Bespoke bridal & custom dress tailoring
       </p>
     </div>
 
   </div>
 </section>
 
-   <section id="reviews" class="reviews-section">
-  <h2 class="reviews-title">Customer Reviews</h2>
-  <p class="reviews-subtitle">What our clients say about us</p>
+<style>
+/* ---------- PERFECTLY ALIGNED LUXURY BOOKING SECTION ---------- */
+.booking-section {
+  text-align: center;
+  padding: 110px 6%;
+  background: radial-gradient(circle at center, #141414 0%, #080808 100%);
+  color: #fff;
+}
+
+.booking-head {
+  margin-bottom: 50px;
+}
+
+.booking-title {
+  font-size: 46px;
+  color: var(--gold, #d4af37);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.booking-subtitle {
+  font-size: 15.5px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.booking-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold, #d4af37), transparent);
+  margin: 0 auto;
+}
+
+/* Booking Grid Layout */
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1240px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Unified Booking Cards */
+.booking-card {
+  background: rgba(18, 18, 18, 0.85);
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  text-align: left;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.booking-card:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.booking-card-title {
+  margin-bottom: 22px;
+  font-size: 24px;
+  font-family: "Playfair Display", serif;
+  color: var(--gold, #d4af37);
+  text-align: center;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  padding-bottom: 14px;
+}
+
+/* Form Styling Alignment */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.booking-form .form-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form label {
+  font-size: 13px;
+  color: var(--gold, #d4af37);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  padding: 11px 14px;
+  color: #fff;
+  font-size: 14.5px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--gold, #d4af37);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  outline: none;
+}
+
+.booking-form select option {
+  background: #141414;
+  color: #fff;
+}
+
+/* Button Alignment */
+.booking-btn {
+  background: var(--gold, #d4af37);
+  color: #000;
+  width: 100%;
+  border-radius: 10px;
+  padding: 13px;
+  border: none;
+  font-size: 15.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 14px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.booking-btn:hover {
+  background: #e6c563;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Boutique Card Layout Structure */
+.boutique-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.boutique-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.boutique-card .info-text {
+  font-size: 14.5px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Boutique Icon Grid Styles */
+.boutique-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.boutique-icon-card {
+  position: relative;
+  background: rgba(25, 25, 25, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 14px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.booking-card:hover .boutique-icon-card {
+  border-color: rgba(212, 175, 55, 0.45);
+  transform: translateY(-3px);
+  background: rgba(30, 30, 30, 0.9);
+}
+
+.feature-circle-icon {
+  width: 38px;
+  height: 38px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
+}
+
+.feature-info h4 {
+  font-size: 14.5px;
+  color: var(--gold, #d4af37);
+  font-family: "Playfair Display", serif;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+
+.feature-info p {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.img-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(12, 12, 12, 0.85);
+  color: var(--gold, #d4af37);
+  padding: 3px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--gold, #d4af37);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--gold, #d4af37);
+}
+
+/* Contact Action Buttons with Circle Elements */
+.contact-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+.contact-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-circle-icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.contact-circle-icon span {
+  line-height: 1;
+}
+
+.call-btn {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold, #d4af37);
+}
+
+.call-btn:hover {
+  background: var(--gold, #d4af37);
+  color: #000;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.call-btn:hover .contact-circle-icon {
+  background: #000;
+  color: var(--gold, #d4af37);
+  border-color: #000;
+}
+
+.whatsapp-btn {
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.whatsapp-btn .contact-circle-icon {
+  background: rgba(37, 211, 102, 0.2);
+  border-color: rgba(37, 211, 102, 0.5);
+  color: #25d366;
+}
+
+.whatsapp-btn:hover {
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn:hover .contact-circle-icon {
+  background: #fff;
+  color: #25d366;
+  border-color: #fff;
+}
+
+.boutique-card .note {
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding-top: 14px;
+  margin-top: 15px;
+}
+
+.note-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--gold, #d4af37);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold, #d4af37);
+  flex-shrink: 0;
+}
+
+/* ---------- RESPONSIVE FIXES ---------- */
+@media (max-width: 950px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .booking-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-section {
+    padding: 80px 4%;
+  }
+
+  .booking-title {
+    font-size: 32px;
+  }
+
+  .booking-card {
+    padding: 24px 20px;
+  }
+
+  .boutique-icon-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .contact-icons {
+    flex-direction: column;
+  }
+}
+</style>
+
+  <!-- REVIEWS SECTION -->
+<section id="reviews" class="reviews-section">
+  <div class="reviews-head">
+    <h2 class="reviews-title">Customer Reviews</h2>
+    <p class="reviews-subtitle">What our cherished clients say about their experience</p>
+    <div class="reviews-divider"></div>
+  </div>
 
   <div class="reviews-grid">
 
     <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">Really great parlour and beautiful service all the staffs are really polite and talented
-Should visit for sureee</p>
-      <h4 class="review-author">— 
-Anubhuti Sahay</h4>
+      <div class="review-card-inner">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"Really great parlour and beautiful service all the staffs are really polite and talented. Should visit for sureee!"</p>
+        <div class="review-author-wrap">
+          <div class="author-circle">AS</div>
+          <h4 class="review-author">Anubhuti Sahay</h4>
+        </div>
+      </div>
     </div>
 
     <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">It's really a good salon to visit ...it is budget friendly, moreover u can give your style for hair cut and they will provide you .....</p>
-      <h4 class="review-author">— 
-K Mimansha</h4>
+      <div class="review-card-inner">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"It's really a good salon to visit... it is budget friendly, moreover u can give your style for hair cut and they will provide you....."</p>
+        <div class="review-author-wrap">
+          <div class="author-circle">KM</div>
+          <h4 class="review-author">K Mimansha</h4>
+        </div>
+      </div>
     </div>
 
     <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">Best parlour in boring road 🎀just amazing</p>
-      <h4 class="review-author">— 
-Kajal Vishwakarma</h4>
+      <div class="review-card-inner">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"Best parlour in boring road 🎀 just amazing!"</p>
+        <div class="review-author-wrap">
+          <div class="author-circle">KV</div>
+          <h4 class="review-author">Kajal Vishwakarma</h4>
+        </div>
+      </div>
     </div>
 
     <div class="review-card">
-      <div class="stars">★★★★☆</div>
-      <p class="review-text">Best lehanga and blouse stitching. Fitting is best . I am very much satisfied with the service and behaviour of the staff . Ambience is alsovery asthetic</p>
-      <h4 class="review-author">— Savita Devi</h4>
+      <div class="review-card-inner">
+        <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+        <p class="review-text">"Best lehanga and blouse stitching. Fitting is best. I am very much satisfied with the service and behaviour of the staff. Ambience is also very aesthetic."</p>
+        <div class="review-author-wrap">
+          <div class="author-circle">SD</div>
+          <h4 class="review-author">Savita Devi</h4>
+        </div>
+      </div>
     </div>
 
     <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">I had a very good experience here.. definitely go and try without any hesitation.. thumbs-up for the stuff!</p>
-      <h4 class="review-author">— Anjali Suman</h4>
+      <div class="review-card-inner">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-text">"I had a very good experience here.. definitely go and try without any hesitation.. thumbs-up for the staff!"</p>
+        <div class="review-author-wrap">
+          <div class="author-circle">AS</div>
+          <h4 class="review-author">Anjali Suman</h4>
+        </div>
+      </div>
     </div>
 
     <div class="review-card">
-      <div class="stars">★★★★☆</div>
-      <p class="review-text">Best parlour. Service is too good and staff is well mannered and professional. Must visit.</p>
-      <h4 class="review-author">— Sharda Chouhan</h4>
+      <div class="review-card-inner">
+        <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+        <p class="review-text">"Best parlour. Service is too good and staff is well mannered and professional. Must visit."</p>
+        <div class="review-author-wrap">
+          <div class="author-circle">SC</div>
+          <h4 class="review-author">Sharda Chouhan</h4>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
+
+<style>
+/* ---------- ENHANCED LUXURY REVIEWS SECTION WITH CIRCLE INITIALS ---------- */
+.reviews-section {
+  padding: 110px 6%;
+  background: linear-gradient(180deg, #080808 0%, #121212 100%);
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.reviews-head {
+  margin-bottom: 55px;
+}
+
+.reviews-title {
+  font-size: 46px;
+  color: var(--gold, #d4af37);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.reviews-subtitle {
+  font-size: 15.5px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.reviews-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold, #d4af37), transparent);
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1240px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Review Card Styling */
+.review-card {
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 18px;
+  padding: 30px 24px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.05);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Glow & Hover Effects */
+.review-card:hover,
+.review-card:active,
+.review-card:focus {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+/* Stars */
+.stars {
+  font-size: 17px;
+  color: var(--gold, #d4af37);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  text-align: center;
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+/* Text */
+.review-text {
+  font-size: 14.5px;
+  color: #d0d0d0;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+/* Author Wrap with Circle Initials */
+.review-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding-top: 15px;
+  margin-top: auto;
+  text-align: left;
+}
+
+.author-circle {
+  width: 38px;
+  height: 38px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
+}
+
+.review-author {
+  font-size: 14.5px;
+  color: var(--gold, #d4af37);
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media (max-width: 950px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .reviews-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 650px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .review-card {
+    width: 100%;
+    min-height: 240px;
+    padding: 25px 20px;
+  }
+
+  .reviews-section {
+    padding: 80px 5%;
+  }
+}
+</style>
 
 
 <!-- CONTACT SECTION -->
 <section id="contact" class="contact-section">
   <div class="section-head">
-    <h2>Contact Us</h2>
-    <p class="muted">We’re here to assist you — reach out anytime!</p>
+    <h2 class="contact-title">Contact Us</h2>
+    <p class="contact-subtitle">We’re Here to Assist You — Reach Out Anytime!</p>
+    <div class="contact-divider"></div>
   </div>
 
   <div class="contact-container">
     
-    <!-- LEFT: Contact Details -->
-    <div class="contact-box">
+    <!-- LEFT: Luxury Contact Details Box -->
+    <div class="contact-box info-box">
       <h3>Get in Touch</h3>
-      <p><strong>Address:</strong> G-01, Rana Residency,<br>
-      E Boring Canal Rd, behind Vishnu Place,<br>
-      near Oro Dental, Rai jee Lane,<br>
-      Kidwaipuri, Patna, Bihar 800001</p>
+      
+      <div class="contact-info-item">
+        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="info-content">
+          <span class="label">Studio Location</span>
+          <p>G-01, Rana Residency, E Boring Canal Rd, behind Vishnu Place, near Oro Dental, Rai jee Lane, Kidwaipuri, Patna, Bihar 800001</p>
+        </div>
+      </div>
 
-      <p><strong>Phone:</strong> +91 9263930196  +91 9199825858 +91 6124487221</p>
-      <p><strong>Email:</strong> carestylenShine@gmail.com</p>
-      <p><strong>Working Hours:</strong><br>
-      10:00 AM – 9:00 PM | All Days</p>
+      <div class="contact-info-item">
+        <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+        <div class="info-content">
+          <span class="label">Direct Studio Lines</span>
+          <div class="phone-numbers">
+            <a href="tel:+919263930196">+91 92639 30196</a>
+            <a href="tel:+919199825858">+91 91998 25858</a>
+            <a href="tel:+916124487221">+91 612 448 7221</a>
+          </div>
+        </div>
+      </div>
 
-     
+      <div class="contact-info-item">
+        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+        <div class="info-content">
+          <span class="label">Email Address</span>
+          <a href="mailto:carestylenShine@gmail.com" class="email-link">carestylenShine@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="icon-box"><i class="fas fa-clock"></i></div>
+        <div class="info-content">
+          <span class="label">Working Hours</span>
+          <p>10:00 AM – 9:00 PM <span class="dot">•</span> All Days Open</p>
+        </div>
+      </div>
     </div>
 
-    <!-- RIGHT: MAP -->
-    <div class="contact-box">
-      <iframe
-        title="Salon location"
-        src="https://www.google.com/maps?q=G-01, Rana Residency, Patna Bihar&output=embed"
-        loading="lazy"
-      ></iframe>
+    <!-- RIGHT: Map Box -->
+    <div class="contact-box map-box">
+      <h3>Find Us Here</h3>
+      <div class="iframe-wrapper">
+        <iframe
+          title="Style N Shine Studio Location Map"
+          src="https://www.google.com/maps?q=G-01,+Rana+Residency,+E+Boring+Canal+Rd,+Kidwaipuri,+Patna,+Bihar+800001&output=embed"
+          loading="lazy"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <a href="https://maps.google.com/?q=G-01,+Rana+Residency,+E+Boring+Canal+Rd,+Kidwaipuri,+Patna,+Bihar+800001" target="_blank" rel="noopener noreferrer" class="map-dir-btn">
+        <i class="fas fa-directions"></i> Open in Google Maps
+      </a>
     </div>
 
   </div>
 </section>
+
+<style>
+/* ===== LUXURY CONTACT SECTION STYLING ===== */
+.contact-section {
+  padding: 110px 6%;
+  background: radial-gradient(circle at center, #141414 0%, #080808 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-title {
+  font-size: 52px;
+  color: var(--gold, #d4af37);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.contact-subtitle {
+  font-size: 16px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.contact-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold, #d4af37), transparent);
+  margin: 0 auto;
+}
+
+/* Container */
+.contact-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+/* Contact Cards Boxes */
+.contact-box {
+  flex: 1;
+  min-width: 320px;
+  background: rgba(18, 18, 18, 0.85);
+  padding: 35px 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-box:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-4px);
+}
+
+.contact-box h3 {
+  color: var(--gold, #d4af37);
+  font-size: 22px;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  padding-bottom: 12px;
+}
+
+/* Info List Items */
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.contact-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.icon-box {
+  width: 44px;
+  height: 44px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold, #d4af37);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-content .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  font-weight: 600;
+}
+
+.info-content p, 
+.info-content a {
+  font-size: 14.5px;
+  color: #dcdcdc;
+  line-height: 1.5;
+  text-decoration: none;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.info-content a:hover,
+.email-link:hover {
+  color: var(--gold, #d4af37);
+}
+
+.phone-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dot {
+  color: var(--gold, #d4af37);
+  margin: 0 4px;
+}
+
+/* Map Box Details */
+.map-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.iframe-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  min-height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  margin-bottom: 18px;
+}
+
+.contact-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: contrast(110%) brightness(90%);
+}
+
+.map-dir-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold, #d4af37);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.map-dir-btn:hover {
+  background: var(--gold, #d4af37);
+  color: #000;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive Queries */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-title {
+    font-size: 38px;
+  }
+}
+</style>
 
      
 
@@ -1931,29 +4636,27 @@ Kajal Vishwakarma</h4>
       <p class="tagline">Luxury Parlour • Boring Road</p>
 
       <div class="socials">
-        <a href="https://www.instagram.com/style_n_shine_studio?igsh=MTRqZDducWppbmVjOQ==" class="social-icon"><i class="ri-instagram-line"></i></a>
-        <a href="https://www.facebook.com/share/1WH5iujiYr/" class="social-icon"><i class="ri-facebook-fill"></i></a>
-        <a href="https://wa.me/9263930196" class="social-icon"><i class="ri-whatsapp-line"></i></a>
-       
+        <a href="https://www.instagram.com/style_n_shine_studio?igsh=MTRqZDducWppbmVjOQ==" class="social-icon" target="_blank" rel="noopener"><i class="ri-instagram-line"></i></a>
+        <a href="https://www.facebook.com/share/1WH5iujiYr/" class="social-icon" target="_blank" rel="noopener"><i class="ri-facebook-fill"></i></a>
+        <a href="https://wa.me/9263930196" class="social-icon" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
       </div>
     </div>
 
     <div class="footer-box">
       <h4 class="box-title">Quick Links</h4>
       <ul class="footer-links">
-     <a href="#home">Home</a>
-       <li><a href="#about">About</a></li> 
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li> 
         <li><a href="#services">Services</a></li>
         <li><a href="#insights">Insights</a></li>
         <li><a href="#booking">Booking</a></li>
         <li><a href="#reviews">Customer Reviews</a></li>
-
       </ul>
     </div>
 
     <div class="footer-box">
       <h4 class="box-title">Contact</h4>
-      <p><a href="tel:+9199825858" class="contact-link">+91 998258858  +91 9263930196 </a></p>
+      <p><a href="tel:+9199825858" class="contact-link">+91 99825858  +91 9263930196</a></p>
       <p><a href="mailto:stylenshine@gmail.com" class="contact-link">carestylenshine@gmail.com</a></p>
       <p>G-01, Rana Residency,
 E Boring Canal Rd, behind Vishnu Place,
@@ -1964,9 +4667,157 @@ Kidwaipuri, Patna, Bihar 800001</p>
   </div>
 
   <div class="footer-bottom">
-    © 2025 - 26 Style N Shine • All Rights Reserved
+    <div class="footer-policies">
+      <a href="#privacy-policy" onclick="openPrivacyModal(event)">Privacy Policy</a>
+      <span class="separator">|</span>
+      <a href="#terms-of-service" onclick="openTermsModal(event)">Terms of Service</a>
+      <span class="separator">|</span>
+      <a href="#cookies-policy" onclick="openCookiesModal(event)">Cookies Policy</a>
+    </div>
+    <p>© 2025 - 26 Style N Shine • All Rights Reserved</p>
   </div>
 </footer>
+
+<!-- Modals for Legal Policies -->
+<div id="privacyModal" class="footer-modal" onclick="closeModals(event)">
+  <div class="footer-modal-content">
+    <span class="modal-close" onclick="closePrivacyModal()">&times;</span>
+    <h2>Privacy Policy</h2>
+    <p>At Style N Shine, we respect your privacy and are committed to protecting any personal information you share with us through our bookings or inquiries.</p>
+    <p>We collect details like your name, phone number, and service preferences solely to coordinate appointments and provide exceptional customer support.</p>
+  </div>
+</div>
+
+<div id="termsModal" class="footer-modal" onclick="closeModals(event)">
+  <div class="footer-modal-content">
+    <span class="modal-close" onclick="closeTermsModal()">&times;</span>
+    <h2>Terms of Service</h2>
+    <p>Welcome to Style N Shine. By accessing our website or visiting our luxury studio in Kidwaipuri, Patna, you agree to abide by our appointment policies and terms.</p>
+    <p>Appointments can be rescheduled or cancelled by contacting us via phone or WhatsApp at least 3 hours prior to your scheduled slot.</p>
+  </div>
+</div>
+
+<div id="cookiesModal" class="footer-modal" onclick="closeModals(event)">
+  <div class="footer-modal-content">
+    <span class="modal-close" onclick="closeCookiesModal()">&times;</span>
+    <h2>Cookies Policy</h2>
+    <p>Style N Shine uses cookies to enhance your browsing experience, analyze site traffic, and personalize content across our digital styling platform.</p>
+    <p>You can choose to disable cookies through your browser settings if you prefer not to share local browsing data.</p>
+  </div>
+</div>
+
+<style>
+/* Additional Styles for Policy Links in Footer Bottom */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #6f6f6f;
+  font-size: 13px;
+}
+
+.footer-policies {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-policies a {
+  color: #b5b5b5;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 13px;
+}
+
+.footer-policies a:hover {
+  color: #d1b67a;
+}
+
+.footer-policies .separator {
+  color: #555;
+}
+
+/* Modal Styling */
+.footer-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  padding: 20px;
+}
+
+.footer-modal-content {
+  background: #141414;
+  border: 1px solid rgba(209, 182, 122, 0.4);
+  max-width: 550px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 14px;
+  position: relative;
+  color: #d0d0d0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  text-align: left;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.footer-modal-content h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d1b67a;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer-modal-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #b5b5b5;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #d1b67a;
+}
+</style>
+
+<script>
+/* Modal Popup Controls */
+function openPrivacyModal(e) { e.preventDefault(); document.getElementById('privacyModal').style.display = 'flex'; }
+function closePrivacyModal() { document.getElementById('privacyModal').style.display = 'none'; }
+
+function openTermsModal(e) { e.preventDefault(); document.getElementById('termsModal').style.display = 'flex'; }
+function closeTermsModal() { document.getElementById('termsModal').style.display = 'none'; }
+
+function openCookiesModal(e) { e.preventDefault(); document.getElementById('cookiesModal').style.display = 'flex'; }
+function closeCookiesModal() { document.getElementById('cookiesModal').style.display = 'none'; }
+
+function closeModals(e) {
+  if (e.target.classList.contains('footer-modal')) {
+    e.target.style.display = 'none';
+  }
+}
+</script>
 
 
      
@@ -1978,6 +4829,7 @@ Kidwaipuri, Patna, Bihar 800001</p>
     />
 
   <!-- WhatsApp floating (kept as-is) -->
+<!-- Floating WhatsApp Button -->
 <a
   class="whatsapp"
   href="https://wa.me/9263930196?text=Hello%20Style%20N%20Shine%2C%20I%27d%20like%20to%20book%20an%20appointment"
@@ -1985,9 +4837,68 @@ Kidwaipuri, Patna, Bihar 800001</p>
   rel="noopener"
   aria-label="WhatsApp chat"
 >
-  <i class="fab fa-whatsapp"></i> whatsaap
+  <i class="fab fa-whatsapp"></i> WhatsApp
 </a>
 
+<style>
+/* ===== FLOATING WHATSAPP BUTTON STYLING ===== */
+.whatsapp {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 1200;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: pulseWhatsapp 2s infinite;
+}
+
+.whatsapp i {
+  font-size: 22px;
+}
+
+.whatsapp:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+  color: #ffffff;
+}
+
+/* Subtle attention-grabbing pulse animation */
+@keyframes pulseWhatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+  .whatsapp {
+    right: 18px;
+    bottom: 18px;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+  .whatsapp i {
+    font-size: 20px;
+  }
+}
+</style>
 
 <div id="chatbot-fab">💬</div>
 
@@ -2004,273 +4915,245 @@ Kidwaipuri, Patna, Bihar 800001</p>
   </div>
 </div>
 
-    <!-- Scripts: slider + header scroll + smooth scroll + form UX -->
-    <script>
-      // Header scroll: toggle scrolled state
-      (function () {
-        const header = document.querySelector(".transparent-header");
-        function onScroll() {
-          if (window.scrollY > 60) header.classList.add("scrolled");
-          else header.classList.remove("scrolled");
-        }
-        window.addEventListener("scroll", onScroll);
-        onScroll();
-      })();
+<script>
+  /* Simple Lightbox Image Viewer Script */
+function openLightbox(imgSrc, captionText) {
+  const lightbox = document.getElementById('insightLightbox');
+  const img = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  
+  img.src = imgSrc;
+  caption.textContent = captionText;
+  lightbox.style.display = 'flex';
+}
 
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", function (e) {
-          const href = this.getAttribute("href");
-          if (href.length > 1) {
-            e.preventDefault();
-            const el = document.querySelector(href);
-            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+function closeLightbox() {
+  document.getElementById('insightLightbox').style.display = 'none';
+}
+  // ---------- HERO BACKGROUND SLIDER (Isolated Scope) ----------
+(function () {
+  let heroSlideIndex = 0;
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  const heroDots = document.querySelectorAll('.dot-indicator');
+
+  function showHeroSlides() {
+    if (heroSlides.length === 0) return;
+    heroSlides.forEach(slide => slide.classList.remove('active'));
+    heroDots.forEach(dot => dot.classList.remove('active'));
+    
+    heroSlideIndex = (heroSlideIndex + 1) % heroSlides.length;
+    
+    heroSlides[heroSlideIndex].classList.add('active');
+    if (heroDots[heroSlideIndex]) {
+      heroDots[heroSlideIndex].classList.add('active');
+    }
+  }
+
+  // Auto rotate background every 5 seconds if images are provided
+  if (heroSlides.length > 0) {
+    setInterval(showHeroSlides, 5000);
+  }
+
+  // Global function attached so onclick="currentSlide(...)" still works
+  window.currentSlide = function(n) {
+    heroSlideIndex = n - 1;
+    if (heroSlides.length === 0) return;
+    heroSlides.forEach(slide => slide.classList.remove('active'));
+    heroDots.forEach(dot => dot.classList.remove('active'));
+    
+    heroSlides[heroSlideIndex].classList.add('active');
+    if (heroDots[heroSlideIndex]) {
+      heroDots[heroSlideIndex].classList.add('active');
+    }
+  };
+})();
+  function toggleAboutText() {
+    const moreText = document.getElementById("moreAboutText");
+    const readMoreBtn = document.getElementById("readMoreBtn");
+    const readMoreIcon = document.getElementById("readMoreIcon");
+    const spanText = readMoreBtn ? readMoreBtn.querySelector("span") : null;
+
+    if (moreText) {
+      moreText.classList.toggle("expanded");
+      
+      const isOpen = moreText.classList.contains("expanded");
+      
+      if (spanText) spanText.textContent = isOpen ? "Read Less" : "Read More";
+      if (readMoreIcon) readMoreIcon.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+    }
+  }
+
+  // Header scroll: toggle scrolled state
+  (function () {
+    const header = document.querySelector(".transparent-header");
+    if (!header) return;
+    function onScroll() {
+      if (window.scrollY > 60) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+  })();
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href.length > 1) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  // Booking form: simple front-end validation + message
+  (function () {
+    const form = document.getElementById("bookingForm");
+    if (!form) return;
+    const msg = document.getElementById("formMsg");
+    form.addEventListener("submit", function (e) {
+      const name = form.name.value.trim();
+      const mobile = form.mobile.value.trim();
+      const email = form.email.value.trim();
+      const date = form.date.value;
+      const service = form.service.value;
+      if (!name || !mobile || !email || !date || !service) {
+        e.preventDefault();
+        if (msg) {
+          msg.style.display = "block";
+          msg.textContent = "Please fill all required fields.";
+        }
+        return;
+      }
+      if (msg) {
+        msg.style.display = "block";
+        msg.textContent = "Sending your booking — please wait...";
+      }
+    });
+  })();
+
+  
+
+  // Floating chatbot button open/close
+  const fab = document.getElementById("chatbot-fab");
+  const box = document.getElementById("chatbot-window");
+  const closeBtn = document.getElementById("closeChat");
+  
+  if (fab && box) {
+    fab.onclick = () => box.style.display = "flex";
+  }
+  if (closeBtn && box) {
+    closeBtn.onclick = () => box.style.display = "none";
+  }
+
+  // Add message to chat
+  function addMessage(text, type) {
+    const chat = document.getElementById("chat-area");
+    if (!chat) return;
+    const div = document.createElement("div");
+    div.className = "msg " + type;
+    div.innerText = text;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+  }
+
+  // Send message to PHP chatbot API
+  async function sendMessage() {
+    const userInput = document.getElementById("userText");
+    if (!userInput) return;
+    const text = userInput.value.trim();
+    if (!text) return;
+
+    addMessage(text, "user");
+    userInput.value = "";
+
+    const chat = document.getElementById("chat-area");
+    const typingDiv = document.createElement("div");
+    typingDiv.className = "msg bot";
+    typingDiv.innerText = "Typing...";
+    if (chat) {
+      chat.appendChild(typingDiv);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    try {
+      const res = await fetch("chatapi.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text })
+      });
+
+      if (!res.ok) throw new Error("HTTP error " + res.status);
+      const data = await res.json();
+      typingDiv.remove();
+      addMessage(data.reply, "bot");
+    } catch (err) {
+      typingDiv.remove();
+      addMessage("Sorry, something went wrong.", "bot");
+      console.error(err);
+    }
+  }
+
+  const userTextInput = document.getElementById("userText");
+  if (userTextInput) {
+    userTextInput.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  }
+
+  // Mobile Menu Toggle handlers
+  (function () {
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenuBtn = document.getElementById('closeMenu');
+    const navLinksContainer = document.getElementById('navLinks');
+
+    if (menuToggle && navLinksContainer) {
+      menuToggle.addEventListener('click', () => {
+        navLinksContainer.classList.add('active');
+      });
+    }
+
+    if (closeMenuBtn && navLinksContainer) {
+      closeMenuBtn.addEventListener('click', () => {
+        navLinksContainer.classList.remove('active');
+      });
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinksContainer) navLinksContainer.classList.remove('active');
+      });
+    });
+  })();
+
+  // Services Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categoryGroups = document.querySelectorAll('.service-category-group');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        categoryGroups.forEach(group => {
+          const category = group.getAttribute('data-category');
+
+          if (filterValue === 'all' || filterValue === category) {
+            group.style.display = 'block';
+          } else {
+            group.style.display = 'none';
           }
         });
       });
-
-      // Booking form: simple front-end validation + message
-      (function () {
-        const form = document.getElementById("bookingForm");
-        if (!form) return;
-        const msg = document.getElementById("formMsg");
-        form.addEventListener("submit", function (e) {
-          const name = form.name.value.trim();
-          const mobile = form.mobile.value.trim();
-          const email = form.email.value.trim();
-          const date = form.date.value;
-          const service = form.service.value;
-          if (!name || !mobile || !email || !date || !service) {
-            e.preventDefault();
-            msg.style.display = "block";
-            msg.textContent = "Please fill all required fields.";
-            return;
-          }
-          msg.style.display = "block";
-          msg.textContent = "Sending your booking — please wait...";
-          // form submits to booking.php
-        });
-      })();
-
-      const images = [
-        "assets/banner1.jpg",
-        "assets/banner2.png",
-        "assets/banner3.jpg",
-        "assets/banner4.jpeg",
-        "assets/banner5.jpg",
-        "assets/banner6.jpg",
-        "assets/banner7.jpg",
-      ];
-
-      let index = 0;
-
-      function changeHero() {
-        index = (index + 1) % images.length;
-        document.querySelector(
-          ".hero"
-        ).style.backgroundImage = `url('${images[index]}')`;
-      }
-
-      document.querySelector(
-        ".hero"
-      ).style.backgroundImage = `url('${images[0]}')`;
-
-      setInterval(changeHero, 5000); // 5 seconds
-
-      function autoSlider(selector, interval) {
-        const slides = document.querySelectorAll(selector + " .slide");
-        let index = 0;
-
-        setInterval(() => {
-          slides[index].classList.remove("active");
-          index = (index + 1) % slides.length;
-          slides[index].classList.add("active");
-        }, interval);
-      }
-
-     
-
-
-
-const sareeImages = [
-  "assets/saree1.webp",
-  "assets/saree2.webp",
-  "assets/saree3.webp",
-  "assets/saree4.webp",
-  "assets/saree5.webp"
-];
-
-const sareeSlide = document.getElementById("sareeSlide");
-const sareeDots = document.getElementById("sareeDots");
-
-let currentSlide = 0;
-
-// Create navigation dots
-sareeImages.forEach((_, i) => {
-  const dot = document.createElement("span");
-  dot.addEventListener("click", () => goToSlide(i));
-  sareeDots.appendChild(dot);
-});
-
-function updateDots() {
-  [...sareeDots.children].forEach((dot, i) =>
-    dot.classList.toggle("active", i === currentSlide)
-  );
-}
-
-function goToSlide(i) {
-  currentSlide = i;
-  sareeSlide.src = sareeImages[currentSlide];
-  updateDots();
-}
-
-function autoSlide() {
-  currentSlide = (currentSlide + 1) % sareeImages.length;
-  goToSlide(currentSlide);
-}
-
-// Init
-goToSlide(0);
-setInterval(autoSlide, 3500);
-
-let slides = document.querySelectorAll(".insights-slide");
-let dots = document.querySelectorAll(".insight-dots span");
-let currentIndex = 0;
-
-function showSlide(i) {
-  slides.forEach((slide, index) => {
-    slide.classList.toggle("active", index === i);
-    dots[index].classList.toggle("active-dot", index === i);
-  });
-}
-
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
-}
-
-// Auto slide every 3 seconds
-let sliderInterval = setInterval(nextSlide, 3000);
-
-// Dot click
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    clearInterval(sliderInterval);
-    currentIndex = index;
-    showSlide(index);
-    sliderInterval = setInterval(nextSlide, 3000);
-  });
-});
-
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-const closeMenu = document.querySelector(".close-menu");
-const allLinks = navLinks.querySelectorAll("a");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.add("active");
-});
-
-closeMenu.addEventListener("click", () => {
-  navLinks.classList.remove("active");
-});
-
-allLinks.forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-  });
-});
-
-// Floating button open/close
-const fab = document.getElementById("chatbot-fab");
-const box = document.getElementById("chatbot-window");
-const closeBtn = document.getElementById("closeChat");
-fab.onclick = () => box.style.display = "flex";
-closeBtn.onclick = () => box.style.display = "none";
-
-// Add message to chat
-function addMessage(text,type){
-  const chat = document.getElementById("chat-area");
-  const div = document.createElement("div");
-  div.className = "msg " + type;
-  div.innerText = text;
-  chat.appendChild(div);
-  chat.scrollTop = chat.scrollHeight;
-}
-
-// Send message to PHP
-async function sendMessage(){
-  const userInput = document.getElementById("userText");
-  const text = userInput.value.trim();
-  if(!text) return;
-
-  addMessage(text,"user");
-  userInput.value="";
-
-  const typingDiv = document.createElement("div");
-  typingDiv.className="msg bot";
-  typingDiv.innerText="Typing...";
-  const chat = document.getElementById("chat-area");
-  chat.appendChild(typingDiv);
-  chat.scrollTop = chat.scrollHeight;
-
-  try {
-    const res = await fetch("chatapi.php",{
-      method:"POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text })
     });
-
-    if(!res.ok) throw new Error("HTTP error " + res.status);
-    const data = await res.json();
-    typingDiv.remove();
-    addMessage(data.reply,"bot");
-  } catch(err){
-    typingDiv.remove();
-    addMessage("Sorry, something went wrong.","bot");
-    console.error(err);
-  }
-}
-
-// Press Enter to send
-document.getElementById("userText").addEventListener("keypress",function(e){
-  if(e.key==="Enter"){ e.preventDefault(); sendMessage(); }
-});
-    </script>
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BeautySalon",
-  "name": "Style N Shine Studio",
-  "url": "https://stylenshine.great-site.net/",
-  "logo": "https://stylenshine.great-site.net/assets/logo1.jpg",
-  "image": "https://stylenshine.great-site.net/assets/logo1.jpg",
-  "telephone": "+91-9263930196",
-  "priceRange": "Rs",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "G-01, Rana Residency, E Boring Canal Rd, Kidwaipuri",
-    "addressLocality": "Patna",
-    "addressRegion": "Bihar",
-    "postalCode": "800001",
-    "addressCountry": "IN"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "10:00",
-    "closes": "21:00"
-  }
-}
+  });
 </script>
-  </body>
+</body>
 </html>
