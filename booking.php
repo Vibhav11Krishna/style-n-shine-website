@@ -10,7 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $service = trim($_POST['service']);
     $date    = trim($_POST['date']);
 
-    // Insert booking into DB
+    // Check if any field is empty. If so, stop execution and do NOT insert into database.
+    if (empty($name) || empty($email) || empty($mobile) || empty($service) || empty($date)) {
+        header("Location: index.html?error=empty_fields");
+        exit;
+    }
+
+    // Insert booking into DB using prepared statements to prevent SQL injection
     $stmt = $conn->prepare("
         INSERT INTO bookings (name, email, mobile, service, date)
         VALUES (?, ?, ?, ?, ?)
@@ -18,32 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssss", $name, $email, $mobile, $service, $date);
     $stmt->execute();
     $stmt->close();
-
-    // WhatsApp Business Number (no + sign)
-    $adminNumber = "919199825858";
-
-    // WhatsApp message text
-    $message = urlencode(
-        " New Parlour Booking \n\n".
-        " Name: $name\n".
-        " Mobile: $mobile\n".
-        " Service: $service\n".
-        " Date: $date\n\n".
-        " Booking Confirmed"
-    );
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Booking Confirmed</title>
 
-<!-- Auto Redirect to WhatsApp after page load -->
+<!-- Auto Redirect back to website after 4 seconds -->
 <script>
   window.onload = function () {
     setTimeout(function () {
-      window.location.href =
-        "https://wa.me/<?php echo $adminNumber; ?>?text=<?php echo $message; ?>";
-    }, 800); // delay improves reliability on InfinityFree
+      window.location.href = "index.html";
+    }, 4000); // 4 seconds delay
   };
 </script>
 
@@ -63,15 +55,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     border-radius: 18px;
     display: inline-block;
     box-shadow: 0 0 18px rgba(255,215,0,0.3);
+    max-width: 450px;
   }
 
   h2 {
     color: #FFD700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin: 10px 0;
+    color: #d4d4d4;
+    font-size: 15px;
   }
 
   .btn {
-    margin-top: 18px;
+    margin-top: 20px;
     padding: 12px 20px;
     border-radius: 12px;
     border: 2px solid #FFD700;
@@ -80,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
+    transition: 0.3s;
   }
 
   .btn:hover {
@@ -94,19 +94,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="box">
   <h2>Booking Successful 🎉</h2>
 
-  <p>Thank you <b><?php echo $name; ?></b>.</p>
-  <p>Your booking has been saved in our system.</p>
+  <p>Thank you, <b><?php echo htmlspecialchars($name); ?></b>.</p>
+  <p>Your booking has been successfully saved in our system.</p>
+  <p><b>You will be notified shortly regarding your slot confirmation.</b></p>
 
-  <p><b>Redirecting to WhatsApp…</b></p>
+  <p style="font-size: 12px; color: #888; margin-top: 15px;">Redirecting back to the website...</p>
 
-  <!-- Fallback button (if auto redirect blocked) -->
-  <a class="btn"
-     href="https://wa.me/<?php echo $adminNumber; ?>?text=<?php echo $message; ?>">
-     Send Booking on WhatsApp
+  <!-- Fallback button -->
+  <a class="btn" href="index.html">
+    Back to Website Now
   </a>
 </div>
 
 </body>
 </html>
 
-<?php } ?>
+<?php } else {
+    // If someone accesses booking.php directly without submitting the form, redirect home
+    header("Location: index.html");
+    exit;
+} ?>

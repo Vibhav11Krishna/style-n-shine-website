@@ -2076,6 +2076,120 @@
     gap: 14px;
   }
 }
+.careers-section {
+    padding: 80px 8%;
+    background: var(--dark-bg, #070707);
+}
+.careers-head {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.careers-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold, #d4af37);
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.careers-subtitle {
+    color: #999;
+    font-size: 15px;
+}
+.careers-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gold, #d4af37);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+.careers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+}
+.careers-img-card {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('assets/salon-team.jpg') center/cover no-repeat;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 450px;
+}
+.careers-img-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold, #d4af37);
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+.careers-img-content p {
+    color: #d4d4d4;
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+.careers-form-card {
+    background: rgba(18, 18, 18, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    padding: 40px;
+}
+.careers-card-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold, #d4af37);
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+.careers-form .form-group {
+    margin-bottom: 20px;
+}
+.careers-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gold, #d4af37);
+    font-size: 13.5px;
+    font-weight: 700;
+}
+.careers-form input, 
+.careers-form select, 
+.careers-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+.careers-form input:focus, 
+.careers-form select:focus, 
+.careers-form textarea:focus {
+    outline: none;
+    border-color: var(--gold, #d4af37);
+}
+.careers-btn {
+    background: var(--gold, #d4af37);
+    color: #000;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+.careers-btn:hover {
+    background: #f3e5ab;
+}
+
+@media(max-width: 900px) {
+    .careers-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style> 
 </head>
   
@@ -2099,8 +2213,9 @@
     <a href="#insights">Insights</a>
     <a href="#booking">Booking</a>
     <a href="#reviews">Reviews</a>
+    <a href="#careers">Careers</a>
     <a href="#contact" class="nav-cta-btn">Contact Us</a>
-    <a href="#" class="nav-cta-btn">Login</a>
+    <a href="login.php" class="nav-cta-btn">Login</a>
   </nav>
 </header>
 
@@ -2153,7 +2268,7 @@
           <div class="numbers">
             <a href="tel:+919199825858">+91 91998 25858</a>
             <span class="dot">•</span>
-            <a href="tel:+919263930196">+91 92639 30196</a>
+            <a href="tel:+919065556918">+91 90655 56918</a>
             <span class="dot">•</span>
             <a href="tel:+916124487221">+91 612 448 7221</a>
           </div>
@@ -2579,7 +2694,7 @@
 <!-- INSTAGRAM SOCIAL SLIDER SECTION -->
 <section id="insta-slider" class="insta-slider-section">
   <div class="insta-head">
-    <span class="insta-tag"><span class="badge-dot"></span> @style_n_shine_salon</span>
+    <span class="insta-tag"><span class="badge-dot"></span> @style_n_shine_studio</span>
     <h2 class="insta-title">Follow Our Latest Creations</h2>
     <p class="insta-subtitle">Swipe through our recent transformations, bridal styling, and boutique collections on Instagram</p>
     <div class="insta-divider"></div>
@@ -3067,7 +3182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-hairstyling.html" class="service-card">
+        <a href="services/hairstyling.html" class="service-card">
           <div class="img-box"><img src="assets/hairstyling.jpg" alt="Hairstyling" loading="lazy"></div>
           <div class="service-content">
             <h4>Hairstyling</h4>
@@ -3075,7 +3190,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-haircolor.html" class="service-card">
+        <a href="services/haircolor.html" class="service-card">
           <div class="img-box"><img src="assets/haircolor.jpg" alt="Hair Coloring" loading="lazy"></div>
           <div class="service-content">
             <h4>Hair Coloring</h4>
@@ -3083,7 +3198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-smoothening.html" class="service-card">
+        <a href="services/smoothening.html" class="service-card">
           <div class="img-box"><img src="assets/hairsmooth.jpg" alt="Keratin Smoothening" loading="lazy"></div>
           <div class="service-content">
             <h4>Keratin / Smoothening</h4>
@@ -3091,7 +3206,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-hairspa.html" class="service-card">
+        <a href="services/hairspa.html" class="service-card">
           <div class="img-box"><img src="assets/hairspa.jpg" alt="Hair Spa" loading="lazy"></div>
           <div class="service-content">
             <h4>Hair Spa</h4>
@@ -3099,7 +3214,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-extensions.html" class="service-card">
+        <a href="services/hairextension.html" class="service-card">
           <div class="img-box"><img src="assets/hairextension.jpg" alt="Hair Extensions" loading="lazy"></div>
           <div class="service-content">
             <h4>Hair Extensions</h4>
@@ -3117,7 +3232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">3 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-acrylic.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/acrylic.jpg" alt="Acrylic Nails" loading="lazy"></div>
           <div class="service-content">
             <h4>Acrylic Nails</h4>
@@ -3125,7 +3240,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-manicure.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/manicure.webp" alt="Manicure" loading="lazy"></div>
           <div class="service-content">
             <h4>Manicure</h4>
@@ -3133,7 +3248,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-pedicure.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/pedicure.png" alt="Pedicure" loading="lazy"></div>
           <div class="service-content">
             <h4>Pedicure</h4>
@@ -3151,7 +3266,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">4 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-facials.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/facials.jpg" alt="Facials" loading="lazy"></div>
           <div class="service-content">
             <h4>Facials</h4>
@@ -3159,7 +3274,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-skincare.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/facecare.png" alt="Skin Care" loading="lazy"></div>
           <div class="service-content">
             <h4>Skin Care</h4>
@@ -3167,7 +3282,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-bodypolishing.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/polishing.webp" alt="Body Polishing" loading="lazy"></div>
           <div class="service-content">
             <h4>Body Polishing</h4>
@@ -3175,7 +3290,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-detan.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/tanning.webp" alt="Tanning" loading="lazy"></div>
           <div class="service-content">
             <h4>Tanning / De-tan</h4>
@@ -3193,7 +3308,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">3 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-makeup.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/makeup.jpg" alt="Makeup" loading="lazy"></div>
           <div class="service-content">
             <h4>Makeup</h4>
@@ -3201,7 +3316,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-bridal.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/bridal.png" alt="Bridal Services" loading="lazy"></div>
           <div class="service-content">
             <h4>Bridal Services</h4>
@@ -3209,7 +3324,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-weddingprep.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/preparation.webp" alt="Wedding & Event Preparation" loading="lazy"></div>
           <div class="service-content">
             <h4>Wedding & Event Preparation</h4>
@@ -3227,7 +3342,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">3 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-lashes.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/extension.avif" alt="Eyelash Extensions" loading="lazy"></div>
           <div class="service-content">
             <h4>Eyelash Extensions</h4>
@@ -3235,7 +3350,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-threading.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/threading.jpeg" alt="Eyebrow Threading" loading="lazy"></div>
           <div class="service-content">
             <h4>Eyebrow Threading</h4>
@@ -3243,7 +3358,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-brows.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/beauty.webp" alt="Eyebrow Beautification" loading="lazy"></div>
           <div class="service-content">
             <h4>Eyebrow Beautification</h4>
@@ -3261,7 +3376,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">3 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-waxing.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/waxing.avif" alt="Waxing" loading="lazy"></div>
           <div class="service-content">
             <h4>Waxing</h4>
@@ -3269,7 +3384,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-bodywax.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/bodywax.webp" alt="Body Waxing" loading="lazy"></div>
           <div class="service-content">
             <h4>Body Waxing</h4>
@@ -3277,7 +3392,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-brazilian.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/brazil.jpeg" alt="Brazilian Waxing" loading="lazy"></div>
           <div class="service-content">
             <h4>Brazilian Waxing</h4>
@@ -3295,7 +3410,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">3 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-massage.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/massage.jpg" alt="Massage" loading="lazy"></div>
           <div class="service-content">
             <h4>Massage</h4>
@@ -3303,7 +3418,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-spa.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/spa.avif" alt="Spa Services" loading="lazy"></div>
           <div class="service-content">
             <h4>Spa Services</h4>
@@ -3311,7 +3426,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-aroma.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/aroma.avif" alt="Aroma Therapy Massage" loading="lazy"></div>
           <div class="service-content">
             <h4>Aroma Therapy Massage</h4>
@@ -3329,7 +3444,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">4 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-draping.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/draping.jpg" alt="Saree Draping" loading="lazy"></div>
           <div class="service-content">
             <h4>Saree Draping</h4>
@@ -3337,7 +3452,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-blouse.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/stiching.webp" alt="Blouse Stitching" loading="lazy"></div>
           <div class="service-content">
             <h4>Blouse Stitching</h4>
@@ -3345,7 +3460,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-lehenga.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/lehnga.jpg" alt="Lehenga Alteration" loading="lazy"></div>
           <div class="service-content">
             <h4>Lehenga Alteration</h4>
@@ -3353,7 +3468,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-fallpico.html" class="service-card">
+        <a href="#" class="service-card">
           <div class="img-box"><img src="assets/fall-pico.webp" alt="Fall & Pico" loading="lazy"></div>
           <div class="service-content">
             <h4>Fall & Pico</h4>
@@ -3390,14 +3505,14 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <h3>Top 5 Summer Hair Care Secrets to Keep Your Locks Glossy & Frizz-Free</h3>
         <p>Combat humidity and protect your strands from the scorching heat with our expert-recommended hydration and spa routines...</p>
-        <a href="blog-summer-hair-care.html" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </article>
 
     <!-- Blog Card 2 -->
     <article class="blog-card">
       <div class="blog-img-box">
-        <img src="assets/blog-bridal.jpg" alt="Bridal makeup trends 2026" loading="lazy">
+        <img src="assets/beauty.webp" alt="Bridal makeup trends 2026" loading="lazy">
         <span class="blog-tag">Bridal & Makeup</span>
       </div>
       <div class="blog-content">
@@ -3407,15 +3522,15 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <h3>The Ultimate Pre-Bridal Glow Timeline: When to Start Your Skincare</h3>
         <p>Planning your dream wedding in Patna? Here is a month-by-month checklist of facials, hair treatments, and glowing regimens you need...</p>
-        <a href="blog-bridal-timeline.html" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </article>
 
     <!-- Blog Card 3 -->
     <article class="blog-card">
       <div class="blog-img-box">
-        <img src="assets/blog-nails.jpg" alt="Nail art trends and manicure care" loading="lazy">
-        <span class="blog-tag">Nail Art</span>
+        <img src="assets/haircolor.jpg" alt="Hair color trends for 2026" loading="lazy">
+        <span class="blog-tag">Hair Color</span>
       </div>
       <div class="blog-content">
         <div class="blog-meta">
@@ -3424,14 +3539,14 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <h3>Acrylics vs. Gel Extensions: Which Nail Style Suits Your Lifestyle Best?</h3>
         <p>Torn between long-lasting acrylics or flexible gel overlays? Learn how to choose the ideal set that matches your daily routine...</p>
-        <a href="blog-acrylics-vs-gel.html" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#" class="blog-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </article>
 
   </div>
 
   <div class="blogs-footer-cta">
-    <a href="blogs.html" class="view-all-blogs-btn">View All Journal Articles <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="#" class="view-all-blogs-btn">View All Journal Articles <i class="fa-solid fa-chevron-right"></i></a>
   </div>
 </section>
 
@@ -4353,6 +4468,70 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 
+<!-- CAREERS SECTION -->
+<section id="careers" class="careers-section">
+  <div class="careers-head">
+    <h2 class="careers-title">Join Our Family</h2>
+    <p class="careers-subtitle">Build your career with Style N Shine Salon or join our expert beauty team</p>
+    <div class="careers-divider"></div>
+  </div>
+
+  <div class="careers-grid">
+    
+    <!-- LEFT — Visual Image Card -->
+    <!-- LEFT — Visual Image Card -->
+<div class="careers-img-card" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('assets/aroma.avif') center/cover no-repeat;">
+  <div class="careers-img-content">
+    <h3>Grow With Style N Shine</h3>
+    <p>We are always looking for passionate stylists, makeup artists, and beauty specialists to join our luxury studio in Patna. Bring your talent and build a rewarding career with us.</p>
+  </div>
+</div>
+
+    <!-- RIGHT — Career Application Form -->
+    <div class="careers-form-card">
+      <h3 class="careers-card-title">Staff Application</h3>
+
+      <form action="careers.php" method="POST" enctype="multipart/form-data" class="careers-form">
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="text" name="mobile" placeholder="+91 XXXXXXXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label>Position Applying For</label>
+          <input type="text" name="role" placeholder="e.g. Senior Hair Stylist, Makeup Artist..." required>
+        </div>
+
+        <div class="form-group">
+          <label>Experience & Bio</label>
+          <textarea name="experience" rows="3" placeholder="Briefly describe your experience..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Upload Resume (PDF Only)</label>
+          <input type="file" name="resume" accept=".pdf" required style="padding: 9px; cursor: pointer;">
+        </div>
+
+        <button type="submit" name="apply_career" class="careers-btn">
+          Submit Application
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
 
 <!-- CONTACT SECTION -->
 <section id="contact" class="contact-section">
