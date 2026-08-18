@@ -420,6 +420,7 @@
 
 .gold-gradient {
   background: linear-gradient(135deg, #fff 20%, var(--gold) 100%);
+  background-clip: text; /* standard property for compatibility */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -3050,7 +3051,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">7 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="service-haircut.html" class="service-card">
+        <a href="services/haircut.html" class="service-card">
           <div class="img-box"><img src="assets/haircut.jpg" alt="Haircut" loading="lazy"></div>
           <div class="service-content">
             <h4>Haircut</h4>
@@ -3058,7 +3059,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="service-blowouts.html" class="service-card">
+        <a href="services/blowouts.html" class="service-card">
           <div class="img-box"><img src="assets/blowouts.jpg" alt="Blowouts" loading="lazy"></div>
           <div class="service-content">
             <h4>Blowouts</h4>
