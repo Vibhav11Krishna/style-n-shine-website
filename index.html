@@ -63,7 +63,7 @@
         display: block;
       }
 
-   /* ---------- LUXURY GLASSMORPHIC BLACK-GOLD NAVBAR ---------- */
+    /* ---------- LUXURY GLASSMORPHIC BLACK-GOLD NAVBAR ---------- */
 .transparent-header {
   position: fixed;
   top: 0;
@@ -72,8 +72,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 6%;
-  background: rgba(8, 8, 8, 0.85); /* Deep rich black glass with higher opacity */
+  padding: 18px 3% 18px 25px; /* Top, Right, Bottom, Left (Locks left side to 25px) */
+  background: rgba(8, 8, 8, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
@@ -82,9 +82,9 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Scrolled state class (Optional JS: header.scrolled) */
+/* Scrolled state class */
 .transparent-header.scrolled {
-  padding: 14px 6%;
+  padding: 14px 3% 14px 25px; /* Keeps the exact same 25px left spacing on scroll */
   background: rgba(5, 5, 5, 0.95);
   border-bottom-color: rgba(212, 175, 55, 0.35);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
@@ -294,6 +294,7 @@
     margin-top: 10px;
   }
 }
+
 
      :root {
   --gold: #d4af37;
@@ -3214,7 +3215,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="services/hairextension.html" class="service-card">
+        <a href="services/extensions.html" class="service-card">
           <div class="img-box"><img src="assets/hairextension.jpg" alt="Hair Extensions" loading="lazy"></div>
           <div class="service-content">
             <h4>Hair Extensions</h4>
