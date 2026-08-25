@@ -41,6 +41,7 @@
         --radius: 14px;
         --maxw: 1200px;
       }
+      
       * {
         box-sizing: border-box;
       }
@@ -2692,111 +2693,44 @@
   }
 }
 </style>
-<!-- INSTAGRAM SOCIAL SLIDER SECTION -->
+<!-- LIVE INSTAGRAM FEED SECTION -->
 <section id="insta-slider" class="insta-slider-section">
   <div class="insta-head">
     <span class="insta-tag"><span class="badge-dot"></span> @style_n_shine_studio</span>
     <h2 class="insta-title">Follow Our Latest Creations</h2>
-    <p class="insta-subtitle">Swipe through our recent transformations, bridal styling, and boutique collections on Instagram</p>
+    <p class="insta-subtitle">Swipe through our recent transformations and styling on Instagram</p>
     <div class="insta-divider"></div>
   </div>
 
-  <div class="insta-slider-container">
-    
-    <!-- Slide 1 -->
-    <div class="insta-slide active">
-      <div class="insta-slide-card">
-        <div class="insta-slide-img-wrap">
-          <img src="assets/insta-1.jpg" alt="Bridal Makeup Look" onerror="this.src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80'" />
-          <div class="insta-slide-overlay">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-view-btn">View on Instagram</a>
-          </div>
-        </div>
-        <div class="insta-slide-info">
-          <span class="insta-post-badge">✨ Bridal Glow</span>
-          <h3 class="insta-slide-caption-title">Stunning Bridal Makeover</h3>
-          <p class="insta-desc">Gorgeous bridal glow for our stunning client. Ready for her big day with custom makeup and luxury draping! 💄👑</p>
-          <div class="insta-stats">
-            <span>❤️ 1.4k Likes</span>
-            <span>💬 48 Comments</span>
-          </div>
-        </div>
-      </div>
+  <!-- Live Elfsight Widget Container with Mobile Fallback Support -->
+  <div class="insta-live-container">
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-3af3e143-cdd5-4c7b-9fff-bbeaa1b41015" data-elfsight-app-lazy>
+      <div class="insta-mobile-loading">Loading live feed from Instagram...</div>
     </div>
-
-    <!-- Slide 2 -->
-    <div class="insta-slide">
-      <div class="insta-slide-card">
-        <div class="insta-slide-img-wrap">
-          <img src="assets/insta-2.jpg" alt="Hair Styling & Spa" onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80'" />
-          <div class="insta-slide-overlay">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-view-btn">View on Instagram</a>
-          </div>
-        </div>
-        <div class="insta-slide-info">
-          <span class="insta-post-badge">💇‍♀️ Hair Treatment</span>
-          <h3 class="insta-slide-caption-title">Silky Smooth Hair Spa</h3>
-          <p class="insta-desc">Silky smooth hair spa treatment followed by bouncy blowout layers. Pamper your hair with ultimate care today! ✨</p>
-          <div class="insta-stats">
-            <span>❤️ 980 Likes</span>
-            <span>💬 32 Comments</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="insta-slide">
-      <div class="insta-slide-card">
-        <div class="insta-slide-img-wrap">
-          <img src="assets/insta-3.jpg" alt="Saree Draping & Boutique" onerror="this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'" />
-          <div class="insta-slide-overlay">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-view-btn">View on Instagram</a>
-          </div>
-        </div>
-        <div class="insta-slide-info">
-          <span class="insta-post-badge">🌟 Royal Boutique</span>
-          <h3 class="insta-slide-caption-title">Designer Saree Draping</h3>
-          <p class="insta-desc">Royal saree draping & custom designer blouse fitting tailored to absolute perfection for special occasions. 🧵✨</p>
-          <div class="insta-stats">
-            <span>❤️ 2.1k Likes</span>
-            <span>💬 76 Comments</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Navigation Arrows -->
-    <button class="insta-slider-arrow prev-arrow" onclick="moveInstaSlide(-1)">&#10094;</button>
-    <button class="insta-slider-arrow next-arrow" onclick="moveInstaSlide(1)">&#10095;</button>
-
-    <!-- Slider Dots Pagination -->
-    <div class="insta-slider-dots">
-      <span class="insta-dot active" onclick="currentInstaSlide(1)"></span>
-      <span class="insta-dot" onclick="currentInstaSlide(2)"></span>
-      <span class="insta-dot" onclick="currentInstaSlide(3)"></span>
-    </div>
-
   </div>
 
+  <!-- Direct Follow Button for Mobile Users -->
   <div class="insta-action-wrap">
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="insta-follow-btn">
-      <span>Follow Us @ Instagram</span>
+    <a href="https://www.instagram.com/style_n_shine_studio/" target="_blank" rel="noopener" class="insta-follow-btn">
+      View Profile on Instagram ↗
     </a>
   </div>
 </section>
 
 <style>
-/* ---------- INSTAGRAM SOCIAL SLIDER SECTION STYLING ---------- */
+/* ---------- LIVE INSTAGRAM FEED SECTION STYLING ---------- */
 .insta-slider-section {
-  padding: 100px 6%;
+  padding: 80px 5%;
   background: radial-gradient(circle at center, #181818 0%, #0a0a0a 100%);
   color: #fff;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .insta-head {
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .insta-tag {
@@ -2825,7 +2759,7 @@
 }
 
 .insta-title {
-  font-size: 42px;
+  font-size: 38px;
   font-family: "Playfair Display", serif;
   color: var(--gold, #d4af37);
   font-weight: 700;
@@ -2833,11 +2767,12 @@
 }
 
 .insta-subtitle {
-  font-size: 15px;
+  font-size: 14px;
   color: #a0a0a0;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   margin-bottom: 18px;
+  padding: 0 10px;
 }
 
 .insta-divider {
@@ -2847,250 +2782,78 @@
   margin: 0 auto;
 }
 
-/* Slider Main Container */
-.insta-slider-container {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto 40px auto;
-  min-height: 420px;
-}
-
-/* Individual Slide Style */
-.insta-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Elfsight Live Widget Container Wrapper */
+.insta-live-container {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
   width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 300px; /* Prevents mobile collapse before script runs */
+  display: block;
 }
 
-.insta-slide.active {
-  position: relative;
-  opacity: 1;
-  visibility: visible;
-  z-index: 2;
-}
-
-/* Slide Card Box Layout */
-.insta-slide-card {
-  background: rgba(18, 18, 18, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 20px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.08);
-  text-align: left;
-  backdrop-filter: blur(10px);
-}
-
-/* Image Side */
-.insta-slide-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 380px;
-  overflow: hidden;
-  background: #111;
-}
-
-.insta-slide-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.insta-slide-card:hover .insta-slide-img-wrap img {
-  transform: scale(1.06);
-}
-
-.insta-slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  backdrop-filter: blur(3px);
-}
-
-.insta-slide-card:hover .insta-slide-overlay {
-  opacity: 1;
-}
-
-.insta-view-btn {
-  background: var(--gold, #d4af37);
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 13.5px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.insta-view-btn:hover {
-  transform: scale(1.05);
-}
-
-/* Content Side */
-.insta-slide-info {
-  padding: 35px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.insta-post-badge {
-  display: inline-block;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: var(--gold, #d4af37);
-  padding: 4px 12px;
-  font-size: 11.5px;
-  font-weight: 600;
-  border-radius: 20px;
-  width: max-content;
-  margin-bottom: 14px;
-}
-
-.insta-slide-caption-title {
-  font-size: 24px;
-  font-family: "Playfair Display", serif;
-  color: var(--gold, #d4af37);
-  margin-bottom: 12px;
-}
-
-.insta-slide-info .insta-desc {
+/* Loading state styling */
+.insta-mobile-loading {
+  padding: 40px;
+  color: #888;
   font-size: 14px;
-  color: #d0d0d0;
-  line-height: 1.6;
-  margin-bottom: 20px;
   font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
 }
 
-.insta-stats {
-  display: flex;
-  gap: 20px;
-  font-size: 13px;
-  color: #999;
-  border-top: 1px solid rgba(212, 175, 55, 0.15);
-  padding-top: 14px;
-}
-
-/* Navigation Arrows */
-.insta-slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background: rgba(18, 18, 18, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: var(--gold, #d4af37);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.insta-slider-arrow:hover {
-  background: var(--gold, #d4af37);
-  color: #000;
-  border-color: var(--gold, #d4af37);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-}
-
-.prev-arrow { left: -60px; }
-.next-arrow { right: -60px; }
-
-/* Slider Dots Pagination */
-.insta-slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 25px;
-}
-
-.insta-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.insta-dot.active {
-  width: 26px;
-  border-radius: 6px;
-  background: var(--gold, #d4af37);
-  border-color: var(--gold, #d4af37);
-  box-shadow: 0 0 8px var(--gold, #d4af37);
-}
-
-/* Follow Button */
+/* Fallback Follow Button for Mobile */
 .insta-action-wrap {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .insta-follow-btn {
   display: inline-block;
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  color: #fff;
-  padding: 13px 30px;
-  border-radius: 12px;
-  font-size: 14.5px;
-  font-weight: 600;
+  background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
   font-family: 'Poppins', sans-serif;
 }
 
 .insta-follow-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
-  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  background: #f3d060;
 }
 
-/* ---------- RESPONSIVE DESIGN ---------- */
-@media (max-width: 950px) {
-  .insta-slide-card {
-    grid-template-columns: 1fr;
-  }
-  .insta-slide-img-wrap {
-    height: 250px;
-  }
-  .prev-arrow { left: 10px; z-index: 5; background: rgba(0,0,0,0.8); }
-  .next-arrow { right: 10px; z-index: 5; background: rgba(0,0,0,0.8); }
-}
-
-@media (max-width: 600px) {
+/* ---------- RESPONSIVE DESIGN FOR MOBILE ---------- */
+@media (max-width: 768px) {
   .insta-slider-section {
-    padding: 70px 4%;
+    padding: 50px 4%;
   }
   .insta-title {
-    font-size: 32px;
+    font-size: 28px;
   }
-  .insta-slide-info {
-    padding: 25px 20px;
+  .insta-subtitle {
+    font-size: 12.5px;
   }
+  .insta-live-container {
+    min-height: 250px;
+  }
+}
+/* Force hide Elfsight free branding badge and containers */
+div[class*="eapps-link"],
+a[href*="elfsight.com"],
+.eapps-instagram-feed-attribution,
+[class*="Badge"],
+[class*="attribution"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
 }
 </style>
 
@@ -3267,7 +3030,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">4 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="#" class="service-card">
+        <a href="services/facials.html" class="service-card">
           <div class="img-box"><img src="assets/facials.jpg" alt="Facials" loading="lazy"></div>
           <div class="service-content">
             <h4>Facials</h4>
@@ -3275,7 +3038,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/skincare.html" class="service-card">
           <div class="img-box"><img src="assets/facecare.png" alt="Skin Care" loading="lazy"></div>
           <div class="service-content">
             <h4>Skin Care</h4>
@@ -3283,7 +3046,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/body-polishing.html" class="service-card">
           <div class="img-box"><img src="assets/polishing.webp" alt="Body Polishing" loading="lazy"></div>
           <div class="service-content">
             <h4>Body Polishing</h4>
@@ -3291,7 +3054,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/de-tan.html" class="service-card">
           <div class="img-box"><img src="assets/tanning.webp" alt="Tanning" loading="lazy"></div>
           <div class="service-content">
             <h4>Tanning / De-tan</h4>
@@ -4998,7 +4761,7 @@ function closeModals(e) {
   <i class="fab fa-whatsapp"></i> WhatsApp
 </a>
 
-<style>
+<styl>
 /* ===== FLOATING WHATSAPP BUTTON STYLING ===== */
 .whatsapp {
   position: fixed;
@@ -5312,6 +5075,302 @@ function closeLightbox() {
       });
     });
   });
+  // Automatically show the popup modal 1.5 seconds after page load
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const modal = document.getElementById('offerModalOverlay');
+    if (modal && !sessionStorage.getItem('offerModalClosed')) {
+      modal.classList.add('show');
+    }
+  }, 1500);
+});
+
+// Close modal function
+function closeOfferModal() {
+  const modal = document.getElementById('offerModalOverlay');
+  if (modal) {
+    modal.classList.remove('show');
+    sessionStorage.setItem('offerModalClosed', 'true');
+  }
+}
 </script>
+<!-- CENTERED SPLIT-SCREEN POPUP MODAL OVERLAY -->
+<div id="offerModalOverlay" class="modal-overlay">
+  <div class="modal-box split-layout">
+    <!-- Close Button -->
+    <button class="modal-close" onclick="closeOfferModal()" aria-label="Close Modal">&times;</button>
+    
+    <!-- Left Side: Image Container with Blurscreen Background -->
+    <div class="modal-img-container">
+      <div class="modal-img-bg" style="background-image: url('https://res.cloudinary.com/dqmkivr5i/image/upload/v1787676712/image1_pyzdyx.jpg');"></div>
+      <img src="https://res.cloudinary.com/dqmkivr5i/image/upload/v1787676712/image1_pyzdyx.jpg" alt="Style N Shine Special Offer" />
+    </div>
+
+    <!-- Right Side: Content & Action Buttons -->
+    <div class="modal-content">
+      <h3>Transform Your Look Today!</h3>
+      <p>Enjoy our exclusive luxury haircut, spa ritual, and designer boutique styling package. Limited slots available for this season.</p>
+      
+      <!-- Action Buttons at the Bottom -->
+      <div class="modal-actions">
+        <a href="tel:+919199825858" class="modal-btn btn-call">
+          <i class="fas fa-phone-alt"></i> Call Now
+        </a>
+        <a href="https://wa.me/919199825858?text=Hi%20Style%20N%20Shine,%20I%20want%20to%20book%20the%20special%20offer!" target="_blank" class="modal-btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="#booking" class="modal-btn btn-booking" onclick="closeOfferModal()">
+          <i class="fas fa-calendar-check"></i> Book Now
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ---------- SPLIT-SCREEN POPUP MODAL STYLES ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box.split-layout {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  background: linear-gradient(135deg, #141414 0%, #0a0a0a 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(212, 175, 55, 0.3);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.modal-overlay.show .modal-box.split-layout {
+  transform: scale(1);
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: var(--gold, #d4af37);
+  color: #000;
+  transform: rotate(90deg);
+}
+
+/* Left Side: Image Container with Backlight Blur Effect */
+.modal-img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Blurred background layer that fills the side spaces */
+.modal-img-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.5);
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+/* Sharp foreground image centered neatly on top */
+.modal-img-container img {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Right Side: Content Area */
+.modal-content {
+  padding: 45px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.modal-content h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.modal-content p {
+  font-size: 15px;
+  color: #d1d1d1;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Action Buttons Grid */
+.modal-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.modal-btn {
+  padding: 12px 6px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.modal-btn i {
+  font-size: 16px;
+}
+
+/* Call Button */
+.btn-call {
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+.btn-call:hover {
+  background: #d4af37;
+  color: #050505;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+}
+.btn-whatsapp:hover {
+  background: #25d366;
+  color: #050505;
+}
+
+/* Booking Button */
+.btn-booking {
+  background: var(--gold, #d4af37);
+  color: #050505;
+  border: 1px solid var(--gold, #d4af37);
+}
+.btn-booking:hover {
+  background: #f3e5ab;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+/* ---------- MOBILE RESPONSIVE FIX ---------- */
+@media screen and (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+  
+  .modal-box.split-layout {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-img-container {
+    width: 100% !important;
+    height: 280px !important;
+    min-height: 280px !important;
+  }
+  
+  .modal-content {
+    padding: 20px 18px !important;
+    text-align: center !important;
+  }
+  
+  .modal-content h3 {
+    font-size: 20px !important;
+  }
+  
+  .modal-content p {
+    font-size: 13.5px !important;
+    margin-bottom: 18px;
+  }
+  
+  .modal-actions {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px;
+  }
+  
+  .modal-btn {
+    font-size: 11px !important;
+    padding: 10px 2px !important;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+}
+</style>
 </body>
 </html>
