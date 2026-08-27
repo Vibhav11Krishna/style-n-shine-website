@@ -3174,7 +3174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">3 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="#" class="service-card">
+        <a href="services/massage-therapy.html" class="service-card">
           <div class="img-box"><img src="assets/massage.jpg" alt="Massage" loading="lazy"></div>
           <div class="service-content">
             <h4>Massage</h4>
@@ -3182,7 +3182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/spa-services.html" class="service-card">
           <div class="img-box"><img src="assets/spa.avif" alt="Spa Services" loading="lazy"></div>
           <div class="service-content">
             <h4>Spa Services</h4>
@@ -3190,7 +3190,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/aromatherapy-massage.html" class="service-card">
           <div class="img-box"><img src="assets/aroma.avif" alt="Aroma Therapy Massage" loading="lazy"></div>
           <div class="service-content">
             <h4>Aroma Therapy Massage</h4>
@@ -3208,7 +3208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="category-count">4 Treatments</span>
       </div>
       <div class="services-grid">
-        <a href="#" class="service-card">
+        <a href="services/saree-draping.html" class="service-card">
           <div class="img-box"><img src="assets/draping.jpg" alt="Saree Draping" loading="lazy"></div>
           <div class="service-content">
             <h4>Saree Draping</h4>
@@ -3216,7 +3216,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/blouse-stitching.html" class="service-card">
           <div class="img-box"><img src="assets/stiching.webp" alt="Blouse Stitching" loading="lazy"></div>
           <div class="service-content">
             <h4>Blouse Stitching</h4>
@@ -3224,7 +3224,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/lehenga-alteration.html" class="service-card">
           <div class="img-box"><img src="assets/lehnga.jpg" alt="Lehenga Alteration" loading="lazy"></div>
           <div class="service-content">
             <h4>Lehenga Alteration</h4>
@@ -3232,7 +3232,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="service-link-hint">Explore Details <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
-        <a href="#" class="service-card">
+        <a href="services/fall-pico.html" class="service-card">
           <div class="img-box"><img src="assets/fall-pico.webp" alt="Fall & Pico" loading="lazy"></div>
           <div class="service-content">
             <h4>Fall & Pico</h4>
@@ -3310,7 +3310,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   <div class="blogs-footer-cta">
-    <a href="#" class="view-all-blogs-btn">View All Journal Articles <i class="fa-solid fa-chevron-right"></i></a>
+    <a href="blogs.html" class="view-all-blogs-btn">View All Journal Articles <i class="fa-solid fa-chevron-right"></i></a>
   </div>
 </section>
 
@@ -3967,7 +3967,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 
-  <!-- REVIEWS SECTION -->
+ <!-- REVIEWS SECTION -->
 <section id="reviews" class="reviews-section">
   <div class="reviews-head">
     <h2 class="reviews-title">Customer Reviews</h2>
@@ -3975,70 +3975,101 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="reviews-divider"></div>
   </div>
 
-  <div class="reviews-grid">
+  <div class="reviews-marquee-container">
+    
+    <!-- ROW 1: Moves Left -->
+    <div class="marquee-track track-left" id="reviewsRow1">
+      <div class="review-card" onclick="openReviewModal('Anubhuti Sahay', 'AS', '★★★★★', 'Really great parlour and beautiful service all the staffs are really polite and talented. Should visit for sureee!')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"Really great parlour and beautiful service all the staffs are really polite and talented. Should visit for sureee!"</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">AS</div>
+            <h4 class="review-author">Anubhuti Sahay</h4>
+          </div>
+        </div>
+      </div>
 
-    <div class="review-card">
-      <div class="review-card-inner">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="review-text">"Really great parlour and beautiful service all the staffs are really polite and talented. Should visit for sureee!"</p>
-        <div class="review-author-wrap">
-          <div class="author-circle">AS</div>
-          <h4 class="review-author">Anubhuti Sahay</h4>
+      <div class="review-card" onclick="openReviewModal('K Mimansha', 'KM', '★★★★★', 'It is really a good salon to visit... it is budget friendly, moreover u can give your style for hair cut and they will provide you.....')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"It's really a good salon to visit... it is budget friendly, moreover u can give your style for hair cut and they will provide you....."</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">KM</div>
+            <h4 class="review-author">K Mimansha</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" onclick="openReviewModal('Alka Singh', 'AS', '★★★★★', 'Style n shine studios services were amazing, I felt relaxed. The staff were very respectful')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"Style n shine studio's services were amazing, I felt relaxed. The staff were very respectful.
+"</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">AS</div>
+            <h4 class="review-author">Alka Singh</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" onclick="openReviewModal('Kajal Vishwakarma', 'KV', '★★★★★', 'Best parlour in boring road 🎀 just amazing!')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"Best parlour in boring road 🎀 just amazing!"</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">KV</div>
+            <h4 class="review-author">Kajal Vishwakarma</h4>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="review-card">
-      <div class="review-card-inner">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="review-text">"It's really a good salon to visit... it is budget friendly, moreover u can give your style for hair cut and they will provide you....."</p>
-        <div class="review-author-wrap">
-          <div class="author-circle">KM</div>
-          <h4 class="review-author">K Mimansha</h4>
+    <!-- ROW 2: Moves Right -->
+    <div class="marquee-track track-right" id="reviewsRow2">
+      <div class="review-card" onclick="openReviewModal('Savita Devi', 'SD', '★★★★☆', 'Best lehanga and blouse stitching. Fitting is best. I am very much satisfied with the service and behaviour of the staff. Ambience is also very aesthetic.')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+          <p class="review-text">"Best lehanga and blouse stitching. Fitting is best. I am very much satisfied with the service and behaviour of the staff. Ambience is also very aesthetic."</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">SD</div>
+            <h4 class="review-author">Savita Devi</h4>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="review-card">
-      <div class="review-card-inner">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="review-text">"Best parlour in boring road 🎀 just amazing!"</p>
-        <div class="review-author-wrap">
-          <div class="author-circle">KV</div>
-          <h4 class="review-author">Kajal Vishwakarma</h4>
+      <div class="review-card" onclick="openReviewModal('Anjali Suman', 'AS', '★★★★★', 'I had a very good experience here.. definitely go and try without any hesitation.. thumbs-up for the staff!')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"I had a very good experience here.. definitely go and try without any hesitation.. thumbs-up for the staff!"</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">AS</div>
+            <h4 class="review-author">Anjali Suman</h4>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="review-card">
-      <div class="review-card-inner">
-        <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
-        <p class="review-text">"Best lehanga and blouse stitching. Fitting is best. I am very much satisfied with the service and behaviour of the staff. Ambience is also very aesthetic."</p>
-        <div class="review-author-wrap">
-          <div class="author-circle">SD</div>
-          <h4 class="review-author">Savita Devi</h4>
+      <div class="review-card" onclick="openReviewModal('Apurva Raj', 'AR', '★★★★★', 'STYLE N SHINE Studio is fantastic! Friendly staff, trendy styles, and a relaxing atmosphere.')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"STYLE N SHINE Studio is fantastic! Friendly staff, trendy styles, and a relaxing atmosphere. They truly know how to make you look and feel amazing — highly recommended!
+❤️1
+"</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">AR</div>
+            <h4 class="review-author">Apurva Raj</h4>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="review-card">
-      <div class="review-card-inner">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="review-text">"I had a very good experience here.. definitely go and try without any hesitation.. thumbs-up for the staff!"</p>
-        <div class="review-author-wrap">
-          <div class="author-circle">AS</div>
-          <h4 class="review-author">Anjali Suman</h4>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-card-inner">
-        <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
-        <p class="review-text">"Best parlour. Service is too good and staff is well mannered and professional. Must visit."</p>
-        <div class="review-author-wrap">
-          <div class="author-circle">SC</div>
-          <h4 class="review-author">Sharda Chouhan</h4>
+      <div class="review-card" onclick="openReviewModal('Sharda Chouhan', 'SC', '★★★★☆', 'Best parlour. Service is too good and staff is well mannered and professional. Must visit.')">
+        <div class="review-card-inner">
+          <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+          <p class="review-text">"Best parlour. Service is too good and staff is well mannered and professional. Must visit."</p>
+          <div class="review-author-wrap">
+            <div class="author-circle">SC</div>
+            <h4 class="review-author">Sharda Chouhan</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -4046,18 +4077,33 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </section>
 
+<!-- REVIEW MODAL POPUP -->
+<div id="reviewModal" class="review-modal-overlay" onclick="closeReviewModal(event)">
+  <div class="review-modal-content">
+    <button class="modal-close-btn" onclick="closeModalDirect()">&times;</button>
+    <div class="modal-stars" id="modalStars">★★★★★</div>
+    <p class="modal-text" id="modalText">"Review text goes here..."</p>
+    <div class="review-author-wrap modal-author-wrap">
+      <div class="author-circle" id="modalCircle">AS</div>
+      <h4 class="review-author" id="modalAuthor">Author Name</h4>
+    </div>
+  </div>
+</div>
+
 <style>
-/* ---------- ENHANCED LUXURY REVIEWS SECTION WITH CIRCLE INITIALS ---------- */
+/* ---------- REVIEWS SECTION & MARQUEE STYLING ---------- */
 .reviews-section {
-  padding: 110px 6%;
+  padding: 110px 0;
   background: linear-gradient(180deg, #080808 0%, #121212 100%);
   text-align: center;
   color: #fff;
   position: relative;
+  overflow: hidden;
 }
 
 .reviews-head {
   margin-bottom: 55px;
+  padding: 0 6%;
 }
 
 .reviews-title {
@@ -4084,14 +4130,65 @@ document.addEventListener("DOMContentLoaded", () => {
   margin: 0 auto;
 }
 
-/* Grid Layout */
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Marquee Container Setup */
+.reviews-marquee-container {
+  display: flex;
+  flex-direction: column;
   gap: 30px;
-  max-width: 1240px;
-  margin: 0 auto;
-  align-items: stretch;
+  width: 100%;
+  position: relative;
+}
+
+/* Gradient Mask for Smooth Side Fading */
+.reviews-marquee-container::before,
+.reviews-marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.reviews-marquee-container::before {
+  left: 0;
+  background: linear-gradient(90deg, #0a0a0a, transparent);
+}
+.reviews-marquee-container::after {
+  right: 0;
+  background: linear-gradient(270deg, #0a0a0a, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.marquee-track:hover {
+  animation-play-state: paused !important;
+}
+
+/* Row 1 Animation: Left (Right to Left) */
+.track-left {
+  animation: scrollLeft 35s linear infinite;
+}
+
+/* Row 2 Animation: Right (Left to Right) */
+.track-right {
+  animation: scrollRight 35s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 /* Review Card Styling */
@@ -4100,11 +4197,21 @@ document.addEventListener("DOMContentLoaded", () => {
   border: 1px solid rgba(212, 175, 55, 0.22);
   border-radius: 18px;
   padding: 30px 24px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 360px;
+  flex-shrink: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.05);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
 }
 
 .review-card-inner {
@@ -4114,26 +4221,14 @@ document.addEventListener("DOMContentLoaded", () => {
   justify-content: space-between;
 }
 
-/* Glow & Hover Effects */
-.review-card:hover,
-.review-card:active,
-.review-card:focus {
-  transform: translateY(-6px);
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
-}
-
-/* Stars */
 .stars {
   font-size: 17px;
   color: var(--gold, #d4af37);
   margin-bottom: 15px;
   letter-spacing: 2px;
-  text-align: center;
   filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
 }
 
-/* Text */
 .review-text {
   font-size: 14.5px;
   color: #d0d0d0;
@@ -4141,9 +4236,13 @@ document.addEventListener("DOMContentLoaded", () => {
   line-height: 1.6;
   font-style: italic;
   flex-grow: 1;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Author Wrap with Circle Initials */
 .review-author-wrap {
   display: flex;
   align-items: center;
@@ -4151,7 +4250,6 @@ document.addEventListener("DOMContentLoaded", () => {
   border-top: 1px solid rgba(212, 175, 55, 0.15);
   padding-top: 15px;
   margin-top: auto;
-  text-align: left;
 }
 
 .author-circle {
@@ -4168,7 +4266,6 @@ document.addEventListener("DOMContentLoaded", () => {
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
 }
 
 .review-author {
@@ -4176,38 +4273,132 @@ document.addEventListener("DOMContentLoaded", () => {
   color: var(--gold, #d4af37);
   font-weight: 600;
   font-family: "Playfair Display", serif;
-  letter-spacing: 0.5px;
   margin: 0;
 }
 
-/* ---------- MOBILE RESPONSIVE ---------- */
-@media (max-width: 950px) {
-  .reviews-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .reviews-title {
-    font-size: 36px;
-  }
+/* ---------- MODAL POPUP STYLING ---------- */
+.review-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-@media (max-width: 650px) {
-  .reviews-grid {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-  }
+.review-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
-  .review-card {
-    width: 100%;
-    min-height: 240px;
-    padding: 25px 20px;
-  }
+.review-modal-content {
+  background: #161616;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  padding: 40px 35px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.15);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
 
-  .reviews-section {
-    padding: 80px 5%;
-  }
+.review-modal-overlay.active .review-modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #a0a0a0;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  color: var(--gold, #d4af37);
+}
+
+.modal-stars {
+  font-size: 20px;
+  color: var(--gold, #d4af37);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.modal-text {
+  font-size: 16px;
+  color: #e0e0e0;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.modal-author-wrap {
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .review-card { width: 300px; }
+  .reviews-title { font-size: 36px; }
+  .review-modal-content { padding: 30px 20px; }
 }
 </style>
+
+<script>
+// Duplicate marquee track contents on load for seamless infinite loops
+document.addEventListener("DOMContentLoaded", () => {
+  const tracks = document.querySelectorAll('.marquee-track');
+  tracks.forEach(track => {
+    track.innerHTML += track.innerHTML;
+  });
+});
+
+// Modal Controller Functions
+function openReviewModal(author, initials, stars, text) {
+  document.getElementById('modalAuthor').innerText = author;
+  document.getElementById('modalCircle').innerText = initials;
+  document.getElementById('modalStars').innerText = stars;
+  document.getElementById('modalText').innerText = `"${text}"`;
+  
+  document.getElementById('reviewModal').classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeModalDirect() {
+  document.getElementById('reviewModal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+function closeReviewModal(event) {
+  // Close only if backdrop click occurs
+  if (event.target.id === 'reviewModal') {
+    closeModalDirect();
+  }
+}
+
+// Close modal with ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeModalDirect();
+  }
+});
+</script>
 
 <!-- CAREERS SECTION -->
 <section id="careers" class="careers-section">
